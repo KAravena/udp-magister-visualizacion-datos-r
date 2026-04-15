@@ -1,0 +1,12 @@
+{
+  "hash": "67b61ed43ed62498fb9f5e969ce76707",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "",
+    "supporting": [
+      "genera_qmd_desde_pdfs_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

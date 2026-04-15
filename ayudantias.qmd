@@ -1,0 +1,22 @@
+---
+title: "Ayudantías"
+---
+
+Esta sección concentra el apoyo práctico del curso y sus materiales.
+
+::: {.callout-note appearance="simple"}
+**Horario**
+
+Lunes 11:10 – 12:25
+
+**Fechas (Ayudantía)**
+
+- 06/04: Procesamiento.
+- 27/04: Medidas de tendencia central, dispersión, posición, forma y visualización.
+- 11/05: Análisis bivariado, correlación y visualización.
+- 01/06: Informes en Quarto
+:::
+
+::: {.callout-tip appearance="simple"}
+**Nota:** Las ayudantías que se vayan realizando (y sus materiales) van a quedar **subidas y guardadas aquí**.
+:::

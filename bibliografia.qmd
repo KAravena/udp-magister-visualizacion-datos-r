@@ -1,0 +1,169 @@
+---
+title: "Bibliografía"
+format:
+  html:
+    page-layout: full
+---
+
+::: {.columns .biblio-layout}
+
+::: {.column width="70%"}
+
+## Textos en PDF
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .shadow-sm .book-card}
+::: {.card-body}
+
+```{=html}
+<div class="book-cover-frame">
+<iframe class="book-cover" loading="lazy" src="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf#page=1&view=FitH"></iframe>
+</div>
+```
+
+<div class="book-kicker"><span class="badge text-bg-primary">Obligatoria</span> <span class="badge text-bg-light">Básica</span></div>
+
+### Ritchey (2002/2008)
+
+**Título:** *Estadística para las ciencias sociales: El potencial de la imaginación estadística*
+
+**Referencia (Programa, APA 7)**  
+Ritchey, F. (2002). *Estadística para las ciencias sociales: El potencial de la imaginación estadística*. McGraw-Hill.
+
+<details class="book-details">
+<summary><strong>Capítulos recomendados (evaluados)</strong>: 1 a 13 (ver detalle)</summary>
+
+- Cap. 1. “La imaginación estadística” (Unidad I)
+- Cap. 2. “Organización de los datos para reducir al mínimo el error estadístico” (Unidad II)
+- Cap. 3. “Tablas y gráficas: una imágen dice más que mil palabras” (Unidad III)
+- Cap. 4. “Estimación de promedios” (Unidad III)
+- Cap. 5. “Medición de la dispersión o variación en una distribución de puntuaciones” (Unidad III)
+
+Los capítulos 6–13 también se consideran dentro del tramo evaluado: revisa el **índice** del libro para ubicar esos contenidos según la unidad del curso.
+</details>
+
+**Edición disponible (PDF de apoyo)**  
+Ritchey, F. J. (2008). *Estadística para las ciencias sociales: El potencial de la imaginación estadística* (2.ª ed.). McGraw-Hill Interamericana.
+
+[Abrir PDF](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.btn .btn-sm .btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.btn .btn-sm .btn-outline-primary download=""}
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .shadow-sm .book-card}
+::: {.card-body}
+
+```{=html}
+<div class="book-cover-frame">
+<iframe class="book-cover" loading="lazy" src="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf#page=1&view=FitH"></iframe>
+</div>
+```
+
+<div class="book-kicker"><span class="badge text-bg-secondary">Complementaria</span></div>
+
+### Johnson & Kuby (2004/2008)
+
+**Título:** *Estadística elemental: Lo esencial*
+
+**Referencia (Programa, APA 7)**  
+Johnson, R., & Kuby, P. (2004). *Estadística elemental: Lo esencial* (2.ª ed.). International Thomson.
+
+<details class="book-details">
+<summary><strong>Capítulos recomendados</strong> (ver detalle)</summary>
+
+- Cap. 1. “Estadística” (Unidad I)
+- Cap. 2. “Análisis descriptivo y presentación de datos en una sola variable” (Unidad III)
+- Cap. 3. “Análisis descriptivo y presentación de datos bivariados” (Unidad IV)
+</details>
+
+**Edición disponible (PDF de apoyo)**  
+Johnson, R., & Kuby, P. (2008). *Estadística elemental: Lo esencial* (10.ª ed.). Thomson.
+
+[Abrir PDF](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.btn .btn-sm .btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.btn .btn-sm .btn-outline-primary download=""}
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .shadow-sm .book-card}
+::: {.card-body}
+
+```{=html}
+<div class="book-cover-frame">
+<iframe class="book-cover" loading="lazy" src="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf#page=1&view=FitH"></iframe>
+</div>
+```
+
+<div class="book-kicker"><span class="badge text-bg-light">Sugerida</span></div>
+
+### Agresti & Finlay (2009)
+
+**Título:** *Statistical methods for the social sciences*
+
+**Referencia (APA 7)**  
+Agresti, A., & Finlay, B. (2009). *Statistical methods for the social sciences* (4th ed.). Pearson Prentice Hall.
+
+**Útil para:** ejemplos y aplicaciones en ciencias sociales (apoyo para tareas y estudio).
+
+[Abrir PDF](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.btn .btn-sm .btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.btn .btn-sm .btn-outline-primary download=""}
+
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .shadow-sm .book-card}
+::: {.card-body}
+
+```{=html}
+<div class="book-cover-frame">
+<iframe class="book-cover" loading="lazy" src="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf#page=1&view=FitH"></iframe>
+</div>
+```
+
+<div class="book-kicker"><span class="badge text-bg-light">Sugerida</span></div>
+
+### Cea D’Ancona (2005/2001)
+
+**Título:** *Metodología cuantitativa: Estrategias y técnicas de investigación social*
+
+**Referencia (Programa, APA 7)**  
+Cea D’Ancona, M. Ángeles. (2005). *Metodología cuantitativa: Estrategias y técnicas de investigación social*. Síntesis.
+
+**Edición disponible (PDF de apoyo)**  
+Cea D’Ancona, M. Á. (2001). *Metodología cuantitativa: Estrategias y técnicas de investigación social*. Síntesis.
+
+[Abrir PDF](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.btn .btn-sm .btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.btn .btn-sm .btn-outline-primary download=""}
+
+:::
+:::
+:::
+
+:::
+
+:::
+
+::: {.column width="30%"}
+
+::: {.callout-note appearance="simple" .biblio-sidebox}
+**Sugerencias de uso:**
+
+- Parte por **Johnson & Kuby** si necesitas reforzar bases (por ejemplo: gráficos, medidas resumen, probabilidad y distribuciones).
+- Usa **Agresti & Finlay** como texto “eje” para el curso (aplica técnicas a problemas típicos de ciencias sociales).
+- Complementa con **Ritchey** cuando necesites interpretación y enfoque aplicado en ciencias sociales.
+- Apóyate en **Cea D’Ancona** para diseño de investigación cuantitativa (operacionalización, muestreo, medición).
+
+:::
+
+:::
+
+:::

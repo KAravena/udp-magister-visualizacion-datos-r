@@ -1,0 +1,112 @@
+---
+toc: false
+page-layout: full
+body-classes: clases-page
+---
+
+::: {.columns}
+::: {.column}
+
+```{=html}
+<div class="tab-content" id="clases-tabs-content">
+  <div class="tab-pane fade show active" id="clase-00" role="tabpanel" aria-labelledby="clase-00-tab" tabindex="0">
+    <div class="clase-presentacion">
+      <div class="clase-slide">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_00.pptx" allowfullscreen frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="clase-info">
+        <span class="clase-titulo">Introducción al curso y a la estadística social</span>
+        <span class="clase-descarga"><a href="resources/clases/clase_00.pptx">Descargar diapositivas</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="clase-01" role="tabpanel" aria-labelledby="clase-01-tab" tabindex="0">
+    <div class="clase-presentacion">
+      <div class="clase-slide">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_01.pptx" allowfullscreen frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="clase-info">
+        <span class="clase-titulo">Introducción a la investigación social cuantitativa</span>
+        <span class="clase-descarga"><a href="resources/clases/clase_01.pptx">Descargar diapositivas</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="clase-02" role="tabpanel" aria-labelledby="clase-02-tab" tabindex="0">
+    <div class="clase-presentacion">
+      <div class="clase-slide">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_02.pptx" allowfullscreen frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="clase-info">
+        <span class="clase-titulo">Construcción del problema de investigación cuantitativa</span>
+        <span class="clase-descarga"><a href="resources/clases/clase_02.pptx">Descargar diapositivas</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="clase-03" role="tabpanel" aria-labelledby="clase-03-tab" tabindex="0">
+    <div class="clase-presentacion">
+      <div class="clase-slide">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_03.pptx" allowfullscreen frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="clase-info">
+        <span class="clase-titulo">Variables, indicadores y operacionalización</span>
+        <span class="clase-descarga"><a href="resources/clases/clase_03.pptx">Descargar diapositivas</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+:::
+::: {.column-margin}
+
+```{=html}
+<aside class="clases-sidebar">
+  <div class="nav flex-column nav-pills" id="clases-tabs" role="tablist" aria-orientation="vertical">
+    
+    <!-- Unidad 0 -->
+    <div class="sidebar-unit-header">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="false" aria-controls="unidad0">
+        <div class="unit-label-wrap">
+          <span class="unit-label">Unidad 0</span>
+          <span class="unit-title">Presentación del curso</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse" id="unidad0">
+      <a class="clase-link active" id="clase-00-tab" data-bs-toggle="pill" data-bs-target="#clase-00" role="tab" aria-controls="clase-00" aria-selected="true">Clase 00 – Introducción al curso y a la estadística social</a>
+    </div>
+
+    <!-- Unidad 1 -->
+    <div class="sidebar-unit-header">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="false" aria-controls="unidad1">
+        <div class="unit-label-wrap">
+          <span class="unit-label">Unidad 1</span>
+          <span class="unit-title">Introducción a la investigación social cuantitativa</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse" id="unidad1">
+      <a class="clase-link" id="clase-01-tab" data-bs-toggle="pill" data-bs-target="#clase-01" role="tab" aria-controls="clase-01" aria-selected="false">Clase 01 – Introducción a la investigación social cuantitativa</a>
+      <a class="clase-link" id="clase-02-tab" data-bs-toggle="pill" data-bs-target="#clase-02" role="tab" aria-controls="clase-02" aria-selected="false">Clase 02 – Construcción del problema de investigación cuantitativa</a>
+      <a class="clase-link" id="clase-03-tab" data-bs-toggle="pill" data-bs-target="#clase-03" role="tab" aria-controls="clase-03" aria-selected="false">Clase 03 – Variables, indicadores y operacionalización</a>
+    </div>
+
+  </div>
+</aside>
+```
+
+:::
+:::

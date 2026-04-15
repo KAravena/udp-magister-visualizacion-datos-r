@@ -1,0 +1,102 @@
+---
+title-block: false
+page-layout: full
+toc: false
+---
+
+::: {.hero-course .hero-motion-on}
+<div class="hero-motion" aria-hidden="true"></div>
+<div class="container-fluid px-4 px-md-5 py-5">
+<div class="row align-items-center g-5">
+<div class="col-12">
+<p class="eyebrow">Sociología · 3° semestre · 6 SCT · Universidad Finis Terrae 2026</p>
+<h1 class="display-4 fw-semibold">Estadística Social I</h1>
+<p class="lead">Herramientas estadísticas descriptivas para investigar fenómenos sociales con datos.</p>
+<p class="text-muted"></p>
+
+<div class="d-flex flex-wrap gap-2 mt-4 hero-cta">
+<a href="programa.html" class="btn btn-primary btn-md">Ver programa</a>
+<a href="clases.html" class="btn btn-outline-secondary btn-md">Ver clases</a>
+<a href="ayudantias.html" class="btn btn-outline-secondary btn-md">Ver ayudantías</a>
+</div>
+
+<div class="mt-4 small text-muted">
+<span class="me-3">Horario: [PENDIENTE: completar]</span>
+<span class="me-3">Sala: [PENDIENTE: completar] </span>
+<span>Asistencia mínima: 75%</span>
+</div>
+</div>
+</div>
+</div>
+:::
+
+<div class="course-sections container-fluid px-4 px-md-5">
+<div class="course-grid">
+<div class="course-left">
+<div class="quick-links-row d-flex align-items-center gap-3 flex-nowrap mt-2 mb-3">
+<span class="quick-links-label">Accesos rápidos:</span>
+<div class="quick-links d-flex flex-nowrap gap-2">
+<a href="calendarizacion.html" class="btn btn-primary btn-sm">Calendarización</a>
+<a href="evaluaciones.html" class="btn btn-outline-secondary btn-sm">Evaluaciones</a>
+<a href="bibliografia.html" class="btn btn-outline-secondary btn-sm">Bibliografia</a>
+<a href="informacion.html" class="btn btn-outline-secondary btn-sm">Información</a>
+</div>
+</div>
+
+<div class="team-strip mt-4 mb-4">
+<div class="team-grid">
+<div class="team-item">
+<div class="d-flex align-items-center gap-3 mb-3">
+<div class="avatar-placeholder">
+<img src="resources/Daniela.jpg" alt="Fotografía de Daniela Olivares Collío" loading="lazy">
+</div>
+<div>
+<div class="fw-semibold">Daniela Olivares Collío</div>
+<div class="text-muted small">Docente</div>
+</div>
+</div>
+<ul class="list-unstyled small mb-0">
+<li><strong>Correo:</strong> <a href="mailto:danielaolivarescollio@gmail.com">danielaolivarescollio@gmail.com</a></li>
+<li><strong>Horario de atención:</strong> [PENDIENTE: horario]</li>
+<li><strong>Modalidad:</strong> [PENDIENTE: presencial/virtual]</li>
+</ul>
+</div>
+<div class="team-item">
+<div class="d-flex align-items-center gap-3 mb-3">
+<div class="avatar-placeholder">
+<img src="resources/Katherine.jpg" alt="Fotografía de Katherine Aravena Herrera" loading="lazy">
+</div>
+<div>
+<div class="fw-semibold">Katherine Aravena Herrera</div>
+<div class="text-muted small">Ayudante</div>
+</div>
+</div>
+<ul class="list-unstyled small mb-0">
+<li><strong>Correo:</strong> <a href="mailto:katherine.aravena@ug.uchile.cl">katherine.aravena@ug.uchile.cl</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="course-right">
+<a href="ultima-informacion.html" class="latest-card" aria-label="Ver última información del curso">
+<div class="latest-title">Última información</div>
+<div class="latest-feed" aria-label="Últimas actualizaciones">
+<div class="latest-item">
+<span class="latest-date">[PENDIENTE: fecha]</span>
+<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
+</div>
+<div class="latest-item">
+<span class="latest-date">[PENDIENTE: fecha]</span>
+<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
+</div>
+<div class="latest-item">
+<span class="latest-date">[PENDIENTE: fecha]</span>
+<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
+</div>
+</div>
+<div class="latest-footer">Ver todas las actualizaciones</div>
+</a>
+</div>
+</div>
+</div>

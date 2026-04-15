@@ -1,0 +1,19 @@
+---
+title: "Última información"
+pagetitle: "Última información"
+toc: true
+---
+
+# Última información
+
+[PENDIENTE: Esta página reunirá avisos y actualizaciones del curso.]
+
+## Avisos recientes
+
+- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
+- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
+- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
+
+## Histórico
+
+[PENDIENTE: listado cronológico de avisos anteriores]

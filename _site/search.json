@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "",
+    "text": "Centralizamos apuntes y materiales por año, semestre y curso.\nBúsqueda y filtros nativos de Quarto. Deploy automático con Netlify.\nVer Apuntes Cursos About"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Este es el About del sitio.\n(Agrega aquí tu texto, enlaces y créditos.)"
+  },
+  {
+    "objectID": "index.html#destacados",
+    "href": "index.html#destacados",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "Destacados",
+    "text": "Destacados\n\n\n\n\nOrganización por malla\nFiltra por anio-1…anio-4, sem-01…sem-08, además de línea y carácter (en categorías).\n\n\n\n\nBúsqueda y filtros\nEncuentra rápido el curso/tema usando buscador + UI de filtros en los listados.\n\n\n\n\nMantención simple\nUna carpeta por curso; semestres y líneas se manejan con categories en el front matter."
+  },
+  {
+    "objectID": "index.html#accesos-rápidos",
+    "href": "index.html#accesos-rápidos",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "Accesos rápidos",
+    "text": "Accesos rápidos\n\n\n\nApuntes\n\n\nCursos\n\n\nAbout\n\n\nRepositorio GitHub"
+  },
+  {
+    "objectID": "index.html#resúmenes-recientes",
+    "href": "index.html#resúmenes-recientes",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "Resúmenes recientes",
+    "text": "Resúmenes recientes\n\nVer todos\n\n\n\n\nTitle\nDate\nDescription\ntags\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#explora-por-año-semestre",
+    "href": "index.html#explora-por-año-semestre",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "Explora por Año / Semestre",
+    "text": "Explora por Año / Semestre\n\n\n\n1° Año\n\n\n2° Año\n\n\n3° Año\n\n\n4° Año"
+  },
+  {
+    "objectID": "index.html#destacados-destacados",
+    "href": "index.html#destacados-destacados",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "{#destacados} Destacados",
+    "text": "{#destacados} Destacados\n\n\n\n\nOrganización por malla\nFiltra por anio-1…anio-4, sem-01…sem-08, además de línea y carácter (en categorías).\n\n\n\n\nBúsqueda y filtros\nEncuentra rápido el curso/tema usando buscador + UI de filtros en los listados.\n\n\n\n\nMantención simple\nUna carpeta por curso; semestres y líneas se manejan con categories en el front matter."
+  },
+  {
+    "objectID": "index.html#malla-malla-por-año-semestre",
+    "href": "index.html#malla-malla-por-año-semestre",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "{#malla} Malla por Año / Semestre",
+    "text": "{#malla} Malla por Año / Semestre\n\n\n\n1° Año\n\n\n2° Año\n\n\n3° Año\n\n\n4° Año\n\n\n\n\n\n{#ultimos} Últimos apuntes\nVer todos\n\n\n\n\nTitle\nCategories\nDate\nDescription\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#malla",
+    "href": "index.html#malla",
+    "title": "Repositorio de Apuntes de Sociología",
+    "section": "Malla por Año / Semestre",
+    "text": "Malla por Año / Semestre\n\n\n\n1° Año\n\n\n2° Año\n\n\n3° Año\n\n\n4° Año\n\n\n\n\n\nÚltimos apuntes\nVer todos\n\n\n\n\nTitle\nCategories\nDate\nDescription\n\n\n\n\n\nNo matching items\n\n\n\n\n\nEquipo\n\n\n\n\n&lt;/div&gt;\n\n\n\n&lt;/div&gt;\n\n\n\n&lt;/div&gt;"
+  }
+]

@@ -1,0 +1,174 @@
+---
+title: "Recursos"
+format:
+  html:
+    page-layout: full
+---
+
+Esta sección reúne recursos útiles para el desarrollo del curso: guías de software, bases de datos y materiales de apoyo.
+
+---
+
+## 1) Instalar R y RStudio
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### Descargas oficiales
+Primero instala R, luego RStudio.
+
+- [Descargar R (CRAN)](https://cran.r-project.org/)
+- [Descargar RStudio Desktop (Posit)](https://posit.co/download/rstudio-desktop/)
+- [Descargar Quarto](https://quarto.org/docs/get-started/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Videos tutoriales de instalación
+Guías paso a paso en español.
+
+- [Cómo instalar R y RStudio en Windows (YouTube)](https://www.youtube.com/watch?v=LbezGA_Yle8)
+- [Instalar R y RStudio en Mac (YouTube)](https://www.youtube.com/watch?v=JqV-USGR6AA)
+- [Primeros pasos en RStudio (YouTube)](https://www.youtube.com/watch?v=lVKMsaWgu6)
+:::
+
+:::
+
+---
+
+## 2) Quarto, Markdown y entrega de trabajos
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### Quarto — documentación oficial
+Para entender cómo funcionan los archivos `.qmd`, el render y los formatos de entrega.
+
+- [Guía de inicio (Quarto)](https://quarto.org/docs/get-started/)
+- [Markdown básico en Quarto](https://quarto.org/docs/authoring/markdown-basics.html)
+- [Componentes útiles (callouts, tabs, layouts)](https://quarto.org/docs/authoring/callouts.html)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Markdown en español
+Para aprender a escribir informes claros y ordenados.
+
+- [Guía Markdown en español](https://www.markdownguide.org/basic-syntax/)
+- [Markdown explicado paso a paso](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=1156)
+:::
+
+:::
+
+---
+
+## 3) Aprender R desde cero
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### RStudio Primers (interactivos)
+Ideales para empezar **sin saber nada**.
+
+- [RStudio Primers (Posit)](https://posit.cloud/learn/primers)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### R para principiantes 
+- [R para Ciencia de Datos (español)](https://es.r4ds.hadley.nz/)
+- [Curso Introducción a R (U. de Chile)](https://bookdown.org/gboccardo/manual-ED-UCH/)
+:::
+
+:::
+
+---
+
+## 4) Importar datos en R
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### CSV y Excel
+Para bases de datos típicas de clase.
+
+- [`readr::read_csv()`](https://readr.tidyverse.org/)
+- [`readxl::read_excel()`](https://readxl.tidyverse.org/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### SPSS / Stata (común en encuestas)
+- [Paquete `haven`](https://haven.tidyverse.org/)
+- [Importar SPSS (`.sav`)](https://haven.tidyverse.org/reference/read_sav.html)
+- [Importar Stata (`.dta`)](https://haven.tidyverse.org/reference/read_dta.html)
+:::
+
+:::
+
+---
+
+## 5) Procesamiento y análisis de datos
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### Tidyverse (principal del curso)
+- [Cheatsheets oficiales (español e inglés)](https://posit.co/resources/cheatsheets/)
+- Incluye `dplyr`, `tidyr`, `ggplot2` en una sola página.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Base R (plan B)
+- [Manuales oficiales de R (CRAN)](https://cran.r-project.org/manuals.html)
+:::
+
+:::
+
+---
+
+## 6) Visualización de datos
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### R Graph Gallery
+Galería por tipo de gráfico con código reproducible.
+
+- [R Graph Gallery](https://r-graph-gallery.com/)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### ggplot2 (guías prácticas)
+- [Cheat sheet ggplot2 (Posit)](https://posit.co/wp-content/uploads/2022/10/data-visualization-1.pdf)
+- [Guía ggplot2 en español](https://rpubs.com/gboccardo/ggplot2)
+:::
+
+:::
+
+---
+
+## 7) Estadística descriptiva
+
+### Recursos claros y didácticos
+- [Manual de Estadística Descriptiva con R (U. de Chile)](https://bookdown.org/gboccardo/manual-ED-UCH/)
+- [`sjmisc` y `sjPlot` (tablas y gráficos)](https://strengejacke.github.io/sjPlot/)
+
+---
+
+## 8) Bases de datos reales para practicar
+
+::: {.grid .gap-3}
+
+::: {.g-col-12 .g-col-md-6}
+### Chile
+- [CASEN (Observatorio Social)](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen)
+- [Encuesta CEP](https://www.cepchile.cl/cep/site/edic/base/port/inicio.html)
+- [ELSOC (COES – Harvard Dataverse)](https://dataverse.harvard.edu/dataverse/cohesion)
+- [ENE (INE)](https://www.ine.gob.cl/estadisticas/sociales/mercado-laboral/empleo)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Internacionales
+- [ILOSTAT (OIT)](https://ilostat.ilo.org/data/)
+- [OECD Data](https://data.oecd.org/)
+- [World Bank Open Data](https://data.worldbank.org/)
+:::
+
+:::
