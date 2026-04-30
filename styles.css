@@ -1463,127 +1463,234 @@ strong, b {
 }
 
 /* =========================================================
-   BIBLIOGRAFÍA (tarjetas con “portada”)
+   BIBLIOGRAFÍA
    ========================================================= */
-.biblio-layout{
-  gap: clamp(3.5rem, 8vw, 6rem);
+.biblio-intro{
+  max-width: 920px;
+  margin: 0 0 2rem;
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
-.biblio-layout > .column:last-child{
-  padding-left: 1.25rem;
+.biblio-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.4vw, 2rem);
+  margin: 1rem 0 2.5rem;
 }
 
-@media (min-width: 992px){
-  .biblio-layout > .column:first-child{
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .biblio-layout > .column:last-child{
-    flex: 0 0 auto;
-  }
-}
-
-.biblio-sidebox{
-  position: sticky;
-  top: 1.25rem;
-  width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-
-  font-size: .8rem;
-  line-height: 1.55;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-/* En el cuadro lateral, usar acento arriba (no al costado) */
-.biblio-sidebox.callout{
-  border-left: 0 !important;
-  border-top: 4px solid #3b82f6; /* azul (ajustable) */
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-/* Asegura que no quede una barra interna por layout del callout */
-.biblio-sidebox.callout .callout-body{
-  border-left: 0 !important;
-}
-
-.biblio-sidebox p{ margin-bottom: .45rem; }
-.biblio-sidebox ul{ margin-bottom: .5rem; padding-left: 1.05rem; }
-.biblio-sidebox li{ margin-bottom: .3rem; }
-.biblio-sidebox hr{ margin: .6rem 0; }
-
-.book-card .book-kicker{
-  margin-top: .75rem;
-  margin-bottom: .5rem;
-}
-
-.book-cover-frame{
-  border-radius: 12px;
+.book-card{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   overflow: hidden;
-  border: 1px solid var(--borde);
-  background: linear-gradient(180deg, var(--superficie), var(--superficie-soft));
+  background: #fff;
+  border: 1px solid rgba(29, 95, 112, .14);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
 }
 
-.book-cover{
+.pdf-preview{
+  height: 190px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f4f8f9, #eef5f5);
+  border-bottom: 1px solid rgba(29, 95, 112, .12);
+}
+
+.pdf-preview iframe{
   width: 100%;
-  height: 220px;
+  height: 260px;
   border: 0;
   display: block;
+  transform: translateY(-38px);
+  background: #f8fafb;
+}
+
+.book-meta{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding: 1rem 1.1rem .25rem;
+}
+
+.book-badges{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .1rem;
+}
+
+.biblio-badge{
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: .24rem .62rem;
+  font-size: .72rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+
+.biblio-badge-required{
+  color: #fff;
+  background: #1d5f70;
+}
+
+.biblio-badge-basic{
+  color: #174957;
+  background: #e5f2f2;
+  border-color: #b9d7d7;
+}
+
+.biblio-badge-complementary{
+  color: #334155;
+  background: #edf2f7;
+  border-color: #d6dee8;
+}
+
+.biblio-badge-suggested{
+  color: #5f4b12;
+  background: #fff7dd;
+  border-color: #ead99b;
+}
+
+.book-card h3{
+  margin: 0;
+  color: #0f4250;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.book-title{
+  color: #263238;
+  font-size: .98rem;
+  line-height: 1.45;
+}
+
+.book-title p,
+.book-reference p,
+.book-note p{
+  margin: 0;
+}
+
+.book-reference,
+.book-note,
+.book-details{
+  color: #475569;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.book-note,
+.book-details{
+  background: #f7fbfb;
+  border: 1px solid #dfeaec;
+  border-radius: 8px;
+  padding: .75rem .85rem;
 }
 
 .book-details{
-  margin: .5rem 0 .75rem;
+  margin: .15rem 0 0;
 }
 
 .book-details > summary{
   cursor: pointer;
-  color: var(--link);
+  color: #1d5f70;
 }
 
 .book-details > summary:hover{
-  color: var(--link-hover);
+  color: #123f4a;
+}
+
+.book-details ul{
+  margin: .65rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.book-details li{
+  margin-bottom: .35rem;
+}
+
+.book-actions{
+  display: flex;
+  gap: .65rem;
+  align-items: center;
+  padding: .9rem 1.1rem 1.1rem;
+  margin-top: auto;
+}
+
+.book-actions p{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin: 0;
+  width: 100%;
+}
+
+.book-actions .btn{
+  border-radius: 999px;
+  font-weight: 700;
+  padding: .5rem .9rem;
+  font-size: .88rem;
+}
+
+.book-actions .btn-primary{
+  background: linear-gradient(135deg, var(--mint-700), var(--mint-600));
+  border-color: transparent;
+}
+
+.book-actions .btn-outline-primary{
+  color: #1d5f70;
+  border-color: rgba(29, 95, 112, .45);
+  background: #fff;
+}
+
+.book-actions .btn-outline-primary:hover,
+.book-actions .btn-outline-primary:focus{
+  color: #123f4a;
+  background: #edf7f7;
+  border-color: rgba(29, 95, 112, .7);
+}
+
+@media (min-width: 1500px){
+  .biblio-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px){
-  .biblio-layout{
-    gap: 2.2rem;
-  }
-
-  .biblio-layout > .column{
-    flex: 1 1 100% !important;
-    max-width: 100% !important;
-  }
-
-  .biblio-layout > .column:last-child{
-    padding-left: 0;
-  }
-
-  .biblio-sidebox{
-    max-width: 540px;
-    margin: 0 auto;
+  .biblio-grid{
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 576px){
-  .book-cover{
-    height: 185px;
+  .biblio-intro{
+    font-size: .95rem;
   }
 
-  .biblio-sidebox{
-    position: static;
-    margin-top: 1.5rem;
+  .pdf-preview{
+    height: 160px;
   }
 
-  .biblio-layout{
-    gap: 1.6rem;
+  .pdf-preview iframe{
+    height: 225px;
+    transform: translateY(-34px);
   }
 
-  .book-card .card-body{
-    padding: 1rem .9rem 1.25rem;
+  .book-meta{
+    padding: .9rem .95rem .2rem;
+  }
+
+  .book-actions{
+    padding: .85rem .95rem 1rem;
+  }
+
+  .book-actions .btn{
+    flex: 1 1 140px;
   }
 }
 

@@ -6,11 +6,9 @@ project:
     - resources/clases/*.pptx
   render:
     - index.qmd
-    - programa.qmd
-    - calendarizacion.qmd
+    - curso.qmd
     - clases.qmd
     - ayudantias.qmd
-    - evaluaciones.qmd
     - bibliografia.qmd
     - Recursos.qmd
     - ultima-informacion.qmd
@@ -40,8 +38,6 @@ website:
   navbar:
     title: "Estadística Social I "
     left:
-      - text: "Inicio"
-        href: index.qmd
       - text: "Clases"
         menu:
           - text: "Catedra"
@@ -49,15 +45,9 @@ website:
           - text: "Ayudantías"
             href: ayudantias.qmd
       - text: "Curso"
-        menu:
-          - text: "Programa"
-            href: programa.qmd
-          - text: "Calendarización"
-            href: calendarizacion.qmd
-          - text: "Evaluaciones"
-            href: evaluaciones.qmd
-          - text: "Bibliografía"
-            href: bibliografia.qmd
+        href: curso.qmd
+      - text: "Bibliografía"
+        href: bibliografia.qmd
       - text: "Recursos"
         href: Recursos.qmd
 

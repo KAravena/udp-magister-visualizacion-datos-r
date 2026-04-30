@@ -98,10 +98,6 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Inicio</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clases" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Clases</span>
@@ -117,29 +113,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-curso" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Curso</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-curso">    
-        <li>
-    <a class="dropdown-item" href="./programa.html">
- <span class="dropdown-text">Programa</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./curso.html"> 
+<span class="menu-text">Curso</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./calendarizacion.html">
- <span class="dropdown-text">Calendarización</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="./bibliografia.html" aria-current="page"> 
+<span class="menu-text">Bibliografía</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./evaluaciones.html">
- <span class="dropdown-text">Evaluaciones</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./bibliografia.html">
- <span class="dropdown-text">Bibliografía</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="./Recursos.html"> 
 <span class="menu-text">Recursos</span></a>
@@ -179,25 +160,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="columns biblio-layout">
-<div class="column" style="width:70%;">
-<section id="textos-en-pdf" class="level2">
-<h2 class="anchored" data-anchor-id="textos-en-pdf">Textos en PDF</h2>
-<div class="grid gap-3">
-<div class="g-col-12 g-col-md-6">
-<div class="card shadow-sm book-card">
-<div class="card-body">
-<div class="book-cover-frame">
-<iframe class="book-cover" loading="lazy" src="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf#page=1&amp;view=FitH"></iframe>
+<div class="biblio-intro">
+<p>En esta sección se reúnen los textos base y complementarios del curso. Cada tarjeta incluye la referencia del programa, la edición disponible en PDF y accesos de consulta.</p>
 </div>
-<div class="book-kicker">
-<span class="badge text-bg-primary">Obligatoria</span> <span class="badge text-bg-light">Básica</span>
+<section id="bibliografía-obligatoria-y-básica" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía-obligatoria-y-básica">Bibliografía obligatoria y básica</h2>
+<div class="biblio-grid">
+<div class="book-card">
+<div class="pdf-preview">
+  <iframe loading="lazy" src="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf#page=1&amp;view=FitH"></iframe>
+</div>
+<div class="book-meta">
+<div class="book-badges">
+<p><span class="biblio-badge biblio-badge-required">Obligatoria</span> <span class="biblio-badge biblio-badge-basic">Básica</span></p>
 </div>
 <section id="ritchey-20022008" class="level3">
 <h3 class="anchored" data-anchor-id="ritchey-20022008">Ritchey (2002/2008)</h3>
-<p><strong>Título:</strong> <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em></p>
+<div class="book-title">
+<p><em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em></p>
+</div>
+<div class="book-reference">
 <p><strong>Referencia (Programa, APA 7)</strong><br>
 Ritchey, F. (2002). <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em>. McGraw-Hill.</p>
+</div>
+<div class="book-reference">
+<p><strong>Edición disponible (PDF de apoyo)</strong><br>
+Ritchey, F. J. (2008). <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em> (2.ª ed.). McGraw-Hill Interamericana.</p>
+</div>
 <details class="book-details">
 <summary>
 <strong>Capítulos recomendados (evaluados)</strong>: 1 a 13 (ver detalle)
@@ -211,27 +200,38 @@ Ritchey, F. (2002). <em>Estadística para las ciencias sociales: El potencial de
 </ul>
 Los capítulos 6–13 también se consideran dentro del tramo evaluado: revisa el <strong>índice</strong> del libro para ubicar esos contenidos según la unidad del curso.
 </details>
-<p><strong>Edición disponible (PDF de apoyo)</strong><br>
-Ritchey, F. J. (2008). <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em> (2.ª ed.). McGraw-Hill Interamericana.</p>
-<p><a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-sm btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-sm btn-outline-primary" download="">Descargar</a></p>
 </section>
 </div>
+<div class="book-actions">
+<p><a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
 </div>
 </div>
-<div class="g-col-12 g-col-md-6">
-<div class="card shadow-sm book-card">
-<div class="card-body">
-<div class="book-cover-frame">
-<iframe class="book-cover" loading="lazy" src="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf#page=1&amp;view=FitH"></iframe>
 </div>
-<div class="book-kicker">
-<span class="badge text-bg-secondary">Complementaria</span>
+</section>
+<section id="bibliografía-complementaria-y-sugerida" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía-complementaria-y-sugerida">Bibliografía complementaria y sugerida</h2>
+<div class="biblio-grid">
+<div class="book-card">
+<div class="pdf-preview">
+  <iframe loading="lazy" src="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf#page=1&amp;view=FitH"></iframe>
+</div>
+<div class="book-meta">
+<div class="book-badges">
+<p><span class="biblio-badge biblio-badge-complementary">Complementaria</span></p>
 </div>
 <section id="johnson-kuby-20042008" class="level3">
 <h3 class="anchored" data-anchor-id="johnson-kuby-20042008">Johnson &amp; Kuby (2004/2008)</h3>
-<p><strong>Título:</strong> <em>Estadística elemental: Lo esencial</em></p>
+<div class="book-title">
+<p><em>Estadística elemental: Lo esencial</em></p>
+</div>
+<div class="book-reference">
 <p><strong>Referencia (Programa, APA 7)</strong><br>
 Johnson, R., &amp; Kuby, P. (2004). <em>Estadística elemental: Lo esencial</em> (2.ª ed.). International Thomson.</p>
+</div>
+<div class="book-reference">
+<p><strong>Edición disponible (PDF de apoyo)</strong><br>
+Johnson, R., &amp; Kuby, P. (2008). <em>Estadística elemental: Lo esencial</em> (10.ª ed.). Thomson.</p>
+</div>
 <details class="book-details">
 <summary>
 <strong>Capítulos recomendados</strong> (ver detalle)
@@ -242,77 +242,69 @@ Johnson, R., &amp; Kuby, P. (2004). <em>Estadística elemental: Lo esencial</em>
 <li>Cap. 3. “Análisis descriptivo y presentación de datos bivariados” (Unidad IV)</li>
 </ul>
 </details>
-<p><strong>Edición disponible (PDF de apoyo)</strong><br>
-Johnson, R., &amp; Kuby, P. (2008). <em>Estadística elemental: Lo esencial</em> (10.ª ed.). Thomson.</p>
-<p><a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-sm btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-sm btn-outline-primary" download="">Descargar</a></p>
 </section>
 </div>
+<div class="book-actions">
+<p><a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
 </div>
 </div>
-<div class="g-col-12 g-col-md-6">
-<div class="card shadow-sm book-card">
-<div class="card-body">
-<div class="book-cover-frame">
-<iframe class="book-cover" loading="lazy" src="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf#page=1&amp;view=FitH"></iframe>
+<div class="book-card">
+<div class="pdf-preview">
+  <iframe loading="lazy" src="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf#page=1&amp;view=FitH"></iframe>
 </div>
-<div class="book-kicker">
-<span class="badge text-bg-light">Sugerida</span>
+<div class="book-meta">
+<div class="book-badges">
+<p><span class="biblio-badge biblio-badge-suggested">Sugerida</span></p>
 </div>
 <section id="agresti-finlay-2009" class="level3">
 <h3 class="anchored" data-anchor-id="agresti-finlay-2009">Agresti &amp; Finlay (2009)</h3>
-<p><strong>Título:</strong> <em>Statistical methods for the social sciences</em></p>
+<div class="book-title">
+<p><em>Statistical methods for the social sciences</em></p>
+</div>
+<div class="book-reference">
 <p><strong>Referencia (APA 7)</strong><br>
 Agresti, A., &amp; Finlay, B. (2009). <em>Statistical methods for the social sciences</em> (4th ed.). Pearson Prentice Hall.</p>
+</div>
+<div class="book-note">
 <p><strong>Útil para:</strong> ejemplos y aplicaciones en ciencias sociales (apoyo para tareas y estudio).</p>
-<p><a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-sm btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-sm btn-outline-primary" download="">Descargar</a></p>
+</div>
 </section>
 </div>
+<div class="book-actions">
+<p><a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
 </div>
 </div>
-<div class="g-col-12 g-col-md-6">
-<div class="card shadow-sm book-card">
-<div class="card-body">
-<div class="book-cover-frame">
-<iframe class="book-cover" loading="lazy" src="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf#page=1&amp;view=FitH"></iframe>
+<div class="book-card">
+<div class="pdf-preview">
+  <iframe loading="lazy" src="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf#page=1&amp;view=FitH"></iframe>
 </div>
-<div class="book-kicker">
-<span class="badge text-bg-light">Sugerida</span>
+<div class="book-meta">
+<div class="book-badges">
+<p><span class="biblio-badge biblio-badge-suggested">Sugerida</span></p>
 </div>
 <section id="cea-dancona-20052001" class="level3">
 <h3 class="anchored" data-anchor-id="cea-dancona-20052001">Cea D’Ancona (2005/2001)</h3>
-<p><strong>Título:</strong> <em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em></p>
+<div class="book-title">
+<p><em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em></p>
+</div>
+<div class="book-reference">
 <p><strong>Referencia (Programa, APA 7)</strong><br>
 Cea D’Ancona, M. Ángeles. (2005). <em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em>. Síntesis.</p>
+</div>
+<div class="book-reference">
 <p><strong>Edición disponible (PDF de apoyo)</strong><br>
 Cea D’Ancona, M. Á. (2001). <em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em>. Síntesis.</p>
-<p><a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-sm btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-sm btn-outline-primary" download="">Descargar</a></p>
-</section>
-</div>
-</div>
-</div>
 </div>
 </section>
-</div><div class="column" style="width:30%;">
-<div class="biblio-sidebox callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>Sugerencias de uso:</strong></p>
-<ul>
-<li>Parte por <strong>Johnson &amp; Kuby</strong> si necesitas reforzar bases (por ejemplo: gráficos, medidas resumen, probabilidad y distribuciones).</li>
-<li>Usa <strong>Agresti &amp; Finlay</strong> como texto “eje” para el curso (aplica técnicas a problemas típicos de ciencias sociales).</li>
-<li>Complementa con <strong>Ritchey</strong> cuando necesites interpretación y enfoque aplicado en ciencias sociales.</li>
-<li>Apóyate en <strong>Cea D’Ancona</strong> para diseño de investigación cuantitativa (operacionalización, muestreo, medición).</li>
-</ul>
-</div>
-</div>
+<div class="book-actions">
+<p><a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
 </div>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

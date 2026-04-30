@@ -4,7 +4,7 @@
 
 ## 🌐 Sitio web
 
-**[utf-estadistica-social-i.netlify.app](https://utf-estadistica-social-i.netlify.app)**
+**[utf-estadistica-social-i.netlify.app](https://uft-estadistica-social-i.netlify.app)**
 
 ---
 ## Descripción
@@ -13,23 +13,12 @@ Sitio web del curso **Estadística Social I** de la carrera de Sociología en la
 
 El sitio contiene:
 -**Programa** del curso
--**Calendarización** visual de clases y evaluaciones
+-**Curso integrado** con programa, evaluaciones y calendarización
 -**Presentaciones** de clases (embebidas en el sitio)
 -**Ayudantías** y materiales de apoyo
 -**Evaluaciones** y rúbricas
 -**Bibliografía** del curso
 -**Recursos** para aprender R, RStudio y Quarto
-
----
-
-## Equipo
-
-| Rol | Nombre | Contacto |
-|-----|--------|----------|
-| **Profesora** | Daniela Olivares Collío | danielaolivarescollio@gmail.com |
-| **Ayudante** | Katherine Aravena Herrera | katherine.aravena@ug.uchile.cl |
-
----
 
 ## 🛠️ Tecnologías
 
@@ -45,11 +34,9 @@ El sitio contiene:
 ```
 ├── _quarto.yml          # Configuración del sitio
 ├── index.qmd            # Página de inicio
-├── programa.qmd         # Programa del curso
-├── calendarizacion.qmd  # Calendario visual
+├── curso.qmd            # Programa, evaluaciones y calendario visual
 ├── clases.qmd           # Presentaciones de clases
 ├── ayudantias.qmd       # Materiales de ayudantías
-├── evaluaciones.qmd     # Información de evaluaciones
 ├── bibliografia.qmd     # Referencias bibliográficas
 ├── Recursos.qmd         # Recursos para R y Quarto
 ├── ultima-informacion.qmd # Últimas noticias

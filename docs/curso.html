@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Programa – Estadística Social I</title>
+<title>Curso – Estadística Social I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css?v=20260128">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -98,10 +98,6 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Inicio</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clases" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Clases</span>
@@ -117,29 +113,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-curso" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Curso</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-curso">    
-        <li>
-    <a class="dropdown-item" href="./programa.html">
- <span class="dropdown-text">Programa</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="./curso.html" aria-current="page"> 
+<span class="menu-text">Curso</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./calendarizacion.html">
- <span class="dropdown-text">Calendarización</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./bibliografia.html"> 
+<span class="menu-text">Bibliografía</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./evaluaciones.html">
- <span class="dropdown-text">Evaluaciones</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./bibliografia.html">
- <span class="dropdown-text">Bibliografía</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item">
     <a class="nav-link" href="./Recursos.html"> 
 <span class="menu-text">Recursos</span></a>
@@ -153,21 +134,22 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programa</h1>
+<h1 class="title">Curso</h1>
+<p class="subtitle lead">En esta sección se reúne el programa oficial, las evaluaciones y la calendarización semanal del curso.</p>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -179,78 +161,463 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="{=html}">
 <style>
-  /* Botón tipo "pill" al lado del título (más pequeño y más separado) */
-  .title-download-btn {
-    margin-left: 1.5rem;     /* más corrido a la derecha (sube a 2rem si quieres) */
-    vertical-align: middle;
-    white-space: nowrap;
+  .curso-tabset {
+    margin-top: 1.25rem;
+  }
 
+  .curso-tabset .nav-tabs {
+    border-bottom: 1px solid #d9e5e8;
+    gap: .25rem;
+  }
+
+  .curso-tabset .nav-tabs .nav-link {
+    color: #1d5f70;
+    border: 1px solid transparent;
+    border-radius: 6px 6px 0 0;
+    font-weight: 600;
+    padding: .55rem .9rem;
+  }
+
+  .curso-tabset .nav-tabs .nav-link:hover,
+  .curso-tabset .nav-tabs .nav-link:focus {
+    border-color: #d9e5e8;
+    background: #f4f9fa;
+  }
+
+  .curso-tabset .nav-tabs .nav-link.active {
+    color: #0f4250;
+    background: #fff;
+    border-color: #d9e5e8 #d9e5e8 #fff;
+  }
+
+  .curso-tabset .tab-content {
+    background: #fff;
+    border: 1px solid #d9e5e8;
+    border-top: 0;
+    padding: 1.5rem;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .programa-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .programa-download-btn {
     display: inline-flex;
     align-items: center;
-    gap: .35rem;
-
-    padding: .35rem .75rem;  /* más pequeño */
-    border-radius: 9999px;
-
     background: #2f7f7f;
     color: #fff !important;
     text-decoration: none !important;
-
+    border-radius: 9999px;
+    padding: .45rem .85rem;
     border: 1px solid rgba(0,0,0,.08);
-    box-shadow: 0 4px 12px rgba(0,0,0,.12); /* un poco más sutil */
-
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
     font-weight: 600;
-    font-size: .9rem;        /* más pequeño */
+    font-size: .9rem;
     line-height: 1;
   }
 
-  .title-download-btn:hover,
-  .title-download-btn:focus {
+  .programa-download-btn:hover,
+  .programa-download-btn:focus {
     background: #276b6b;
     color: #fff !important;
     transform: translateY(-1px);
   }
 
-  .title-download-btn:active {
+  .programa-download-btn:active {
     transform: translateY(0);
     box-shadow: 0 3px 10px rgba(0,0,0,.12);
   }
+
+  .evaluaciones-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 0;
+    font-size: .92rem;
+  }
+
+  .evaluaciones-panel th,
+  .evaluaciones-panel td {
+    border: 1px solid #dfe8ea;
+    padding: .75rem;
+    vertical-align: top;
+  }
+
+  .evaluaciones-panel th {
+    background: #edf7f5;
+    color: #0f4250;
+    font-weight: 700;
+  }
+
+  .evaluaciones-panel tbody tr:nth-child(even) {
+    background: #fbfdfd;
+  }
+
+  .programa-frame {
+    width: 100%;
+    height: 900px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 768px) {
+    .curso-tabset .tab-content {
+      padding: 1rem;
+    }
+
+    .programa-frame {
+      height: 640px;
+    }
+  }
 </style>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const pdfHref = "resources/PROGRAMA_ESI_2026.pdf";
-    const titleEl =
-      document.querySelector(".quarto-title-block h1.title") ||
-      document.querySelector("h1.title") ||
-      document.querySelector("h1");
-
-    if (!titleEl) return;
-
-    // Evitar duplicados si recargas / renderizas
-    if (document.querySelector(".title-download-btn")) return;
-
-    const a = document.createElement("a");
-    a.href = pdfHref;
-    a.textContent = "Descargar programa";
-    a.className = "title-download-btn";
-    a.setAttribute("download", "");
-    a.setAttribute("target", "_blank");
-    a.setAttribute("rel", "noopener");
-
-    titleEl.appendChild(a);
-  });
-</script>
-<noscript>
-<p>
-<a href="resources/PROGRAMA_ESI_2026.pdf">Descargar programa</a>
-</p>
-</noscript>
+<div class="tabset-margin-container"></div><div class="panel-tabset curso-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Programa</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Evaluaciones</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Calendarización</a></li></ul>
+<div class="tab-content curso-tabset">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="programa-actions">
+<p><a href="resources/PROGRAMA_ESI_2026.pdf" class="programa-download-btn" download="" target="_blank" rel="noopener">Descargar programa</a></p>
 </div>
-<div class="{=html}">
-<iframe src="resources/PROGRAMA_ESI_2026.pdf" width="100%" height="900" style="border:1px solid #ddd;">
+<iframe src="resources/PROGRAMA_ESI_2026.pdf" class="programa-frame">
 </iframe>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="calendar-note">
+<p>Las fechas de evaluación están integradas con la calendarización del curso. Cualquier ajuste se reflejará aquí y en la sección de Última información.</p>
+</div>
+<div class="evaluaciones-panel">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fecha</th>
+<th style="text-align: right;">Semana</th>
+<th>Evaluación</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>13 Abr</td>
+<td style="text-align: right;">S6</td>
+<td>Prueba</td>
+<td>Primera evaluación</td>
+</tr>
+<tr class="even">
+<td>25 May</td>
+<td style="text-align: right;">S12</td>
+<td>Prueba</td>
+<td>Segunda evaluación</td>
+</tr>
+<tr class="odd">
+<td>15 Jun</td>
+<td style="text-align: right;">S15</td>
+<td>Presentaciones</td>
+<td>Presentaciones de trabajo</td>
+</tr>
+<tr class="even">
+<td>22 Jun</td>
+<td style="text-align: right;">S16</td>
+<td>Entrega</td>
+<td>Entrega final de trabajo</td>
+</tr>
+<tr class="odd">
+<td>06 Jul</td>
+<td style="text-align: right;">S18</td>
+<td>Examen</td>
+<td>Examen final</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="calendar-note">
+<p><strong>Actualización continua:</strong> Si ocurre algún ajuste (p.&nbsp;ej., cambio de fecha) se reflejará aquí y en la sección de Última información.</p>
+</div>
+<div class="calendario-visual">
+  <div class="calendario-grid">
+    <div class="calendario-meses">
+      
+      <!-- MARZO 2026 -->
+      <div class="mes-bloque">
+        <h3 class="mes-titulo anchored">Marzo 2026</h3>
+        <div class="semanas-mes">
+          
+          <div class="semana-item semana-sin-clase">
+            <div class="semana-fecha">
+              <span class="semana-num">S1</span>
+              <span class="fecha">09 Mar</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-info">Inicio de semestre</span>
+              <p class="contenido-texto">Sin clases</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S2</span>
+              <span class="fecha">16 Mar</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 1</span>
+              <p class="contenido-texto">Fundamentos de la investigación social cuantitativa · Conceptualización y operacionalización</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S3</span>
+              <span class="fecha">23 Mar</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 2</span>
+              <span class="badge badge-r">R: Intro</span>
+              <p class="contenido-texto">Universo, población y muestra · Tipos de muestreo · Técnicas de recolección</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S4</span>
+              <span class="fecha">30 Mar</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 3</span>
+              <span class="badge badge-r">R: Bases de datos</span>
+              <p class="contenido-texto">Elaboración de una matriz de datos y libro de códigos</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- ABRIL 2026 -->
+      <div class="mes-bloque">
+        <h3 class="mes-titulo anchored">Abril 2026</h3>
+        <div class="semanas-mes">
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S5</span>
+              <span class="fecha">06 Abr</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 4</span>
+              <span class="badge badge-r">R: Procesamiento</span>
+              <span class="badge badge-ayudantia">Ayud. 1</span>
+              <p class="contenido-texto">Noción de distribución · Análisis estadístico univariado</p>
+            </div>
+          </div>
+          
+          <div class="semana-item semana-evaluacion">
+            <div class="semana-fecha">
+              <span class="semana-num">S6</span>
+              <span class="fecha">13 Abr</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-evaluacion">Prueba</span>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S7</span>
+              <span class="fecha">20 Abr</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 5</span>
+              <span class="badge badge-r">R: Tendencia y dispersión</span>
+              <p class="contenido-texto">Frecuencias · Medidas de tendencia central · Medidas de dispersión</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S8</span>
+              <span class="fecha">27 Abr</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 6</span>
+              <span class="badge badge-r">R: Posición y forma</span>
+              <span class="badge badge-ayudantia">Ayud. 2</span>
+              <p class="contenido-texto">Medidas de posición · Medidas de forma · Visualización</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- MAYO 2026 -->
+      <div class="mes-bloque">
+        <h3 class="mes-titulo anchored">Mayo 2026</h3>
+        <div class="semanas-mes">
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S9</span>
+              <span class="fecha">04 May</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 7</span>
+              <span class="badge badge-r">R: Contingencia</span>
+              <p class="contenido-texto">Análisis estadístico bivariado · Tablas de contingencia</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S10</span>
+              <span class="fecha">11 May</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 8</span>
+              <span class="badge badge-r">R: Correlación</span>
+              <span class="badge badge-ayudantia">Ayud. 3</span>
+              <p class="contenido-texto">Correlación · Visualización</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S11</span>
+              <span class="fecha">18 May</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 9</span>
+              <span class="badge badge-r">R: Índices y escalas</span>
+              <p class="contenido-texto">Indicadores, índices y escalas</p>
+            </div>
+          </div>
+          
+          <div class="semana-item semana-evaluacion">
+            <div class="semana-fecha">
+              <span class="semana-num">S12</span>
+              <span class="fecha">25 May</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-evaluacion">Prueba</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- JUNIO 2026 -->
+      <div class="mes-bloque">
+        <h3 class="mes-titulo anchored">Junio 2026</h3>
+        <div class="semanas-mes">
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S13</span>
+              <span class="fecha">01 Jun</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 10</span>
+              <span class="badge badge-r">R: Quarto</span>
+              <span class="badge badge-ayudantia">Ayud. 4</span>
+              <p class="contenido-texto">Informes reproducibles</p>
+            </div>
+          </div>
+          
+          <div class="semana-item">
+            <div class="semana-fecha">
+              <span class="semana-num">S14</span>
+              <span class="fecha">08 Jun</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-clase">Clase 11</span>
+              <span class="badge badge-r">R: Quarto</span>
+              <p class="contenido-texto">Avance de trabajo</p>
+            </div>
+          </div>
+          
+          <div class="semana-item semana-especial">
+            <div class="semana-fecha">
+              <span class="semana-num">S15</span>
+              <span class="fecha">15 Jun</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-trabajo">Presentaciones</span>
+              <p class="contenido-texto">Presentaciones de trabajo</p>
+            </div>
+          </div>
+          
+          <div class="semana-item semana-especial">
+            <div class="semana-fecha">
+              <span class="semana-num">S16</span>
+              <span class="fecha">22 Jun</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-trabajo">Entrega</span>
+              <p class="contenido-texto">Entrega final de trabajo</p>
+            </div>
+          </div>
+          
+          <div class="semana-item semana-sin-clase">
+            <div class="semana-fecha">
+              <span class="semana-num">S17</span>
+              <span class="fecha">29 Jun</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-feriado">Feriado</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- JULIO 2026 -->
+      <div class="mes-bloque">
+        <h3 class="mes-titulo anchored">Julio 2026</h3>
+        <div class="semanas-mes">
+          
+          <div class="semana-item semana-evaluacion">
+            <div class="semana-fecha">
+              <span class="semana-num">S18</span>
+              <span class="fecha">06 Jul</span>
+            </div>
+            <div class="semana-contenido">
+              <span class="badge badge-evaluacion">Examen</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Panel lateral: Próximamente -->
+    <div class="proximo-panel">
+      <h4 class="proximo-titulo anchored">Próximamente</h4>
+      
+      <div class="proximo-item">
+        <span class="proximo-fecha">16 Mar</span>
+        <span class="proximo-tipo badge-clase">Clase 1</span>
+        <p>Fundamentos de la investigación social cuantitativa</p>
+      </div>
+      
+      <div class="proximo-item">
+        <span class="proximo-fecha">23 Mar</span>
+        <span class="proximo-tipo badge-clase">Clase 2</span>
+        <p>Universo, población y muestra</p>
+      </div>
+      
+      <div class="proximo-item">
+        <span class="proximo-fecha">13 Abr</span>
+        <span class="proximo-tipo badge-evaluacion">Prueba</span>
+        <p>Primera evaluación</p>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+</div>
+</div>
 </div>
 
 
