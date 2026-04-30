@@ -9,21 +9,18 @@ toc: false
 <div class="container-fluid px-4 px-md-5 py-5">
 <div class="row align-items-center g-5">
 <div class="col-12">
-<p class="eyebrow">Sociología · 3° semestre · 6 SCT · Universidad Finis Terrae 2026</p>
-<h1 class="display-4 fw-semibold">Estadística Social I</h1>
-<p class="lead">Herramientas estadísticas descriptivas para investigar fenómenos sociales con datos.</p>
-<p class="text-muted">El programa, las evaluaciones y la calendarización semanal están reunidos en la sección Curso.</p>
+<p class="eyebrow">Magíster en Métodos para la Investigación Social · 2 créditos · Universidad Diego Portales 2026</p>
+<h1 class="display-4 fw-semibold">Procesamiento y Visualización de datos en R</h1>
+<p class="lead">Curso práctico de introducción al lenguaje R para el procesamiento, análisis descriptivo y visualización de datos sociales cuantitativos.</p>
 
 <div class="d-flex flex-wrap gap-2 mt-4 hero-cta">
 <a href="curso.html" class="btn btn-primary btn-md">Ver curso</a>
 <a href="clases.html" class="btn btn-outline-secondary btn-md">Ver clases</a>
 <a href="ayudantias.html" class="btn btn-outline-secondary btn-md">Ver ayudantías</a>
 </div>
-
 <div class="mt-4 small text-muted">
-<span class="me-3">Horario: [PENDIENTE: completar]</span>
-<span class="me-3">Sala: [PENDIENTE: completar] </span>
-<span>Asistencia mínima: 75%</span>
+<span class="me-3">Horario: jueves 18:00 a 21:30 hrs.; sábado 16 de mayo, 09:00 a 14:00 hrs.</span>
+<span>Lugar: Ejército 333, Laboratorio 301, piso 3</span>
 </div>
 </div>
 </div>
@@ -48,8 +45,6 @@ toc: false
 </div>
 <ul class="list-unstyled small mb-0">
 <li><strong>Correo:</strong> <a href="mailto:danielaolivarescollio@gmail.com">danielaolivarescollio@gmail.com</a></li>
-<li><strong>Horario de atención:</strong> [PENDIENTE: horario]</li>
-<li><strong>Modalidad:</strong> [PENDIENTE: presencial/virtual]</li>
 </ul>
 </div>
 <div class="team-item">

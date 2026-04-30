@@ -15,7 +15,7 @@ project:
 
 website:
   favicon: resources/imagenes/logo.svg
-  title: "Estadística Social I"
+  title: "Procesamiento y Visualización de datos en R "
   site-url: https://utf-estadistica-social-i.netlify.app
   search: true
   page-navigation: true
@@ -32,12 +32,14 @@ website:
       <div class="site-footer">
       <div class="footer-line"><i class="bi bi-braces"></i><span>Hecho con <a href="https://quarto.org" target="_blank" rel="noopener">Quarto</a></span></div>
       <div class="footer-line"><i class="bi bi-cc-circle"></i><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Código bajo licencia MIT</a></div>
-      <div class="footer-line"><i class="bi bi-github"></i><a href="https://github.com/KAravena/Estadistica-Social-FinisTerrae" target="_blank" rel="noopener">Ver en GitHub</a></div>
+      <div class="footer-line"><i class="bi bi-github"></i><a href="https://github.com/KAravena/udp-magister-visualizacion-datos-r" target="_blank" rel="noopener">Ver en GitHub</a></div>
       </div>
 
   navbar:
-    title: "Estadística Social I "
+    title: false
     left:
+      - text: "Inicio"
+        href: index.qmd
       - text: "Clases"
         menu:
           - text: "Catedra"
@@ -53,7 +55,7 @@ website:
 
     tools:
       - icon: github
-        href: https://github.com/KAravena/Estadistica-Social-FinisTerrae
+        href: https://github.com/KAravena/udp-magister-visualizacion-datos-r
         aria-label: GitHub
 
 format:

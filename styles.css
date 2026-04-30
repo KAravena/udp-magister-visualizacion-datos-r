@@ -2158,7 +2158,11 @@ strong, b {
   }
 }
 
-
+@media (min-width: 992px) {
+  .navbar-collapse .navbar-nav:first-child {
+    margin-left: 4rem !important;
+  }
+}
 
 
 
