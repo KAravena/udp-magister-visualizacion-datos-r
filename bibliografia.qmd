@@ -1,178 +1,168 @@
 ---
 title: "Bibliografía"
-format:
-  html:
-    page-layout: full
+title-block: false
+toc: false
+page-layout: full
+body-classes: biblioteca-page
 ---
 
+::: {.library-page}
 
+::: {.library-section}
 ## Bibliografía obligatoria y básica
 
-::: {.biblio-grid}
+::: {.library-list}
 
-::: {.book-card}
-```{=html}
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf#page=1&view=FitH"></iframe>
-</div>
-```
+::: {.library-card .library-card-featured}
 
-::: {.book-meta}
-::: {.book-badges}
-<span class="biblio-badge biblio-badge-required">Obligatoria</span>
-<span class="biblio-badge biblio-badge-basic">Básica</span>
+::: {.library-card-head}
+::: {.library-tags}
+<span class="library-tag library-tag-required">Obligatoria</span>
+<span class="library-tag library-tag-basic">Básica</span>
+:::
+
+::: {.library-actions}
+[Abrir PDF](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.library-btn .library-btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.library-btn download=""}
+:::
 :::
 
 ### Ritchey (2002/2008)
 
-::: {.book-title}
+::: {.library-title}
 *Estadística para las ciencias sociales: El potencial de la imaginación estadística*
 :::
 
-::: {.book-reference}
-**Referencia (Programa, APA 7)**  
+::: {.library-ref}
 Ritchey, F. (2002). *Estadística para las ciencias sociales: El potencial de la imaginación estadística*. McGraw-Hill.
 :::
 
-::: {.book-reference}
-**Edición disponible (PDF de apoyo)**  
-Ritchey, F. J. (2008). *Estadística para las ciencias sociales: El potencial de la imaginación estadística* (2.ª ed.). McGraw-Hill Interamericana.
+::: {.library-ref .library-ref-muted}
+**Edición disponible:** Ritchey, F. J. (2008). *Estadística para las ciencias sociales* (2.ª ed.). McGraw-Hill Interamericana.
 :::
 
-<details class="book-details">
-<summary><strong>Capítulos recomendados (evaluados)</strong>: 1 a 13 (ver detalle)</summary>
+<details class="library-details">
+<summary>Capítulos recomendados</summary>
 
-- Cap. 1. “La imaginación estadística” (Unidad I)
-- Cap. 2. “Organización de los datos para reducir al mínimo el error estadístico” (Unidad II)
-- Cap. 3. “Tablas y gráficas: una imágen dice más que mil palabras” (Unidad III)
-- Cap. 4. “Estimación de promedios” (Unidad III)
-- Cap. 5. “Medición de la dispersión o variación en una distribución de puntuaciones” (Unidad III)
+- Cap. 1. La imaginación estadística.
+- Cap. 2. Organización de los datos.
+- Cap. 3. Tablas y gráficas.
+- Cap. 4. Estimación de promedios.
+- Cap. 5. Medición de la dispersión.
+- Capítulos 6–13 según contenidos del programa.
 
-Los capítulos 6–13 también se consideran dentro del tramo evaluado: revisa el **índice** del libro para ubicar esos contenidos según la unidad del curso.
 </details>
-:::
-
-::: {.book-actions}
-[Abrir PDF](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.btn .btn-primary target="_blank" rel="noopener"}
-[Descargar](resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf){.btn .btn-outline-primary download=""}
-:::
-:::
 
 :::
 
+:::
+:::
+
+::: {.library-section}
 ## Bibliografía complementaria y sugerida
 
-::: {.biblio-grid}
+::: {.library-list .library-grid-2}
 
-::: {.book-card}
-```{=html}
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf#page=1&view=FitH"></iframe>
-</div>
-```
+::: {.library-card}
 
-::: {.book-meta}
-::: {.book-badges}
-<span class="biblio-badge biblio-badge-complementary">Complementaria</span>
+::: {.library-card-head}
+::: {.library-tags}
+<span class="library-tag library-tag-complementary">Complementaria</span>
+:::
+
+::: {.library-actions}
+[Abrir PDF](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.library-btn .library-btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.library-btn download=""}
+:::
 :::
 
 ### Johnson & Kuby (2004/2008)
 
-::: {.book-title}
+::: {.library-title}
 *Estadística elemental: Lo esencial*
 :::
 
-::: {.book-reference}
-**Referencia (Programa, APA 7)**  
+::: {.library-ref}
 Johnson, R., & Kuby, P. (2004). *Estadística elemental: Lo esencial* (2.ª ed.). International Thomson.
 :::
 
-::: {.book-reference}
-**Edición disponible (PDF de apoyo)**  
-Johnson, R., & Kuby, P. (2008). *Estadística elemental: Lo esencial* (10.ª ed.). Thomson.
+::: {.library-ref .library-ref-muted}
+**Edición disponible:** Johnson, R., & Kuby, P. (2008). *Estadística elemental: Lo esencial* (10.ª ed.). Thomson.
 :::
 
-<details class="book-details">
-<summary><strong>Capítulos recomendados</strong> (ver detalle)</summary>
+<details class="library-details">
+<summary>Capítulos recomendados</summary>
 
-- Cap. 1. “Estadística” (Unidad I)
-- Cap. 2. “Análisis descriptivo y presentación de datos en una sola variable” (Unidad III)
-- Cap. 3. “Análisis descriptivo y presentación de datos bivariados” (Unidad IV)
+- Cap. 1. Estadística.
+- Cap. 2. Análisis descriptivo en una variable.
+- Cap. 3. Análisis descriptivo bivariado.
+
 </details>
+
 :::
 
-::: {.book-actions}
-[Abrir PDF](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.btn .btn-primary target="_blank" rel="noopener"}
-[Descargar](resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf){.btn .btn-outline-primary download=""}
-:::
+::: {.library-card}
+
+::: {.library-card-head}
+::: {.library-tags}
+<span class="library-tag library-tag-suggested">Sugerida</span>
 :::
 
-::: {.book-card}
-```{=html}
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf#page=1&view=FitH"></iframe>
-</div>
-```
-
-::: {.book-meta}
-::: {.book-badges}
-<span class="biblio-badge biblio-badge-suggested">Sugerida</span>
+::: {.library-actions}
+[Abrir PDF](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.library-btn .library-btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.library-btn download=""}
+:::
 :::
 
 ### Agresti & Finlay (2009)
 
-::: {.book-title}
+::: {.library-title}
 *Statistical methods for the social sciences*
 :::
 
-::: {.book-reference}
-**Referencia (APA 7)**  
+::: {.library-ref}
 Agresti, A., & Finlay, B. (2009). *Statistical methods for the social sciences* (4th ed.). Pearson Prentice Hall.
 :::
 
-::: {.book-note}
-**Útil para:** ejemplos y aplicaciones en ciencias sociales (apoyo para tareas y estudio).
-:::
-:::
-
-::: {.book-actions}
-[Abrir PDF](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.btn .btn-primary target="_blank" rel="noopener"}
-[Descargar](resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf){.btn .btn-outline-primary download=""}
-:::
+::: {.library-note}
+Útil para revisar ejemplos y aplicaciones estadísticas en ciencias sociales.
 :::
 
-::: {.book-card}
-```{=html}
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf#page=1&view=FitH"></iframe>
-</div>
-```
+:::
 
-::: {.book-meta}
-::: {.book-badges}
-<span class="biblio-badge biblio-badge-suggested">Sugerida</span>
+::: {.library-card}
+
+::: {.library-card-head}
+::: {.library-tags}
+<span class="library-tag library-tag-suggested">Sugerida</span>
+:::
+
+::: {.library-actions}
+[Abrir PDF](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.library-btn .library-btn-primary target="_blank" rel="noopener"}
+[Descargar](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.library-btn download=""}
+:::
 :::
 
 ### Cea D’Ancona (2005/2001)
 
-::: {.book-title}
+::: {.library-title}
 *Metodología cuantitativa: Estrategias y técnicas de investigación social*
 :::
 
-::: {.book-reference}
-**Referencia (Programa, APA 7)**  
+::: {.library-ref}
 Cea D’Ancona, M. Ángeles. (2005). *Metodología cuantitativa: Estrategias y técnicas de investigación social*. Síntesis.
 :::
 
-::: {.book-reference}
-**Edición disponible (PDF de apoyo)**  
-Cea D’Ancona, M. Á. (2001). *Metodología cuantitativa: Estrategias y técnicas de investigación social*. Síntesis.
-:::
+::: {.library-ref .library-ref-muted}
+**Edición disponible:** Cea D’Ancona, M. Á. (2001). *Metodología cuantitativa*. Síntesis.
 :::
 
-::: {.book-actions}
-[Abrir PDF](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.btn .btn-primary target="_blank" rel="noopener"}
-[Descargar](resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf){.btn .btn-outline-primary download=""}
+::: {.library-note}
+Apoyo metodológico para comprender el diseño y análisis cuantitativo en ciencias sociales.
+:::
+
+:::
+
 :::
 :::
 
