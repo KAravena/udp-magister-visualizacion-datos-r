@@ -12,6 +12,7 @@ project:
     - bibliografia.qmd
     - Recursos.qmd
     - ultima-informacion.qmd
+    - ultima-informacion/*.qmd
 
 website:
   favicon: resources/imagenes/logo.svg

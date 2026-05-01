@@ -1,6 +1,5 @@
 ---
 title: "Curso"
-subtitle: "En esta sección se reúne el programa oficial, las evaluaciones y la calendarización semanal del curso."
 format:
   html:
     page-layout: full
@@ -139,307 +138,282 @@ format:
 
 ## Evaluaciones
 
-::: {.calendar-note}
-Las fechas de evaluación están integradas con la calendarización del curso. Cualquier ajuste se reflejará aquí y en la sección de Última información.
-:::
-
 ::: {.evaluaciones-panel}
-| Fecha | Semana | Evaluación | Detalle |
-|---|---:|---|---|
-| 13 Abr | S6 | Prueba | Primera evaluación |
-| 25 May | S12 | Prueba | Segunda evaluación |
-| 15 Jun | S15 | Presentaciones | Presentaciones de trabajo |
-| 22 Jun | S16 | Entrega | Entrega final de trabajo |
-| 06 Jul | S18 | Examen | Examen final |
+| Evaluación | Fecha de entrega a las y los estudiantes | Fecha de entrega por parte de las y los estudiantes | Ponderación |
+|---|---|---|---:|
+| Entrega parcial | 16 de mayo | Domingo 24 de mayo | 45% |
+| Entrega final | 28 de mayo | Domingo 07 de junio | 55% |
 :::
 
 ## Calendarización
 
-::: {.calendar-note}
-**Actualización continua:** Si ocurre algún ajuste (p. ej., cambio de fecha) se reflejará aquí y en la sección de Última información.
-:::
-
 ```{=html}
-<div class="calendario-visual">
-  <div class="calendario-grid">
-    <div class="calendario-meses">
-      
-      <!-- MARZO 2026 -->
-      <div class="mes-bloque">
-        <h3 class="mes-titulo">Marzo 2026</h3>
-        <div class="semanas-mes">
-          
-          <div class="semana-item semana-sin-clase">
-            <div class="semana-fecha">
-              <span class="semana-num">S1</span>
-              <span class="fecha">09 Mar</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-info">Inicio de semestre</span>
-              <p class="contenido-texto">Sin clases</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S2</span>
-              <span class="fecha">16 Mar</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 1</span>
-              <p class="contenido-texto">Fundamentos de la investigación social cuantitativa · Conceptualización y operacionalización</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S3</span>
-              <span class="fecha">23 Mar</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 2</span>
-              <span class="badge badge-r">R: Intro</span>
-              <p class="contenido-texto">Universo, población y muestra · Tipos de muestreo · Técnicas de recolección</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S4</span>
-              <span class="fecha">30 Mar</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 3</span>
-              <span class="badge badge-r">R: Bases de datos</span>
-              <p class="contenido-texto">Elaboración de una matriz de datos y libro de códigos</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
-      <!-- ABRIL 2026 -->
-      <div class="mes-bloque">
-        <h3 class="mes-titulo">Abril 2026</h3>
-        <div class="semanas-mes">
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S5</span>
-              <span class="fecha">06 Abr</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 4</span>
-              <span class="badge badge-r">R: Procesamiento</span>
-              <span class="badge badge-ayudantia">Ayud. 1</span>
-              <p class="contenido-texto">Noción de distribución · Análisis estadístico univariado</p>
-            </div>
-          </div>
-          
-          <div class="semana-item semana-evaluacion">
-            <div class="semana-fecha">
-              <span class="semana-num">S6</span>
-              <span class="fecha">13 Abr</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-evaluacion">Prueba</span>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S7</span>
-              <span class="fecha">20 Abr</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 5</span>
-              <span class="badge badge-r">R: Tendencia y dispersión</span>
-              <p class="contenido-texto">Frecuencias · Medidas de tendencia central · Medidas de dispersión</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S8</span>
-              <span class="fecha">27 Abr</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 6</span>
-              <span class="badge badge-r">R: Posición y forma</span>
-              <span class="badge badge-ayudantia">Ayud. 2</span>
-              <p class="contenido-texto">Medidas de posición · Medidas de forma · Visualización</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
-      <!-- MAYO 2026 -->
-      <div class="mes-bloque">
-        <h3 class="mes-titulo">Mayo 2026</h3>
-        <div class="semanas-mes">
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S9</span>
-              <span class="fecha">04 May</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 7</span>
-              <span class="badge badge-r">R: Contingencia</span>
-              <p class="contenido-texto">Análisis estadístico bivariado · Tablas de contingencia</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S10</span>
-              <span class="fecha">11 May</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 8</span>
-              <span class="badge badge-r">R: Correlación</span>
-              <span class="badge badge-ayudantia">Ayud. 3</span>
-              <p class="contenido-texto">Correlación · Visualización</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S11</span>
-              <span class="fecha">18 May</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 9</span>
-              <span class="badge badge-r">R: Índices y escalas</span>
-              <p class="contenido-texto">Indicadores, índices y escalas</p>
-            </div>
-          </div>
-          
-          <div class="semana-item semana-evaluacion">
-            <div class="semana-fecha">
-              <span class="semana-num">S12</span>
-              <span class="fecha">25 May</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-evaluacion">Prueba</span>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
-      <!-- JUNIO 2026 -->
-      <div class="mes-bloque">
-        <h3 class="mes-titulo">Junio 2026</h3>
-        <div class="semanas-mes">
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S13</span>
-              <span class="fecha">01 Jun</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 10</span>
-              <span class="badge badge-r">R: Quarto</span>
-              <span class="badge badge-ayudantia">Ayud. 4</span>
-              <p class="contenido-texto">Informes reproducibles</p>
-            </div>
-          </div>
-          
-          <div class="semana-item">
-            <div class="semana-fecha">
-              <span class="semana-num">S14</span>
-              <span class="fecha">08 Jun</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-clase">Clase 11</span>
-              <span class="badge badge-r">R: Quarto</span>
-              <p class="contenido-texto">Avance de trabajo</p>
-            </div>
-          </div>
-          
-          <div class="semana-item semana-especial">
-            <div class="semana-fecha">
-              <span class="semana-num">S15</span>
-              <span class="fecha">15 Jun</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-trabajo">Presentaciones</span>
-              <p class="contenido-texto">Presentaciones de trabajo</p>
-            </div>
-          </div>
-          
-          <div class="semana-item semana-especial">
-            <div class="semana-fecha">
-              <span class="semana-num">S16</span>
-              <span class="fecha">22 Jun</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-trabajo">Entrega</span>
-              <p class="contenido-texto">Entrega final de trabajo</p>
-            </div>
-          </div>
-          
-          <div class="semana-item semana-sin-clase">
-            <div class="semana-fecha">
-              <span class="semana-num">S17</span>
-              <span class="fecha">29 Jun</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-feriado">Feriado</span>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
-      <!-- JULIO 2026 -->
-      <div class="mes-bloque">
-        <h3 class="mes-titulo">Julio 2026</h3>
-        <div class="semanas-mes">
-          
-          <div class="semana-item semana-evaluacion">
-            <div class="semana-fecha">
-              <span class="semana-num">S18</span>
-              <span class="fecha">06 Jul</span>
-            </div>
-            <div class="semana-contenido">
-              <span class="badge badge-evaluacion">Examen</span>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      
+<div class="agenda-auto">
+
+  <div class="agenda-status-card">
+    <div>
+      <p class="agenda-kicker">Calendario del curso</p>
+      <h3 id="agenda-status-title">Próxima actividad</h3>
+      <p id="agenda-status-text">La calendarización se actualizará automáticamente según la fecha actual.</p>
     </div>
-    
-    <!-- Panel lateral: Próximamente -->
-    <div class="proximo-panel">
-      <h4 class="proximo-titulo">Próximamente</h4>
-      
-      <div class="proximo-item">
-        <span class="proximo-fecha">16 Mar</span>
-        <span class="proximo-tipo badge-clase">Clase 1</span>
-        <p>Fundamentos de la investigación social cuantitativa</p>
-      </div>
-      
-      <div class="proximo-item">
-        <span class="proximo-fecha">23 Mar</span>
-        <span class="proximo-tipo badge-clase">Clase 2</span>
-        <p>Universo, población y muestra</p>
-      </div>
-      
-      <div class="proximo-item">
-        <span class="proximo-fecha">13 Abr</span>
-        <span class="proximo-tipo badge-evaluacion">Prueba</span>
-        <p>Primera evaluación</p>
-      </div>
-      
-    </div>
-    
+    <button type="button" class="agenda-btn" id="toggle-past">Ocultar actividades pasadas</button>
+  </div>
+
+  <div class="agenda-timeline" id="agenda-timeline">
+
+    <section class="agenda-month">
+      <h3>Abril 2026</h3>
+
+      <article class="agenda-event" data-date="2026-04-30">
+        <div class="agenda-date">
+          <span>Jue</span>
+          <strong>30</strong>
+          <span>Abr</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-class">Clase 1</span>
+            <span class="agenda-badge agenda-badge-r">RStudio</span>
+            <span class="agenda-badge agenda-badge-open">Ciencia abierta</span>
+          </div>
+          <h4 class="agenda-event-title">Introducción a R y flujo de trabajo reproducible</h4>
+          <p class="agenda-event-desc">
+            Introducción a la ciencia abierta, flujo de trabajo reproducible, lenguaje R, entorno RStudio y lógica básica del lenguaje: escritura, creación de objetos, tipos de datos, carga de librerías y carga de bases de datos.
+          </p>
+          <p class="agenda-material">
+            <strong>Material sugerido:</strong> Urdinez & Cruz (2020), cap. 1; Wickham & Grolemund (2017), secciones 1, 2 y 4.
+          </p>
+        </div>
+      </article>
+    </section>
+
+
+    <section class="agenda-month">
+      <h3>Mayo 2026</h3>
+
+      <article class="agenda-event" data-date="2026-05-07">
+        <div class="agenda-date">
+          <span>Jue</span>
+          <strong>07</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-class">Clase 2</span>
+            <span class="agenda-badge agenda-badge-r">Procesamiento</span>
+          </div>
+          <h4 class="agenda-event-title">Procesamiento de datos en R</h4>
+          <p class="agenda-event-desc">
+            Explorar, limpiar, seleccionar, filtrar, renombrar, recodificar y trabajar con casos perdidos.
+          </p>
+          <p class="agenda-material">
+            <strong>Material sugerido:</strong> Urdinez & Cruz (2020), cap. 2; Wickham & Grolemund (2017), secciones 5 y 6.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-05-14">
+        <div class="agenda-date">
+          <span>Jue</span>
+          <strong>14</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-class">Clase 3</span>
+            <span class="agenda-badge agenda-badge-stats">Estadística</span>
+          </div>
+          <h4 class="agenda-event-title">Introducción a la estadística descriptiva</h4>
+          <p class="agenda-event-desc">
+            Noción de distribución, análisis estadístico univariado y bivariado, tipos de gráficos y formas de visualización.
+          </p>
+          <p class="agenda-material">
+            <strong>Material sugerido:</strong> Agresti (2013), pp. 23–72; Triola (2004), cap. 2.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-05-16">
+        <div class="agenda-date">
+          <span>Sáb</span>
+          <strong>16</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-class">Clase 4</span>
+            <span class="agenda-badge agenda-badge-r">ggplot</span>
+            <span class="agenda-badge agenda-badge-eval">Entrega parcial disponible</span>
+          </div>
+          <h4 class="agenda-event-title">Estadística descriptiva univariada</h4>
+          <p class="agenda-event-desc">
+            Frecuencias, medidas de tendencia central, dispersión, posición y forma. Visualizaciones con ggplot: gráficos de barras univariados y boxplot.
+          </p>
+          <p class="agenda-material">
+            <strong>Material sugerido:</strong> Schwabish (2017), cap. 5; Nussbaumer (2015), introducción y cap. 2; Wickham & Grolemund (2017), sección 28; R Graph Gallery.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-05-18">
+        <div class="agenda-date">
+          <span>Lun</span>
+          <strong>18</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-help">Ayudantía 1</span>
+          </div>
+          <h4 class="agenda-event-title">Dudas para la entrega parcial</h4>
+          <p class="agenda-event-desc">
+            Sesión de apoyo para resolver dudas sobre la elaboración de la entrega parcial.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-05-24">
+        <div class="agenda-date">
+          <span>Dom</span>
+          <strong>24</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-eval">Entrega parcial</span>
+          </div>
+          <h4 class="agenda-event-title">Entrega parcial del reporte</h4>
+          <p class="agenda-event-desc">
+            Fecha límite para entregar la primera parte del reporte de investigación. Ponderación: 45%.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-05-28">
+        <div class="agenda-date">
+          <span>Jue</span>
+          <strong>28</strong>
+          <span>May</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-class">Clase 5</span>
+            <span class="agenda-badge agenda-badge-r">Bivariado</span>
+            <span class="agenda-badge agenda-badge-eval">Entrega final disponible</span>
+          </div>
+          <h4 class="agenda-event-title">Estadística descriptiva bivariada</h4>
+          <p class="agenda-event-desc">
+            Tablas de contingencia, asociación entre variables, correlación y visualizaciones con ggplot: dispersión, barras bivariadas y boxplot bivariado.
+          </p>
+          <p class="agenda-material">
+            <strong>Material sugerido:</strong> Agresti (2013), pp. 89–110; Pardo et al. (2009), cap. 10, pp. 282–289.
+          </p>
+        </div>
+      </article>
+    </section>
+
+
+    <section class="agenda-month">
+      <h3>Junio 2026</h3>
+
+      <article class="agenda-event" data-date="2026-06-01">
+        <div class="agenda-date">
+          <span>Lun</span>
+          <strong>01</strong>
+          <span>Jun</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-help">Ayudantía 2</span>
+          </div>
+          <h4 class="agenda-event-title">Dudas para la entrega final</h4>
+          <p class="agenda-event-desc">
+            Sesión de apoyo para resolver dudas sobre la elaboración de la entrega final.
+          </p>
+        </div>
+      </article>
+
+      <article class="agenda-event" data-date="2026-06-07">
+        <div class="agenda-date">
+          <span>Dom</span>
+          <strong>07</strong>
+          <span>Jun</span>
+        </div>
+        <div class="agenda-card">
+          <div class="agenda-card-head">
+            <span class="agenda-badge agenda-badge-eval">Entrega final</span>
+          </div>
+          <h4 class="agenda-event-title">Entrega final del reporte</h4>
+          <p class="agenda-event-desc">
+            Fecha límite para entregar la versión final del reporte de investigación. Ponderación: 55%.
+          </p>
+        </div>
+      </article>
+    </section>
+
   </div>
 </div>
-```
 
-:::
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const events = Array.from(document.querySelectorAll(".agenda-event"));
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const statusTitle = document.getElementById("agenda-status-title");
+  const statusText = document.getElementById("agenda-status-text");
+  const toggleBtn = document.getElementById("toggle-past");
+  const timeline = document.getElementById("agenda-timeline");
+
+  const datedEvents = events
+    .map(event => {
+      const date = new Date(event.dataset.date + "T00:00:00");
+      return { event, date };
+    })
+    .sort((a, b) => a.date - b.date);
+
+  let nextEvent = null;
+
+  datedEvents.forEach(({ event, date }) => {
+    event.classList.remove("is-past", "is-today", "is-next", "is-future");
+
+    if (date < today) {
+      event.classList.add("is-past");
+    } else if (date.getTime() === today.getTime()) {
+      event.classList.add("is-today");
+      if (!nextEvent) nextEvent = { event, date };
+    } else {
+      event.classList.add("is-future");
+      if (!nextEvent) nextEvent = { event, date };
+    }
+  });
+
+  if (nextEvent) {
+    nextEvent.event.classList.add("is-next");
+
+    const title = nextEvent.event.querySelector(".agenda-event-title")?.textContent?.trim();
+    const desc = nextEvent.event.querySelector(".agenda-event-desc")?.textContent?.trim();
+    const dateText = nextEvent.date.toLocaleDateString("es-CL", {
+      weekday: "long",
+      day: "numeric",
+      month: "long"
+    });
+
+    statusTitle.textContent = "Próxima actividad";
+    statusText.textContent = `${dateText}: ${title}. ${desc}`;
+  } else {
+    statusTitle.textContent = "Curso finalizado";
+    statusText.textContent = "Todas las actividades calendarizadas ya fueron realizadas.";
+  }
+
+  if (toggleBtn && timeline) {
+    toggleBtn.addEventListener("click", function () {
+      timeline.classList.toggle("hide-past");
+      toggleBtn.textContent = timeline.classList.contains("hide-past")
+        ? "Mostrar actividades pasadas"
+        : "Ocultar actividades pasadas";
+    });
+  }
+});
+</script>
+```

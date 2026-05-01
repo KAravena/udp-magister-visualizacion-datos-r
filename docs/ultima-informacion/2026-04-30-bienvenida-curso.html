@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-04-30">
+<meta name="description" content="Primera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible.">
 
-<title>Última información – Procesamiento y Visualización de datos en R</title>
+<title>Inicio del curso – Procesamiento y Visualización de datos en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,70 +71,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css?v=20260128">
 </head>
@@ -146,7 +88,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -156,7 +98,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -165,25 +107,25 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-clases">    
         <li>
-    <a class="dropdown-item" href="./clases.html#catedra">
+    <a class="dropdown-item" href="../clases.html#catedra">
  <span class="dropdown-text">Catedra</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ayudantias.html">
+    <a class="dropdown-item" href="../ayudantias.html">
  <span class="dropdown-text">Ayudantías</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./curso.html"> 
+    <a class="nav-link" href="../curso.html"> 
 <span class="menu-text">Curso</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bibliografia.html"> 
+    <a class="nav-link" href="../bibliografia.html"> 
 <span class="menu-text">Bibliografía</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Recursos.html"> 
+    <a class="nav-link" href="../Recursos.html"> 
 <span class="menu-text">Recursos</span></a>
   </li>  
 </ul>
@@ -204,14 +146,29 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Última información</h1>
-</div>
+<h1 class="title">Inicio del curso</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">clase</div>
+    <div class="quarto-category">aviso</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Primera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 30, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -221,40 +178,66 @@ window.Quarto = {
 </header>
 
 
-<div class="updates-page">
-
+<div class="notice-post">
+<div class="notice-hero">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../resources/post/inicio-curso.jpg" class="notice-image img-fluid figure-img" alt="Estudiantes trabajando con computadores en una sala de clases"></p>
+<figcaption>Estudiantes trabajando con R en laboratorio</figcaption>
+</figure>
+</div>
+<div class="notice-meta">
+<p><span>Clase</span> <span>Aviso</span> <span>30 de abril de 2026</span></p>
+</div>
+<section id="inicio-del-curso" class="level1">
+<h1>Inicio del curso</h1>
+<p class="notice-lead">
+Primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.
+</p>
+</section>
+</div>
+<div class="notice-body">
+<p>El jueves 30 de abril se realizará la primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>.</p>
+<p>En esta clase se presentará el programa, la metodología de trabajo y los principales objetivos del curso. Además, se revisará la instalación de <strong>R</strong>, <strong>RStudio</strong> y la organización básica de un flujo de trabajo reproducible.</p>
+<section id="contenidos-principales" class="level2">
+<h2 class="anchored" data-anchor-id="contenidos-principales">Contenidos principales</h2>
+<div class="notice-list-card">
+<ul>
+<li>Presentación general del curso.</li>
+<li>Introducción a la ciencia abierta.</li>
+<li>Flujo de trabajo reproducible.</li>
+<li>Instalación y uso inicial de R y RStudio.</li>
+<li>Creación de objetos, carga de librerías y carga de bases de datos.</li>
+</ul>
+</div>
+</section>
+<section id="información-práctica" class="level2">
+<h2 class="anchored" data-anchor-id="información-práctica">Información práctica</h2>
+<div class="notice-info-grid">
+<div class="notice-info-item">
+<p><strong>Fecha</strong><br>
+Jueves 30 de abril</p>
+</div>
+<div class="notice-info-item">
+<p><strong>Horario</strong><br>
+18:00 a 21:30 hrs.</p>
+</div>
+<div class="notice-info-item">
+<p><strong>Lugar</strong><br>
+Ejército 333, Laboratorio 301, piso 3</p>
+</div>
+<div class="notice-info-item">
+<p><strong>Modalidad</strong><br>
+Presencial</p>
+</div>
+</div>
+</section>
+</div>
 </div>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y2xhc2UlMkNhdmlzbw==" data-listing-date-sort="1777521600000" data-listing-file-modified-sort="1777598187606" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="169">
-<div class="thumbnail"><a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
-
-<img loading="lazy" src="./resources/post/inicio-curso.jpg" class="thumbnail-image" alt="Estudiantes trabajando con computadores en una sala de clases">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">Inicio del curso</a>
-</h3>
-<div class="delink listing-description"><a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
-<p>Primera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
-<div class="listing-date">
-30 April 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -693,5 +676,5 @@ window.Quarto = {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -69,12 +71,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-ultimas-home .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-ultimas-home'] = new List('listing-ultimas-home', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css?v=20260128">
 </head>
@@ -179,72 +239,109 @@ Equipo:
 </h2>
 <div class="team-strip mt-2 mb-4">
 <div class="team-grid">
-<div class="team-item">
+<div class="team-item team-item-interactive">
+<details class="bio-toggle">
+<summary>
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="avatar-placeholder">
 <p><img src="resources/Daniela.jpg" alt="Fotografía de Daniela Olivares Collío" loading="lazy"></p>
 </div>
 <div>
-<div class="fw-semibold">
+<div class="fw-semibold team-name">
 Daniela Olivares Collío
 </div>
 <div class="text-muted small">
 Docente
 </div>
+<div class="team-email small mt-2">
+<p><strong>Correo:</strong> <a href="mailto:daniela.olivares2@mail.udp.cl">daniela.olivares2@mail.udp.cl</a></p>
 </div>
 </div>
-<ul class="list-unstyled small mb-0">
-<li>
-<strong>Correo:</strong> <a href="mailto:danielaolivarescollio@gmail.com">danielaolivarescollio@gmail.com</a>
-</li>
-</ul>
 </div>
-<div class="team-item">
+</summary>
+<div class="bio-panel">
+<p>
+Magíster en Estadística de la Pontificia Universidad Católica de Chile (2022). Licenciada en Sociología de la Universidad de Chile (2019).
+</p>
+<p>
+Asistente de investigación del proyecto “Clases sociales, movimientos sindicales y conflicto en tiempos de crisis: un estudio comparativo de Argentina y Chile, CONCLAT” (Fondecyt Regular N°1230056). Anteriormente, fue coordinadora técnica del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios del Conflicto y la Cohesión Social (COES), y asistente metodológica en diversas investigaciones.
+</p>
+</div>
+</details>
+</div>
+<div class="team-item team-item-interactive">
+<details class="bio-toggle">
+<summary>
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="avatar-placeholder">
 <p><img src="resources/Katherine.jpg" alt="Fotografía de Katherine Aravena Herrera" loading="lazy"></p>
 </div>
 <div>
-<div class="fw-semibold">
+<div class="fw-semibold team-name">
 Katherine Aravena Herrera
 </div>
 <div class="text-muted small">
 Ayudante
 </div>
+<div class="team-email small mt-2">
+<p><strong>Correo:</strong> <a href="mailto:katherine.aravena@ug.uchile.cl">katherine.aravena@ug.uchile.cl</a></p>
 </div>
 </div>
-<ul class="list-unstyled small mb-0">
-<li>
-<strong>Correo:</strong> <a href="mailto:katherine.aravena@ug.uchile.cl">katherine.aravena@ug.uchile.cl</a>
-</li>
-</ul>
+</div>
+</summary>
+<div class="bio-panel">
+<p>
+Licenciada en Sociología y estudiante del Magíster en Psicología Educacional de la Universidad de Chile.
+</p><p>
+</p>
+Asistente de investigación en ERCE 2025 UNESCO del Instituto de Estudios Avanzados en Educación (IE) y en C22 Ciencias Sociales Digitales del Centro de Estudios Públicos (CEP). Ha colaborado en proyectos como LISA-COES, SODAS, FONDEF IT24I0115, entre otros. Maneja R, Python, Quarto/R Markdown, Git/GitHub y Visual Studio Code aplicados al análisis, visualización y trazabilidad de datos.
+<p></p>
+</div>
+</details>
 </div>
 </div>
 </div>
 </div>
 <div class="course-right">
-<a href="ultima-informacion.html" class="latest-card" aria-label="Ver última información del curso">
+<div class="latest-card latest-card-home" aria-label="Última información del curso">
 <div class="latest-title">
-Última información
+Noticias
 </div>
-<div class="latest-feed" aria-label="Últimas actualizaciones">
-<div class="latest-item">
-<p><span class="latest-date">[PENDIENTE: fecha]</span> <span class="latest-text">[PENDIENTE: aviso breve del curso]</span></p>
+<div class="latest-scroll">
+<div id="listing-ultimas-home" class="latest-listing latest-compact quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Y2xhc2UlMkNhdmlzbw==" data-listing-date-sort="1777521600000" data-listing-file-modified-sort="1777598187606" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="169">
+<div class="thumbnail"><a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
+
+<img loading="lazy" src="./resources/post/inicio-curso.jpg" class="thumbnail-image" alt="Estudiantes trabajando con computadores en una sala de clases">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">Inicio del curso</a>
+</h3>
+<div class="delink listing-description"><a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
+<p>Primera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible.</p>
+</a></div>
 </div>
-<div class="latest-item">
-<p><span class="latest-date">[PENDIENTE: fecha]</span> <span class="latest-text">[PENDIENTE: aviso breve del curso]</span></p>
+<div class="metadata">
+<a href="./ultima-informacion/2026-04-30-bienvenida-curso.html" class="no-external">
+<div class="listing-date">
+30 Apr
 </div>
-<div class="latest-item">
-<p><span class="latest-date">[PENDIENTE: fecha]</span> <span class="latest-text">[PENDIENTE: aviso breve del curso]</span></p>
-</div>
-</div>
-<div class="latest-footer">
-Ver todas las actualizaciones
-</div>
-</a><p><a href="ultima-informacion.html" class="latest-card" aria-label="Ver última información del curso"></a></p>
+</a>
 </div>
 </div>
 </div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</div>
+<p><a href="ultima-informacion.html" class="latest-footer">Ver todas las actualizaciones</a></p>
+</div>
+</div>
+</div>
+</div>
+
 
 
 

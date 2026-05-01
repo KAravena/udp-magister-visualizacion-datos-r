@@ -1,0 +1,73 @@
+---
+title: "Inicio del curso"
+date: 2026-04-30
+description: "Primera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible."
+categories: [clase, aviso]
+image: "../resources/post/inicio-curso.jpg"
+image-alt: "Estudiantes trabajando con computadores en una sala de clases"
+---
+
+::: {.notice-post}
+
+::: {.notice-hero}
+![Estudiantes trabajando con R en laboratorio](../resources/post/inicio-curso.jpg){.notice-image fig-alt="Estudiantes trabajando con computadores en una sala de clases"}
+
+::: {.notice-meta}
+<span>Clase</span>
+<span>Aviso</span>
+<span>30 de abril de 2026</span>
+:::
+
+# Inicio del curso
+
+<p class="notice-lead">
+Primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.
+</p>
+:::
+
+
+::: {.notice-body}
+
+El jueves 30 de abril se realizará la primera sesión del curso **Procesamiento y Visualización de Datos en R**.
+
+En esta clase se presentará el programa, la metodología de trabajo y los principales objetivos del curso. Además, se revisará la instalación de **R**, **RStudio** y la organización básica de un flujo de trabajo reproducible.
+
+## Contenidos principales
+
+::: {.notice-list-card}
+- Presentación general del curso.
+- Introducción a la ciencia abierta.
+- Flujo de trabajo reproducible.
+- Instalación y uso inicial de R y RStudio.
+- Creación de objetos, carga de librerías y carga de bases de datos.
+:::
+
+## Información práctica
+
+::: {.notice-info-grid}
+
+::: {.notice-info-item}
+**Fecha**  
+Jueves 30 de abril
+:::
+
+::: {.notice-info-item}
+**Horario**  
+18:00 a 21:30 hrs.
+:::
+
+::: {.notice-info-item}
+**Lugar**  
+Ejército 333, Laboratorio 301, piso 3
+:::
+
+::: {.notice-info-item}
+**Modalidad**  
+Presencial
+:::
+
+:::
+
+:::
+
+:::

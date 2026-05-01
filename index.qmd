@@ -2,6 +2,15 @@
 title-block: false
 page-layout: full
 toc: false
+
+listing:
+  - id: ultimas-home
+    contents: "ultima-informacion/*.qmd"
+    sort: "date desc"
+    max-items: 3
+    type: default
+    fields: [date, title, description, image]
+    date-format: "DD MMM"
 ---
 
 ::: {.hero-course .hero-motion-on}
@@ -26,63 +35,99 @@ toc: false
 </div>
 </div>
 :::
-
 <div class="course-sections container-fluid px-4 px-md-5">
 <div class="course-grid">
 <div class="course-left">
+
 <h2 class="team-heading mt-0 mb-2">Equipo:</h2>
+
 <div class="team-strip mt-2 mb-4">
 <div class="team-grid">
-<div class="team-item">
+
+<div class="team-item team-item-interactive">
+<details class="bio-toggle">
+<summary>
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="avatar-placeholder">
 <img src="resources/Daniela.jpg" alt="Fotografía de Daniela Olivares Collío" loading="lazy">
 </div>
 <div>
-<div class="fw-semibold">Daniela Olivares Collío</div>
+<div class="fw-semibold team-name">Daniela Olivares Collío</div>
 <div class="text-muted small">Docente</div>
+<div class="team-email small mt-2">
+<strong>Correo:</strong> <a href="mailto:daniela.olivares2@mail.udp.cl">daniela.olivares2@mail.udp.cl</a>
 </div>
 </div>
-<ul class="list-unstyled small mb-0">
-<li><strong>Correo:</strong> <a href="mailto:danielaolivarescollio@gmail.com">danielaolivarescollio@gmail.com</a></li>
-</ul>
 </div>
-<div class="team-item">
+</summary>
+
+<div class="bio-panel">
+<p>
+Magíster en Estadística de la Pontificia Universidad Católica de Chile (2022).
+Licenciada en Sociología de la Universidad de Chile (2019).
+</p>
+
+<p>
+Asistente de investigación del proyecto “Clases sociales, movimientos sindicales
+y conflicto en tiempos de crisis: un estudio comparativo de Argentina y Chile, CONCLAT”
+(Fondecyt Regular N°1230056). Anteriormente, fue coordinadora técnica del Estudio
+Longitudinal Social de Chile (ELSOC) del Centro de Estudios del Conflicto y la Cohesión
+Social (COES), y asistente metodológica en diversas investigaciones.
+</p>
+</div>
+</details>
+</div>
+
+
+<div class="team-item team-item-interactive">
+<details class="bio-toggle">
+<summary>
 <div class="d-flex align-items-center gap-3 mb-3">
 <div class="avatar-placeholder">
 <img src="resources/Katherine.jpg" alt="Fotografía de Katherine Aravena Herrera" loading="lazy">
 </div>
 <div>
-<div class="fw-semibold">Katherine Aravena Herrera</div>
+<div class="fw-semibold team-name">Katherine Aravena Herrera</div>
 <div class="text-muted small">Ayudante</div>
-</div>
-</div>
-<ul class="list-unstyled small mb-0">
-<li><strong>Correo:</strong> <a href="mailto:katherine.aravena@ug.uchile.cl">katherine.aravena@ug.uchile.cl</a></li>
-</ul>
+<div class="team-email small mt-2">
+<strong>Correo:</strong> <a href="mailto:katherine.aravena@ug.uchile.cl">katherine.aravena@ug.uchile.cl</a>
 </div>
 </div>
 </div>
+</summary>
+
+<div class="bio-panel">
+<p>
+Licenciada en Sociología y estudiante del Magíster en Psicología Educacional de la Universidad de Chile.
+<p>
+
+</p>
+Asistente de investigación en ERCE 2025 UNESCO del Instituto de Estudios Avanzados en Educación (IE) y en C22 Ciencias Sociales Digitales del Centro de Estudios Públicos (CEP). Ha colaborado en proyectos como LISA-COES, SODAS, FONDEF IT24I0115, entre otros. Maneja R, Python, Quarto/R Markdown, Git/GitHub y Visual Studio Code aplicados al análisis, visualización y trazabilidad de datos.
+</p>
 </div>
-<div class="course-right">
-<a href="ultima-informacion.html" class="latest-card" aria-label="Ver última información del curso">
-<div class="latest-title">Última información</div>
-<div class="latest-feed" aria-label="Últimas actualizaciones">
-<div class="latest-item">
-<span class="latest-date">[PENDIENTE: fecha]</span>
-<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
+</details>
 </div>
-<div class="latest-item">
-<span class="latest-date">[PENDIENTE: fecha]</span>
-<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
-</div>
-<div class="latest-item">
-<span class="latest-date">[PENDIENTE: fecha]</span>
-<span class="latest-text">[PENDIENTE: aviso breve del curso]</span>
+
 </div>
 </div>
-<div class="latest-footer">Ver todas las actualizaciones</div>
-</a>
+
 </div>
+::: {.course-right}
+
+<div class="latest-card latest-card-home" aria-label="Última información del curso">
+
+<div class="latest-title">Noticias</div>
+
+<div class="latest-scroll">
+::: {#ultimas-home .latest-listing .latest-compact}
+:::
+</div>
+
+<a href="ultima-informacion.html" class="latest-footer">Ver todas las actualizaciones</a>
+
+</div>
+
+:::
+
 </div>
 </div>

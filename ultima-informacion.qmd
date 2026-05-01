@@ -1,19 +1,16 @@
 ---
 title: "Última información"
-pagetitle: "Última información"
-toc: true
+toc: false
+page-layout: article
+
+listing:
+  contents: "ultima-informacion/*.qmd"
+  sort: "date desc"
+  type: default
+  fields: [image, date, title, description]
+  date-format: "DD MMMM YYYY"
 ---
 
-# Última información
+::: {.updates-page}
 
-[PENDIENTE: Esta página reunirá avisos y actualizaciones del curso.]
-
-## Avisos recientes
-
-- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
-- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
-- [PENDIENTE: fecha] — [PENDIENTE: título del aviso]
-
-## Histórico
-
-[PENDIENTE: listado cronológico de avisos anteriores]
+:::

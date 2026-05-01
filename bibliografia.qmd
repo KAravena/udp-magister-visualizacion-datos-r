@@ -5,9 +5,6 @@ format:
     page-layout: full
 ---
 
-::: {.biblio-intro}
-En esta sección se reúnen los textos base y complementarios del curso. Cada tarjeta incluye la referencia del programa, la edición disponible en PDF y accesos de consulta.
-:::
 
 ## Bibliografía obligatoria y básica
 
