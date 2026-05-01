@@ -73,6 +73,7 @@ format:
     anchor-sections: true
     smooth-scroll: true
     code-copy: true
+    html-math-method: plain
 
 freeze: auto
 
