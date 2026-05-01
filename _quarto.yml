@@ -13,6 +13,8 @@ project:
     - Recursos.qmd
     - ultima-informacion.qmd
     - ultima-informacion/*.qmd
+#    - laboratorio-r.qmd
+#    - laboratorio-r/*/index.qmd
 
 website:
   favicon: resources/imagenes/logo.svg
@@ -47,6 +49,8 @@ website:
             href: clases/clase_00/index.qmd
           - text: "Ayudantías"
             href: ayudantias.qmd
+#      - text: "Laboratorio R"
+#        href: laboratorio-r.qmd
       - text: "Información"
         href: curso.qmd
       - text: "Bibliografía"

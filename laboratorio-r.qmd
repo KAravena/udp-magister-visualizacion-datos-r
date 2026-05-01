@@ -1,0 +1,42 @@
+---
+title: "Laboratorio R"
+title-block: false
+toc: false
+page-layout: full
+body-classes: lab-page-body
+---
+
+::: {.lab-page}
+
+# Laboratorio R
+
+<p class="page-lead">
+Espacio interactivo para practicar contenidos del curso directamente en el navegador. 
+Cada laboratorio acompaña una ayudantía y permite ejecutar código R sin abrir RStudio.
+</p>
+
+::: {.lab-grid}
+
+::: {.lab-card}
+<span class="lab-label">Ayudantía 1</span>
+
+## Primeros objetos, datos y procesamiento
+
+Práctica inicial para crear objetos, trabajar con una base simple, seleccionar variables, filtrar casos y crear nuevas variables.
+
+[Entrar al laboratorio](laboratorio-r/ayudantia-01/){.lab-btn}
+:::
+
+::: {.lab-card}
+<span class="lab-label">Ayudantía 2</span>
+
+## Frecuencias, descriptivos y visualización
+
+Práctica para producir tablas de frecuencia, medidas descriptivas y gráficos básicos con `ggplot2`.
+
+[Entrar al laboratorio](laboratorio-r/ayudantia-02/){.lab-btn}
+:::
+
+:::
+
+:::
