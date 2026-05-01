@@ -27,22 +27,6 @@ body-classes: clases-page clase-page
 </div>
 ```
 
-## Descripción de la clase
-
-Esta clase aborda el procesamiento inicial de bases de datos en R, incluyendo exploración, limpieza, selección, filtrado, renombrado, recodificación y tratamiento de casos perdidos.
-
-## Contenidos principales
-
-::: {.notice-list-card}
-- Explorar bases de datos.
-- Limpiar datos.
-- Seleccionar variables.
-- Filtrar casos.
-- Renombrar variables.
-- Recodificar variables.
-- Revisar y tratar casos perdidos.
-:::
-
 {{< include ../../includes/comentarios-giscus.qmd >}}
 
 :::

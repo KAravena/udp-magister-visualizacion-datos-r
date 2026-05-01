@@ -27,23 +27,6 @@ body-classes: clases-page clase-page
 </div>
 ```
 
-## Descripción de la clase
-
-Esta clase introduce el uso de R y RStudio como herramientas para el procesamiento y análisis de datos sociales. Se revisan principios de ciencia abierta, flujo de trabajo reproducible y elementos básicos del lenguaje R.
-
-## Contenidos principales
-
-::: {.notice-list-card}
-- Introducción a la ciencia abierta.
-- Flujo de trabajo reproducible.
-- Introducción al software y lenguaje de programación R.
-- Entorno de trabajo en RStudio.
-- Creación de objetos.
-- Tipos de datos.
-- Carga de librerías.
-- Carga de bases de datos.
-:::
-
 {{< include ../../includes/comentarios-giscus.qmd >}}
 
 :::

@@ -1,30 +1,27 @@
 ```{=html}
 <section class="comments-box comments-giscus-box">
   <div class="comments-heading">
-    <span class="comments-kicker">Comentarios de la clase</span>
     <h2>Preguntas, dudas y comentarios</h2>
-    <p>
-      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.
-    </p>
   </div>
 
   <div class="giscus"></div>
 
-  <script src="https://giscus.app/client.js"
-          data-repo="KAravena/udp-magister-visualizacion-datos-r"
-          data-repo-id="REEMPLAZAR_REPO_ID"
-          data-category="Comentarios"
-          data-category-id="REEMPLAZAR_CATEGORY_ID"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="light"
-          data-lang="es"
-          data-loading="lazy"
-          crossorigin="anonymous"
-          async>
-  </script>
+<script src="https://giscus.app/client.js"
+        data-repo="KAravena/udp-magister-visualizacion-datos-r"
+        data-repo-id="R_kgDOSC4xhA"
+        data-category="Comentarios"
+        data-category-id="DIC_kwDOSC4xhM4C8I67"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="es"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
 </section>
 ```

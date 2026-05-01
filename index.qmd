@@ -28,8 +28,8 @@ listing:
 <a href="ayudantias.html" class="btn btn-outline-secondary btn-md">Ver ayudantías</a>
 </div>
 <div class="mt-4 small text-muted">
-<span class="me-3">Horario: jueves 18:00 a 21:30 hrs.; sábado 16 de mayo, 09:00 a 14:00 hrs.</span>
-<span>Lugar: Ejército 333, Laboratorio 301, piso 3</span>
+<span class="me-3"></span>
+<span></span>
 </div>
 </div>
 </div>

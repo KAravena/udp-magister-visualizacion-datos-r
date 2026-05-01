@@ -26,21 +26,6 @@ body-classes: clases-page clase-page
 </div>
 ```
 
-## Descripción de la clase
-
-Esta sesión presenta el curso **Procesamiento y Visualización de Datos en R**, sus objetivos, modalidad de trabajo, organización de las sesiones, criterios de evaluación y herramientas que se utilizarán durante el módulo.
-
-## Contenidos principales
-
-::: {.notice-list-card}
-- Presentación general del curso.
-- Organización de las sesiones.
-- Modalidad de trabajo.
-- Formas de evaluación.
-- Recursos y herramientas del curso.
-:::
-
-
 {{< include ../../includes/comentarios-giscus.qmd >}}
 
 :::
