@@ -3,11 +3,11 @@ project:
   output-dir: docs
   resources:
     - styles.css
-    - resources/clases/*.pptx
+    - clases/**/*.pptx
   render:
     - index.qmd
     - curso.qmd
-    - clases.qmd
+    - clases/*/index.qmd
     - ayudantias.qmd
     - bibliografia.qmd
     - Recursos.qmd
@@ -44,7 +44,7 @@ website:
       - text: "Clases"
         menu:
           - text: "Catedra"
-            href: clases.qmd#catedra
+            href: clases/clase_00/index.qmd
           - text: "Ayudantías"
             href: ayudantias.qmd
       - text: "Curso"
@@ -64,7 +64,7 @@ format:
     md-extensions: +raw_html+fenced_divs+link_attributes
     theme: cosmo
     css:
-      - styles.css?v=20260128
+      - styles.css
     link-external-newwindow: false
     anchor-sections: true
     smooth-scroll: true
@@ -77,5 +77,5 @@ include-in-header:
       <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=block" rel="stylesheet">
 

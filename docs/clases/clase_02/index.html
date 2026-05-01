@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bibliografía – Procesamiento y Visualización de datos en R</title>
+<title>Clase 02 | Procesamiento de datos – Procesamiento y Visualización de datos en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,17 +76,17 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=block" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed clases-page clase-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -105,25 +105,25 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-clases">    
         <li>
-    <a class="dropdown-item" href="./clases/clase_00/index.html">
+    <a class="dropdown-item" href="../../clases/clase_00/index.html">
  <span class="dropdown-text">Catedra</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ayudantias.html">
+    <a class="dropdown-item" href="../../ayudantias.html">
  <span class="dropdown-text">Ayudantías</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./curso.html"> 
+    <a class="nav-link" href="../../curso.html"> 
 <span class="menu-text">Curso</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./bibliografia.html" aria-current="page"> 
+    <a class="nav-link" href="../../bibliografia.html"> 
 <span class="menu-text">Bibliografía</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Recursos.html"> 
+    <a class="nav-link" href="../../Recursos.html"> 
 <span class="menu-text">Recursos</span></a>
   </li>  
 </ul>
@@ -138,18 +138,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bibliografía</h1>
+<h1 class="title">Clase 02 | Procesamiento de datos</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -161,148 +162,111 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bibliografía-obligatoria-y-básica" class="level2">
-<h2 class="anchored" data-anchor-id="bibliografía-obligatoria-y-básica">Bibliografía obligatoria y básica</h2>
-<div class="biblio-grid">
-<div class="book-card">
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf#page=1&amp;view=FitH"></iframe>
+<div class="columns page-columns page-full">
+<div class="column">
+<div class="clase-presentacion">
+  <div class="clase-slide">
+    <div class="ratio ratio-16x9">
+      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_02%2Fclase_02.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+
+  <div class="clase-info">
+    <span class="clase-titulo">Clase 02 | Procesamiento de datos</span>
+    <span class="clase-descarga">
+      <a href="clase_02.pptx">Descargar diapositivas</a>
+    </span>
+  </div>
 </div>
-<div class="book-meta">
-<div class="book-badges">
-<p><span class="biblio-badge biblio-badge-required">Obligatoria</span> <span class="biblio-badge biblio-badge-basic">Básica</span></p>
-</div>
-<section id="ritchey-20022008" class="level3">
-<h3 class="anchored" data-anchor-id="ritchey-20022008">Ritchey (2002/2008)</h3>
-<div class="book-title">
-<p><em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em></p>
-</div>
-<div class="book-reference">
-<p><strong>Referencia (Programa, APA 7)</strong><br>
-Ritchey, F. (2002). <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em>. McGraw-Hill.</p>
-</div>
-<div class="book-reference">
-<p><strong>Edición disponible (PDF de apoyo)</strong><br>
-Ritchey, F. J. (2008). <em>Estadística para las ciencias sociales: El potencial de la imaginación estadística</em> (2.ª ed.). McGraw-Hill Interamericana.</p>
-</div>
-<details class="book-details">
-<summary>
-<strong>Capítulos recomendados (evaluados)</strong>: 1 a 13 (ver detalle)
-</summary>
+<section id="descripción-de-la-clase" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-de-la-clase">Descripción de la clase</h2>
+<p>Esta clase aborda el procesamiento inicial de bases de datos en R, incluyendo exploración, limpieza, selección, filtrado, renombrado, recodificación y tratamiento de casos perdidos.</p>
+</section>
+<section id="contenidos-principales" class="level2">
+<h2 class="anchored" data-anchor-id="contenidos-principales">Contenidos principales</h2>
+<div class="notice-list-card">
 <ul>
-<li>Cap. 1. “La imaginación estadística” (Unidad I)</li>
-<li>Cap. 2. “Organización de los datos para reducir al mínimo el error estadístico” (Unidad II)</li>
-<li>Cap. 3. “Tablas y gráficas: una imágen dice más que mil palabras” (Unidad III)</li>
-<li>Cap. 4. “Estimación de promedios” (Unidad III)</li>
-<li>Cap. 5. “Medición de la dispersión o variación en una distribución de puntuaciones” (Unidad III)</li>
+<li>Explorar bases de datos.</li>
+<li>Limpiar datos.</li>
+<li>Seleccionar variables.</li>
+<li>Filtrar casos.</li>
+<li>Renombrar variables.</li>
+<li>Recodificar variables.</li>
+<li>Revisar y tratar casos perdidos.</li>
 </ul>
-Los capítulos 6–13 también se consideran dentro del tramo evaluado: revisa el <strong>índice</strong> del libro para ubicar esos contenidos según la unidad del curso.
-</details>
+</div>
+<section class="comments-box comments-giscus-box">
+  <div class="comments-heading">
+    <span class="comments-kicker">Comentarios de la clase</span>
+    <h2 class="anchored">Preguntas, dudas y comentarios</h2>
+    <p>
+      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.
+    </p>
+  </div>
+
+  <div class="giscus"></div>
+
+  <script src="https://giscus.app/client.js" data-repo="KAravena/udp-magister-visualizacion-datos-r" data-repo-id="REEMPLAZAR_REPO_ID" data-category="Comentarios" data-category-id="REEMPLAZAR_CATEGORY_ID" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="es" data-loading="lazy" crossorigin="anonymous" async="">
+  </script>
+</section>
 </section>
 </div>
-<div class="book-actions">
-<p><a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Ritchey_F__(2008)__(2ed)__Estadistica_para_las_CCSS.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
-</div>
-</div>
-</div>
-</section>
-<section id="bibliografía-complementaria-y-sugerida" class="level2">
-<h2 class="anchored" data-anchor-id="bibliografía-complementaria-y-sugerida">Bibliografía complementaria y sugerida</h2>
-<div class="biblio-grid">
-<div class="book-card">
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf#page=1&amp;view=FitH"></iframe>
-</div>
-<div class="book-meta">
-<div class="book-badges">
-<p><span class="biblio-badge biblio-badge-complementary">Complementaria</span></p>
-</div>
-<section id="johnson-kuby-20042008" class="level3">
-<h3 class="anchored" data-anchor-id="johnson-kuby-20042008">Johnson &amp; Kuby (2004/2008)</h3>
-<div class="book-title">
-<p><em>Estadística elemental: Lo esencial</em></p>
-</div>
-<div class="book-reference">
-<p><strong>Referencia (Programa, APA 7)</strong><br>
-Johnson, R., &amp; Kuby, P. (2004). <em>Estadística elemental: Lo esencial</em> (2.ª ed.). International Thomson.</p>
-</div>
-<div class="book-reference">
-<p><strong>Edición disponible (PDF de apoyo)</strong><br>
-Johnson, R., &amp; Kuby, P. (2008). <em>Estadística elemental: Lo esencial</em> (10.ª ed.). Thomson.</p>
-</div>
-<details class="book-details">
-<summary>
-<strong>Capítulos recomendados</strong> (ver detalle)
-</summary>
-<ul>
-<li>Cap. 1. “Estadística” (Unidad I)</li>
-<li>Cap. 2. “Análisis descriptivo y presentación de datos en una sola variable” (Unidad III)</li>
-<li>Cap. 3. “Análisis descriptivo y presentación de datos bivariados” (Unidad IV)</li>
-</ul>
-</details>
-</section>
-</div>
-<div class="book-actions">
-<p><a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Johnson_R_Kubi_P__(2008)__(10ed)__Estadistica_elemental.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
-</div>
-</div>
-<div class="book-card">
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf#page=1&amp;view=FitH"></iframe>
-</div>
-<div class="book-meta">
-<div class="book-badges">
-<p><span class="biblio-badge biblio-badge-suggested">Sugerida</span></p>
-</div>
-<section id="agresti-finlay-2009" class="level3">
-<h3 class="anchored" data-anchor-id="agresti-finlay-2009">Agresti &amp; Finlay (2009)</h3>
-<div class="book-title">
-<p><em>Statistical methods for the social sciences</em></p>
-</div>
-<div class="book-reference">
-<p><strong>Referencia (APA 7)</strong><br>
-Agresti, A., &amp; Finlay, B. (2009). <em>Statistical methods for the social sciences</em> (4th ed.). Pearson Prentice Hall.</p>
-</div>
-<div class="book-note">
-<p><strong>Útil para:</strong> ejemplos y aplicaciones en ciencias sociales (apoyo para tareas y estudio).</p>
-</div>
-</section>
-</div>
-<div class="book-actions">
-<p><a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Agresti_A_Finlay_B__(2009)__(4ed)__Statistical_Methods_for_Social_Sciences.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
-</div>
-</div>
-<div class="book-card">
-<div class="pdf-preview">
-  <iframe loading="lazy" src="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf#page=1&amp;view=FitH"></iframe>
-</div>
-<div class="book-meta">
-<div class="book-badges">
-<p><span class="biblio-badge biblio-badge-suggested">Sugerida</span></p>
-</div>
-<section id="cea-dancona-20052001" class="level3">
-<h3 class="anchored" data-anchor-id="cea-dancona-20052001">Cea D’Ancona (2005/2001)</h3>
-<div class="book-title">
-<p><em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em></p>
-</div>
-<div class="book-reference">
-<p><strong>Referencia (Programa, APA 7)</strong><br>
-Cea D’Ancona, M. Ángeles. (2005). <em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em>. Síntesis.</p>
-</div>
-<div class="book-reference">
-<p><strong>Edición disponible (PDF de apoyo)</strong><br>
-Cea D’Ancona, M. Á. (2001). <em>Metodología cuantitativa: Estrategias y técnicas de investigación social</em>. Síntesis.</p>
-</div>
-</section>
-</div>
-<div class="book-actions">
-<p><a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-primary" target="_blank" rel="noopener">Abrir PDF</a> <a href="resources/biblio/Cea_M__(2001)__Metodologia_cuantitativa_estrategias_y_tecnicas_de_investigacion_social.pdf" class="btn btn-outline-primary" download="">Descargar</a></p>
-</div>
-</div>
-</div>
+<div class="no-row-height column-margin column-container page-columns page-full"><div class="page-columns page-full">
+<aside class="clases-sidebar">
+  <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
+    <!-- Unidad 0 -->
+    <div class="sidebar-unit-header">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
+        <div class="unit-label-wrap">
+          <span class="unit-label">Unidad 0</span>
+          <span class="unit-title">Presentación del curso</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse show" id="unidad0">
+      <a class="clase-link" href="../../clases/clase_00/index.html" data-clase-link="clase_00">
+        Clase 00 – Presentación
+      </a>
+    </div>
+    <!-- Unidad 1 -->
+    <div class="sidebar-unit-header">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
+        <div class="unit-label-wrap">
+          <span class="unit-label">Unidad 1</span>
+          <span class="unit-title">Introducción al uso de R</span>
+        </div>
+        <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse show" id="unidad1">
+      <a class="clase-link" href="../../clases/clase_01/index.html" data-clase-link="clase_01">
+        Clase 01 – Introducción al uso de R
+      </a>
+      <a class="clase-link" href="../../clases/clase_02/index.html" data-clase-link="clase_02">
+        Clase 02 – Procesamiento de datos
+      </a>
+    </div>
+  </div>
+</aside>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname;
+  document.querySelectorAll("[data-clase-link]").forEach(function (link) {
+    const clase = link.dataset.claseLink;
+    if (
+      path.includes("/" + clase + "/") ||
+      path.endsWith("/" + clase + "/index.html")
+    ) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+});
+</script>
+</div></div></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -743,5 +707,5 @@ Cea D’Ancona, M. Á. (2001). <em>Metodología cuantitativa: Estrategias y téc
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

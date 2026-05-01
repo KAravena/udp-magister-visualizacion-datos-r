@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://utf-estadistica-social-i.netlify.app/ultima-informacion/2026-04-30-bienvenida-curso.html</loc>
-    <lastmod>2026-05-01T01:16:27.606Z</lastmod>
+    <lastmod>2026-05-01T18:56:55.470Z</lastmod>
   </url>
   <url>
     <loc>https://utf-estadistica-social-i.netlify.app/Recursos.html</loc>
@@ -13,16 +13,24 @@
     <lastmod>2026-01-28T17:51:47.294Z</lastmod>
   </url>
   <url>
+    <loc>https://utf-estadistica-social-i.netlify.app/clases/clase_01/index.html</loc>
+    <lastmod>2026-05-01T08:43:14.131Z</lastmod>
+  </url>
+  <url>
     <loc>https://utf-estadistica-social-i.netlify.app/curso.html</loc>
-    <lastmod>2026-05-01T04:43:33.279Z</lastmod>
+    <lastmod>2026-05-01T18:54:26.842Z</lastmod>
   </url>
   <url>
     <loc>https://utf-estadistica-social-i.netlify.app/index.html</loc>
     <lastmod>2026-05-01T05:31:59.330Z</lastmod>
   </url>
   <url>
-    <loc>https://utf-estadistica-social-i.netlify.app/clases.html</loc>
-    <lastmod>2026-04-15T00:44:16.827Z</lastmod>
+    <loc>https://utf-estadistica-social-i.netlify.app/clases/clase_00/index.html</loc>
+    <lastmod>2026-05-01T18:51:59.825Z</lastmod>
+  </url>
+  <url>
+    <loc>https://utf-estadistica-social-i.netlify.app/clases/clase_02/index.html</loc>
+    <lastmod>2026-05-01T08:43:46.042Z</lastmod>
   </url>
   <url>
     <loc>https://utf-estadistica-social-i.netlify.app/bibliografia.html</loc>
@@ -30,6 +38,6 @@
   </url>
   <url>
     <loc>https://utf-estadistica-social-i.netlify.app/ultima-informacion.html</loc>
-    <lastmod>2026-05-01T06:01:56.907Z</lastmod>
+    <lastmod>2026-05-01T07:12:12.785Z</lastmod>
   </url>
 </urlset>

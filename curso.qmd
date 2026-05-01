@@ -1,5 +1,6 @@
 ---
 title: "Curso"
+title-block: false
 format:
   html:
     page-layout: full

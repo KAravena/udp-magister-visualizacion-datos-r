@@ -75,13 +75,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=block" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css?v=20260128">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-clases">    
         <li>
-    <a class="dropdown-item" href="../clases.html#catedra">
+    <a class="dropdown-item" href="../clases/clase_00/index.html">
  <span class="dropdown-text">Catedra</span></a>
   </li>  
         <li>
@@ -137,12 +137,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -160,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
     <div>
@@ -178,13 +178,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+/* Oculta el encabezado automático de Quarto en este post */
+#title-block-header,
+.quarto-title-block,
+.quarto-title,
+.quarto-title-meta,
+.quarto-title-meta-heading,
+.quarto-title-meta-contents,
+.quarto-categories,
+.quarto-category,
+.description {
+  display: none !important;
+}
+
+/* Quita el espacio que deja el bloque automático */
+#quarto-content,
+main.content,
+.page-layout-full main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+</style>
 <div class="notice-post">
 <div class="notice-hero">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../resources/post/inicio-curso.jpg" class="notice-image img-fluid figure-img" alt="Estudiantes trabajando con computadores en una sala de clases"></p>
-<figcaption>Estudiantes trabajando con R en laboratorio</figcaption>
-</figure>
+<div class="notice-image-wrap">
+<p><img src="../resources/post/inicio-curso.jpg" alt="Imagen de referencia del curso de R" class="notice-image"></p>
 </div>
 <div class="notice-meta">
 <p><span>Clase</span> <span>Aviso</span> <span>30 de abril de 2026</span></p>
@@ -192,45 +211,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="inicio-del-curso" class="level1">
 <h1>Inicio del curso</h1>
 <p class="notice-lead">
-Primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.
-</p>
-</section>
-</div>
-<div class="notice-body">
-<p>El jueves 30 de abril se realizará la primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>.</p>
-<p>En esta clase se presentará el programa, la metodología de trabajo y los principales objetivos del curso. Además, se revisará la instalación de <strong>R</strong>, <strong>RStudio</strong> y la organización básica de un flujo de trabajo reproducible.</p>
-<section id="contenidos-principales" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-principales">Contenidos principales</h2>
-<div class="notice-list-card">
-<ul>
-<li>Presentación general del curso.</li>
-<li>Introducción a la ciencia abierta.</li>
-<li>Flujo de trabajo reproducible.</li>
-<li>Instalación y uso inicial de R y RStudio.</li>
-<li>Creación de objetos, carga de librerías y carga de bases de datos.</li>
-</ul>
-</div>
-</section>
-<section id="información-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="información-práctica">Información práctica</h2>
-<div class="notice-info-grid">
-<div class="notice-info-item">
-<p><strong>Fecha</strong><br>
-Jueves 30 de abril</p>
-</div>
-<div class="notice-info-item">
-<p><strong>Horario</strong><br>
-18:00 a 21:30 hrs.</p>
-</div>
-<div class="notice-info-item">
-<p><strong>Lugar</strong><br>
-Ejército 333, Laboratorio 301, piso 3</p>
-</div>
-<div class="notice-info-item">
-<p><strong>Modalidad</strong><br>
-Presencial</p>
-</div>
-</div>
+</p><p>Primera sesión del curso <strong>Procesamiento y Visualización de Datos en R</strong>, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.</p>
+<p>Horario: jueves 18:00 a 21:30 hrs.; sábado 16 de mayo, 09:00 a 14:00 hrs. Lugar: Ejército 333, Laboratorio 301, piso 3</p>
+<p></p>
 </section>
 </div>
 </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clases – Procesamiento y Visualización de datos en R </title>
+<title>Clase 01 | Introducción al uso de R – Procesamiento y Visualización de datos en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../resources/imagenes/logo.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,20 +73,20 @@ ul.task-list li input[type="checkbox"] {
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;display=block" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css?v=20260128">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed clases-page quarto-light">
+<body class="nav-fixed clases-page clase-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -105,25 +105,25 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-clases">    
         <li>
-    <a class="dropdown-item" href="./clases.html#catedra">
+    <a class="dropdown-item" href="../../clases/clase_00/index.html">
  <span class="dropdown-text">Catedra</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./ayudantias.html">
+    <a class="dropdown-item" href="../../ayudantias.html">
  <span class="dropdown-text">Ayudantías</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./curso.html"> 
+    <a class="nav-link" href="../../curso.html"> 
 <span class="menu-text">Curso</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bibliografia.html"> 
+    <a class="nav-link" href="../../bibliografia.html"> 
 <span class="menu-text">Bibliografía</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Recursos.html"> 
+    <a class="nav-link" href="../../Recursos.html"> 
 <span class="menu-text">Recursos</span></a>
   </li>  
 </ul>
@@ -141,78 +141,83 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Clase 01 | Introducción al uso de R</h1>
+</div>
 
 
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <div class="columns page-columns page-full">
 <div class="column">
-<div class="tab-content" id="clases-tabs-content">
-  <div class="tab-pane fade show active" id="clase-00" role="tabpanel" aria-labelledby="clase-00-tab" tabindex="0">
-    <div class="clase-presentacion">
-      <div class="clase-slide">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_00.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-      <div class="clase-info">
-        <span class="clase-titulo">Introducción al curso y a la estadística social</span>
-        <span class="clase-descarga"><a href="resources/clases/clase_00.pptx">Descargar diapositivas</a></span>
-      </div>
+<div class="clase-presentacion">
+  <div class="clase-slide">
+    <div class="ratio ratio-16x9">
+      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_01%2Fclase_01.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
     </div>
   </div>
 
-  <div class="tab-pane fade" id="clase-01" role="tabpanel" aria-labelledby="clase-01-tab" tabindex="0">
-    <div class="clase-presentacion">
-      <div class="clase-slide">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_01.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-      <div class="clase-info">
-        <span class="clase-titulo">Introducción a la investigación social cuantitativa</span>
-        <span class="clase-descarga"><a href="resources/clases/clase_01.pptx">Descargar diapositivas</a></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="clase-02" role="tabpanel" aria-labelledby="clase-02-tab" tabindex="0">
-    <div class="clase-presentacion">
-      <div class="clase-slide">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_02.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-      <div class="clase-info">
-        <span class="clase-titulo">Construcción del problema de investigación cuantitativa</span>
-        <span class="clase-descarga"><a href="resources/clases/clase_02.pptx">Descargar diapositivas</a></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="clase-03" role="tabpanel" aria-labelledby="clase-03-tab" tabindex="0">
-    <div class="clase-presentacion">
-      <div class="clase-slide">
-        <div class="ratio ratio-16x9">
-          <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fuft-estadistica-social-i.netlify.app%2Fresources%2Fclases%2Fclase_03.pptx" allowfullscreen="" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-      <div class="clase-info">
-        <span class="clase-titulo">Variables, indicadores y operacionalización</span>
-        <span class="clase-descarga"><a href="resources/clases/clase_03.pptx">Descargar diapositivas</a></span>
-      </div>
-    </div>
+  <div class="clase-info">
+    <span class="clase-titulo">Clase 01 | Unidad 1. Introducción al uso de R</span>
+    <span class="clase-descarga">
+      <a href="clase_01.pptx">Descargar diapositivas</a>
+    </span>
   </div>
 </div>
+<section id="descripción-de-la-clase" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-de-la-clase">Descripción de la clase</h2>
+<p>Esta clase introduce el uso de R y RStudio como herramientas para el procesamiento y análisis de datos sociales. Se revisan principios de ciencia abierta, flujo de trabajo reproducible y elementos básicos del lenguaje R.</p>
+</section>
+<section id="contenidos-principales" class="level2">
+<h2 class="anchored" data-anchor-id="contenidos-principales">Contenidos principales</h2>
+<div class="notice-list-card">
+<ul>
+<li>Introducción a la ciencia abierta.</li>
+<li>Flujo de trabajo reproducible.</li>
+<li>Introducción al software y lenguaje de programación R.</li>
+<li>Entorno de trabajo en RStudio.</li>
+<li>Creación de objetos.</li>
+<li>Tipos de datos.</li>
+<li>Carga de librerías.</li>
+<li>Carga de bases de datos.</li>
+</ul>
+</div>
+<section class="comments-box comments-giscus-box">
+  <div class="comments-heading">
+    <span class="comments-kicker">Comentarios de la clase</span>
+    <h2 class="anchored">Preguntas, dudas y comentarios</h2>
+    <p>
+      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.
+    </p>
+  </div>
+
+  <div class="giscus"></div>
+
+  <script src="https://giscus.app/client.js" data-repo="KAravena/udp-magister-visualizacion-datos-r" data-repo-id="REEMPLAZAR_REPO_ID" data-category="Comentarios" data-category-id="REEMPLAZAR_CATEGORY_ID" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="es" data-loading="lazy" crossorigin="anonymous" async="">
+  </script>
+</section>
+</section>
 </div>
 <div class="no-row-height column-margin column-container page-columns page-full"><div class="page-columns page-full">
 <aside class="clases-sidebar">
-  <div class="nav flex-column nav-pills" id="clases-tabs" role="tablist" aria-orientation="vertical">
-    
+  <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
     <!-- Unidad 0 -->
     <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="false" aria-controls="unidad0">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
         <div class="unit-label-wrap">
           <span class="unit-label">Unidad 0</span>
           <span class="unit-title">Presentación del curso</span>
@@ -220,28 +225,46 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-chevron-down"></i>
       </button>
     </div>
-    <div class="collapse" id="unidad0">
-      <a class="clase-link active" id="clase-00-tab" data-bs-toggle="pill" data-bs-target="#clase-00" role="tab" aria-controls="clase-00" aria-selected="true">Clase 00 – Introducción al curso y a la estadística social</a>
+    <div class="collapse show" id="unidad0">
+      <a class="clase-link" href="../../clases/clase_00/index.html" data-clase-link="clase_00">
+        Clase 00 – Presentación
+      </a>
     </div>
-
     <!-- Unidad 1 -->
     <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="false" aria-controls="unidad1">
+      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
         <div class="unit-label-wrap">
           <span class="unit-label">Unidad 1</span>
-          <span class="unit-title">Introducción a la investigación social cuantitativa</span>
+          <span class="unit-title">Introducción al uso de R</span>
         </div>
         <i class="bi bi-chevron-down"></i>
       </button>
     </div>
-    <div class="collapse" id="unidad1">
-      <a class="clase-link" id="clase-01-tab" data-bs-toggle="pill" data-bs-target="#clase-01" role="tab" aria-controls="clase-01" aria-selected="false">Clase 01 – Introducción a la investigación social cuantitativa</a>
-      <a class="clase-link" id="clase-02-tab" data-bs-toggle="pill" data-bs-target="#clase-02" role="tab" aria-controls="clase-02" aria-selected="false">Clase 02 – Construcción del problema de investigación cuantitativa</a>
-      <a class="clase-link" id="clase-03-tab" data-bs-toggle="pill" data-bs-target="#clase-03" role="tab" aria-controls="clase-03" aria-selected="false">Clase 03 – Variables, indicadores y operacionalización</a>
+    <div class="collapse show" id="unidad1">
+      <a class="clase-link" href="../../clases/clase_01/index.html" data-clase-link="clase_01">
+        Clase 01 – Introducción al uso de R
+      </a>
+      <a class="clase-link" href="../../clases/clase_02/index.html" data-clase-link="clase_02">
+        Clase 02 – Procesamiento de datos
+      </a>
     </div>
-
   </div>
 </aside>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname;
+  document.querySelectorAll("[data-clase-link]").forEach(function (link) {
+    const clase = link.dataset.claseLink;
+    if (
+      path.includes("/" + clase + "/") ||
+      path.endsWith("/" + clase + "/index.html")
+    ) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+});
+</script>
 </div></div></div>
 
 
@@ -685,5 +708,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

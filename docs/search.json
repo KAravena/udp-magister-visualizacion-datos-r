@@ -4,21 +4,7 @@
     "href": "ultima-informacion/2026-04-30-bienvenida-curso.html",
     "title": "Inicio del curso",
     "section": "",
-    "text": "Estudiantes trabajando con R en laboratorio\n\n\n\nClase Aviso 30 de abril de 2026\n\n\n\n\nPrimera sesión del curso Procesamiento y Visualización de Datos en R, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.\n\n\n\n\nEl jueves 30 de abril se realizará la primera sesión del curso Procesamiento y Visualización de Datos en R.\nEn esta clase se presentará el programa, la metodología de trabajo y los principales objetivos del curso. Además, se revisará la instalación de R, RStudio y la organización básica de un flujo de trabajo reproducible.\n\n\n\n\nPresentación general del curso.\nIntroducción a la ciencia abierta.\nFlujo de trabajo reproducible.\nInstalación y uso inicial de R y RStudio.\nCreación de objetos, carga de librerías y carga de bases de datos.\n\n\n\n\n\n\n\nFecha\nJueves 30 de abril\n\n\nHorario\n18:00 a 21:30 hrs.\n\n\nLugar\nEjército 333, Laboratorio 301, piso 3\n\n\nModalidad\nPresencial"
-  },
-  {
-    "objectID": "ultima-informacion/2026-04-30-bienvenida-curso.html#contenidos-principales",
-    "href": "ultima-informacion/2026-04-30-bienvenida-curso.html#contenidos-principales",
-    "title": "Inicio del curso",
-    "section": "",
-    "text": "Presentación general del curso.\nIntroducción a la ciencia abierta.\nFlujo de trabajo reproducible.\nInstalación y uso inicial de R y RStudio.\nCreación de objetos, carga de librerías y carga de bases de datos."
-  },
-  {
-    "objectID": "ultima-informacion/2026-04-30-bienvenida-curso.html#información-práctica",
-    "href": "ultima-informacion/2026-04-30-bienvenida-curso.html#información-práctica",
-    "title": "Inicio del curso",
-    "section": "",
-    "text": "Fecha\nJueves 30 de abril\n\n\nHorario\n18:00 a 21:30 hrs.\n\n\nLugar\nEjército 333, Laboratorio 301, piso 3\n\n\nModalidad\nPresencial"
+    "text": "Clase Aviso 30 de abril de 2026\n\n\nInicio del curso\n\nPrimera sesión del curso Procesamiento y Visualización de Datos en R, orientada a presentar el programa, la metodología de trabajo y las herramientas iniciales para comenzar a trabajar con R y RStudio.\nHorario: jueves 18:00 a 21:30 hrs.; sábado 16 de mayo, 09:00 a 14:00 hrs. Lugar: Ejército 333, Laboratorio 301, piso 3"
   },
   {
     "objectID": "Recursos.html",
@@ -91,6 +77,27 @@
     "text": "Esta sección concentra el apoyo práctico del curso y sus materiales.\n\n\n\n\n\n\nHorario\nLunes 11:10 – 12:25\nFechas (Ayudantía)\n\n06/04: Procesamiento.\n27/04: Medidas de tendencia central, dispersión, posición, forma y visualización.\n11/05: Análisis bivariado, correlación y visualización.\n01/06: Informes en Quarto\n\n\n\n\n\n\n\n\n\n\nNota: Las ayudantías que se vayan realizando (y sus materiales) van a quedar subidas y guardadas aquí."
   },
   {
+    "objectID": "clases/clase_01/index.html",
+    "href": "clases/clase_01/index.html",
+    "title": "Clase 01 | Introducción al uso de R",
+    "section": "",
+    "text": "Clase 01 | Unidad 1. Introducción al uso de R\n    \n      Descargar diapositivas\n    \n  \n\n\n\nEsta clase introduce el uso de R y RStudio como herramientas para el procesamiento y análisis de datos sociales. Se revisan principios de ciencia abierta, flujo de trabajo reproducible y elementos básicos del lenguaje R.\n\n\n\n\n\nIntroducción a la ciencia abierta.\nFlujo de trabajo reproducible.\nIntroducción al software y lenguaje de programación R.\nEntorno de trabajo en RStudio.\nCreación de objetos.\nTipos de datos.\nCarga de librerías.\nCarga de bases de datos.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.\n    \n  \n\n  \n\n  \n\n\n\n\n\n  \n    \n    \n      \n        \n          Unidad 0\n          Presentación del curso\n        \n        \n      \n    \n    \n      \n        Clase 00 – Presentación\n      \n    \n    \n    \n      \n        \n          Unidad 1\n          Introducción al uso de R\n        \n        \n      \n    \n    \n      \n        Clase 01 – Introducción al uso de R\n      \n      \n        Clase 02 – Procesamiento de datos"
+  },
+  {
+    "objectID": "clases/clase_01/index.html#descripción-de-la-clase",
+    "href": "clases/clase_01/index.html#descripción-de-la-clase",
+    "title": "Clase 01 | Introducción al uso de R",
+    "section": "",
+    "text": "Esta clase introduce el uso de R y RStudio como herramientas para el procesamiento y análisis de datos sociales. Se revisan principios de ciencia abierta, flujo de trabajo reproducible y elementos básicos del lenguaje R."
+  },
+  {
+    "objectID": "clases/clase_01/index.html#contenidos-principales",
+    "href": "clases/clase_01/index.html#contenidos-principales",
+    "title": "Clase 01 | Introducción al uso de R",
+    "section": "",
+    "text": "Introducción a la ciencia abierta.\nFlujo de trabajo reproducible.\nIntroducción al software y lenguaje de programación R.\nEntorno de trabajo en RStudio.\nCreación de objetos.\nTipos de datos.\nCarga de librerías.\nCarga de bases de datos.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente."
+  },
+  {
     "objectID": "curso.html",
     "href": "curso.html",
     "title": "Curso",
@@ -105,11 +112,46 @@
     "text": "Magíster en Métodos para la Investigación Social · 2 créditos · Universidad Diego Portales 2026\n\n\nProcesamiento y Visualización de datos en R\n\n\nCurso práctico de introducción al lenguaje R para el procesamiento, análisis descriptivo y visualización de datos sociales cuantitativos.\n\n\nVer curso Ver clases Ver ayudantías\n\n\nHorario: jueves 18:00 a 21:30 hrs.; sábado 16 de mayo, 09:00 a 14:00 hrs. Lugar: Ejército 333, Laboratorio 301, piso 3\n\n\n\n\n\n\n\n\n\nEquipo:\n\n\n\n\n\n\n\n\n\n\n\n\nDaniela Olivares Collío\n\n\nDocente\n\n\nCorreo: daniela.olivares2@mail.udp.cl\n\n\n\n\n\n\nMagíster en Estadística de la Pontificia Universidad Católica de Chile (2022). Licenciada en Sociología de la Universidad de Chile (2019).\n\n\nAsistente de investigación del proyecto “Clases sociales, movimientos sindicales y conflicto en tiempos de crisis: un estudio comparativo de Argentina y Chile, CONCLAT” (Fondecyt Regular N°1230056). Anteriormente, fue coordinadora técnica del Estudio Longitudinal Social de Chile (ELSOC) del Centro de Estudios del Conflicto y la Cohesión Social (COES), y asistente metodológica en diversas investigaciones.\n\n\n\n\n\n\n\n\n\n\n\n\n\nKatherine Aravena Herrera\n\n\nAyudante\n\n\nCorreo: katherine.aravena@ug.uchile.cl\n\n\n\n\n\n\nLicenciada en Sociología y estudiante del Magíster en Psicología Educacional de la Universidad de Chile.\n\n\nAsistente de investigación en ERCE 2025 UNESCO del Instituto de Estudios Avanzados en Educación (IE) y en C22 Ciencias Sociales Digitales del Centro de Estudios Públicos (CEP). Ha colaborado en proyectos como LISA-COES, SODAS, FONDEF IT24I0115, entre otros. Maneja R, Python, Quarto/R Markdown, Git/GitHub y Visual Studio Code aplicados al análisis, visualización y trazabilidad de datos.\n\n\n\n\n\n\n\n\n\n\nNoticias\n\n\n\n\n\n\n\n\n\n\n\n\nInicio del curso\n\n\nPrimera sesión del curso: presentación general, instalación de R y RStudio, e introducción al flujo de trabajo reproducible.\n\n\n\n\n\n30 Apr\n\n\n\n\n\nNo matching items\n\n\nVer todas las actualizaciones"
   },
   {
-    "objectID": "clases.html",
-    "href": "clases.html",
-    "title": "Procesamiento y Visualización de datos en R ",
+    "objectID": "clases/clase_00/index.html",
+    "href": "clases/clase_00/index.html",
+    "title": "Clase 00 | Presentación",
     "section": "",
-    "text": "Introducción al curso y a la estadística social\n        Descargar diapositivas\n      \n    \n  \n\n  \n    \n      \n        \n          \n        \n      \n      \n        Introducción a la investigación social cuantitativa\n        Descargar diapositivas\n      \n    \n  \n\n  \n    \n      \n        \n          \n        \n      \n      \n        Construcción del problema de investigación cuantitativa\n        Descargar diapositivas\n      \n    \n  \n\n  \n    \n      \n        \n          \n        \n      \n      \n        Variables, indicadores y operacionalización\n        Descargar diapositivas\n      \n    \n  \n\n\n\n\n  \n    \n    \n    \n      \n        \n          Unidad 0\n          Presentación del curso\n        \n        \n      \n    \n    \n      Clase 00 – Introducción al curso y a la estadística social\n    \n\n    \n    \n      \n        \n          Unidad 1\n          Introducción a la investigación social cuantitativa\n        \n        \n      \n    \n    \n      Clase 01 – Introducción a la investigación social cuantitativa\n      Clase 02 – Construcción del problema de investigación cuantitativa\n      Clase 03 – Variables, indicadores y operacionalización"
+    "text": "Clase 00 | Presentación\n    \n      Descargar diapositivas\n    \n  \n\n\n\nEsta sesión presenta el curso Procesamiento y Visualización de Datos en R, sus objetivos, modalidad de trabajo, organización de las sesiones, criterios de evaluación y herramientas que se utilizarán durante el módulo.\n\n\n\n\n\nPresentación general del curso.\nOrganización de las sesiones.\nModalidad de trabajo.\nFormas de evaluación.\nRecursos y herramientas del curso.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.\n    \n  \n\n  \n\n  \n\n\n\n\n\n  \n    \n    \n      \n        \n          Unidad 0\n          Presentación del curso\n        \n        \n      \n    \n    \n      \n        Clase 00 – Presentación\n      \n    \n    \n    \n      \n        \n          Unidad 1\n          Introducción al uso de R\n        \n        \n      \n    \n    \n      \n        Clase 01 – Introducción al uso de R\n      \n      \n        Clase 02 – Procesamiento de datos"
+  },
+  {
+    "objectID": "clases/clase_00/index.html#descripción-de-la-clase",
+    "href": "clases/clase_00/index.html#descripción-de-la-clase",
+    "title": "Clase 00 | Presentación",
+    "section": "",
+    "text": "Esta sesión presenta el curso Procesamiento y Visualización de Datos en R, sus objetivos, modalidad de trabajo, organización de las sesiones, criterios de evaluación y herramientas que se utilizarán durante el módulo."
+  },
+  {
+    "objectID": "clases/clase_00/index.html#contenidos-principales",
+    "href": "clases/clase_00/index.html#contenidos-principales",
+    "title": "Clase 00 | Presentación",
+    "section": "",
+    "text": "Presentación general del curso.\nOrganización de las sesiones.\nModalidad de trabajo.\nFormas de evaluación.\nRecursos y herramientas del curso.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente."
+  },
+  {
+    "objectID": "clases/clase_02/index.html",
+    "href": "clases/clase_02/index.html",
+    "title": "Clase 02 | Procesamiento de datos",
+    "section": "",
+    "text": "Clase 02 | Procesamiento de datos\n    \n      Descargar diapositivas\n    \n  \n\n\n\nEsta clase aborda el procesamiento inicial de bases de datos en R, incluyendo exploración, limpieza, selección, filtrado, renombrado, recodificación y tratamiento de casos perdidos.\n\n\n\n\n\nExplorar bases de datos.\nLimpiar datos.\nSeleccionar variables.\nFiltrar casos.\nRenombrar variables.\nRecodificar variables.\nRevisar y tratar casos perdidos.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente.\n    \n  \n\n  \n\n  \n\n\n\n\n\n  \n    \n    \n      \n        \n          Unidad 0\n          Presentación del curso\n        \n        \n      \n    \n    \n      \n        Clase 00 – Presentación\n      \n    \n    \n    \n      \n        \n          Unidad 1\n          Introducción al uso de R\n        \n        \n      \n    \n    \n      \n        Clase 01 – Introducción al uso de R\n      \n      \n        Clase 02 – Procesamiento de datos"
+  },
+  {
+    "objectID": "clases/clase_02/index.html#descripción-de-la-clase",
+    "href": "clases/clase_02/index.html#descripción-de-la-clase",
+    "title": "Clase 02 | Procesamiento de datos",
+    "section": "",
+    "text": "Esta clase aborda el procesamiento inicial de bases de datos en R, incluyendo exploración, limpieza, selección, filtrado, renombrado, recodificación y tratamiento de casos perdidos."
+  },
+  {
+    "objectID": "clases/clase_02/index.html#contenidos-principales",
+    "href": "clases/clase_02/index.html#contenidos-principales",
+    "title": "Clase 02 | Procesamiento de datos",
+    "section": "",
+    "text": "Explorar bases de datos.\nLimpiar datos.\nSeleccionar variables.\nFiltrar casos.\nRenombrar variables.\nRecodificar variables.\nRevisar y tratar casos perdidos.\n\n\n\n  \n    Comentarios de la clase\n    \n    \n      Este espacio permite dejar preguntas o comentarios sobre la clase. Los mensajes quedan asociados a esta página y pueden ser revisados por el equipo docente."
   },
   {
     "objectID": "bibliografia.html",

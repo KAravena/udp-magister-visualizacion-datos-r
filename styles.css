@@ -846,6 +846,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 .hero-course .container-fluid{
   max-width: 1400px;
 }
+
 .hero-course .eyebrow{
   font-size: .85rem;
   letter-spacing: .08em;
@@ -3414,4 +3415,269 @@ strong, b {
 /* Mantener flecha sin subrayado */
 .hero-cta .btn-primary::after {
   text-decoration: none !important;
+}
+
+/* =========================================================
+   POST / NOTICIA INDIVIDUAL
+   Estilo para avisos de Última información
+   ========================================================= */
+
+.notice-post {
+  max-width: 920px;
+  margin: 0 auto 4rem auto;
+  padding: 2rem 1rem 0;
+}
+
+.notice-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(232, 247, 246, 0.92),
+    rgba(255, 255, 255, 0.98)
+  );
+  border: 1px solid rgba(7, 63, 89, 0.12);
+  border-radius: 28px;
+  padding: 1.35rem;
+  margin: 1.5rem 0 1.5rem;
+  box-shadow: 0 18px 46px rgba(20, 60, 75, 0.075);
+  overflow: hidden;
+}
+
+.notice-image-wrap {
+  width: 100%;
+  max-height: 340px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(7, 63, 89, 0.1);
+  background: #f7fbfb;
+  margin-bottom: 1.3rem;
+}
+
+.notice-image {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.notice-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+}
+
+.notice-meta span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.28rem 0.68rem;
+  background: rgba(44, 127, 141, 0.11);
+  color: #245c66;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.notice-hero h1 {
+  margin: 0 0 0.75rem 0;
+  color: #073f59;
+  font-family: "Source Serif 4", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.notice-lead {
+  max-width: 760px;
+  margin: 0;
+  color: #4d5962;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.notice-body {
+  background: #ffffff;
+  border: 1px solid rgba(7, 63, 89, 0.1);
+  border-radius: 24px;
+  padding: 1.7rem;
+  box-shadow: 0 14px 38px rgba(20, 60, 75, 0.055);
+}
+
+.notice-body p {
+  color: #40545c;
+  line-height: 1.65;
+}
+
+.notice-body h2 {
+  margin-top: 1.8rem;
+  color: #073f59;
+  font-family: "Source Serif 4", serif;
+  font-size: 1.55rem;
+}
+
+.notice-list-card {
+  background: rgba(232, 247, 246, 0.52);
+  border: 1px solid rgba(44, 127, 141, 0.14);
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.notice-list-card ul {
+  margin-bottom: 0;
+}
+
+.notice-list-card li {
+  color: #40545c;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.notice-list-card li:last-child {
+  margin-bottom: 0;
+}
+
+.notice-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.notice-info-item {
+  background: #f8fbfb;
+  border: 1px solid rgba(7, 63, 89, 0.1);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.notice-info-item span {
+  display: block;
+  color: #2c7f8d;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+
+.notice-info-item strong {
+  color: #073f59;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.notice-return {
+  margin-top: 1.8rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(7, 63, 89, 0.09);
+}
+
+.notice-return a {
+  color: #2c7f8d;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.notice-return a:hover {
+  color: #073f59;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .notice-hero,
+  .notice-body {
+    padding: 1.1rem;
+    border-radius: 22px;
+  }
+
+  .notice-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notice-image-wrap,
+  .notice-image {
+    max-height: 240px;
+  }
+}
+
+/* Ocultar title block automático de Quarto solo en posts/noticias */
+
+.notice-page #title-block-header,
+.notice-page .quarto-title-block,
+.notice-page .quarto-title,
+.notice-page .quarto-title-meta,
+.notice-page .quarto-categories,
+.notice-page .description,
+.notice-page .date {
+  display: none !important;
+}
+
+/* =========================================================
+   COMENTARIOS TIPO DISCUSION / GISCUS
+   ========================================================= */
+
+.comments-giscus-box {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(44, 127, 141, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(240, 250, 250, 0.9), rgba(255, 255, 255, 0.98));
+  box-shadow: 0 18px 45px rgba(12, 45, 60, 0.08);
+}
+
+.comments-heading {
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+}
+
+.comments-kicker {
+  display: inline-flex;
+  margin-bottom: 0.6rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(44, 127, 141, 0.12);
+  color: #247383;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.comments-heading h2 {
+  margin-bottom: 0.5rem;
+  color: #063f59;
+  font-family: "Source Serif 4", serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.comments-heading p {
+  margin-bottom: 0;
+  color: #526674;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.giscus {
+  margin-top: 1.25rem;
+}
+
+.giscus-frame {
+  width: 100%;
+  border-radius: 18px;
+}
+
+/* =========================================================
+   OCULTAR TÍTULO AUTOMÁTICO EN PÁGINAS DE CLASE
+   Mantiene el title del YAML para navegador/SEO,
+   pero no muestra el bloque superior en la página.
+   ========================================================= */
+
+body.clase-page header#title-block-header,
+body.clase-page .quarto-title-block,
+body.clase-page .quarto-title,
+body.clase-page .quarto-title-meta {
+  display: none !important;
 }
