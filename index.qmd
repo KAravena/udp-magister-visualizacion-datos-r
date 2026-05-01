@@ -24,7 +24,7 @@ listing:
 
 <div class="d-flex flex-wrap gap-2 mt-4 hero-cta">
 <a href="curso.html" class="btn btn-primary btn-md">Ver curso</a>
-<a href="clases.html" class="btn btn-outline-secondary btn-md">Ver clases</a>
+<a href="clases\clase_00\index.html" class="btn btn-outline-secondary btn-md">Ver clases</a>
 <a href="ayudantias.html" class="btn btn-outline-secondary btn-md">Ver ayudantías</a>
 </div>
 <div class="mt-4 small text-muted">

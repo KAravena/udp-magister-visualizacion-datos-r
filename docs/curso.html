@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
   <li class="nav-item">
     <a class="nav-link active" href="./curso.html" aria-current="page"> 
-<span class="menu-text">Curso</span></a>
+<span class="menu-text">Información</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./bibliografia.html"> 
@@ -162,6 +162,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 <style>
+  /* Oculta el título automático de Quarto en la página Curso */
+  header#title-block-header,
+  .quarto-title-block,
+  .quarto-title {
+    display: none !important;
+  }
+
+  .curso-note {
+    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.15rem;
+    border-left: 4px solid #2f7f7f;
+    border-radius: 10px;
+    background: #f1f8f8;
+    color: #244d58;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+
+  .curso-note strong {
+    color: #0f4250;
+    font-weight: 700;
+  }
+
+  .curso-tabset {
+    margin-top: 1.25rem;
+  }
   .curso-tabset {
     margin-top: 1.25rem;
   }

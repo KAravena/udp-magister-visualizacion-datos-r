@@ -47,7 +47,7 @@ website:
             href: clases/clase_00/index.qmd
           - text: "Ayudantías"
             href: ayudantias.qmd
-      - text: "Curso"
+      - text: "Información"
         href: curso.qmd
       - text: "Bibliografía"
         href: bibliografia.qmd
