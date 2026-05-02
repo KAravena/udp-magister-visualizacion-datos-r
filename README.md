@@ -84,4 +84,12 @@ El sitio contiene:
 └── docs/                           # Sitio compilado para publicación en Netlify
 ```
 
-## Licencias | Tipo | Licencia | |------|----------| | **Contenido** (textos, presentaciones) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) | | **Código** (HTML, CSS, configuración) | [MIT](https://opensource.org/licenses/MIT) | ---
+## Licencias
+
+| Tipo | Licencia |
+|------|----------|
+| **Contenido** (textos, presentaciones) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
+| **Código** (HTML, CSS, configuración) | [MIT](https://opensource.org/licenses/MIT) |
+
+---
+
