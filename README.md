@@ -1,15 +1,14 @@
 <img src="resources/imagenes/logo.svg" alt="Logo del sitio" width="42" height="42" align="left" style="margin-right: 12px;"/>
 
-## Sitio web
-
-**[udp-visualizacion-datos-r.netlify.app](https://udp-visualizacion-datos-r.netlify.app)**
-
 # Procesamiento y Visualización de Datos en R
 
 Sitio web del curso **Procesamiento y Visualización de Datos en R**, del **Magíster en Métodos para la Investigación Social**.
 
 **Docente:** Daniela Olivares Collío  
 **Ayudante:** Katherine Aravena Herrera  
+## Sitio web
+
+**[udp-visualizacion-datos-r.netlify.app](https://udp-visualizacion-datos-r.netlify.app)**
 ---
 
 ## Descripción
