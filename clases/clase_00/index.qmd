@@ -13,14 +13,19 @@ body-classes: clases-page clase-page
 <div class="clase-presentacion">
   <div class="clase-slide">
     <div class="ratio ratio-16x9">
-      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_00%2Fclase_00.pptx" allowfullscreen frameborder="0" scrolling="no"></iframe>
+      <iframe 
+  src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_00%2Fclase_00.pptx%3Fv%3D20260507" 
+  allowfullscreen 
+  frameborder="0" 
+  scrolling="no">
+</iframe>
     </div>
   </div>
 
   <div class="clase-info">
     <span class="clase-titulo">Clase 00 | Presentación</span>
     <span class="clase-descarga">
-      <a href="clase_00.pptx">Descargar diapositivas</a>
+      <a href="clase_00.pptx?v=20260507">Descargar diapositivas</a>
     </span>
   </div>
 </div>

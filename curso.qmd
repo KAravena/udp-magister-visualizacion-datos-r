@@ -8,7 +8,6 @@ format:
 
 ```{=html}
 <style>
-  /* Oculta el título automático de Quarto en la página Curso */
   header#title-block-header,
   .quarto-title-block,
   .quarto-title {
@@ -31,9 +30,6 @@ format:
     font-weight: 700;
   }
 
-  .curso-tabset {
-    margin-top: 1.25rem;
-  }
   .curso-tabset {
     margin-top: 1.25rem;
   }
@@ -168,7 +164,7 @@ format:
 ::: {.evaluaciones-panel}
 | Evaluación | Fecha de entrega a las y los estudiantes | Fecha de entrega por parte de las y los estudiantes | Ponderación |
 |---|---|---|---:|
-| Entrega parcial | 16 de mayo | Domingo 24 de mayo | 45% |
+| Entrega parcial | 1 de mayo | Domingo 24 de mayo | 45% |
 | Entrega final | 28 de mayo | Domingo 07 de junio | 55% |
 :::
 
@@ -205,15 +201,14 @@ format:
           </div>
           <h4 class="agenda-event-title">Introducción a R y flujo de trabajo reproducible</h4>
           <p class="agenda-event-desc">
-            Introducción a la ciencia abierta, flujo de trabajo reproducible, lenguaje R, entorno RStudio y lógica básica del lenguaje: escritura, creación de objetos, tipos de datos, carga de librerías y carga de bases de datos.
+            Introducción a la ciencia abierta, flujo de trabajo reproducible, software y lenguaje R, REnvironment, interfaz RStudio y lógica del lenguaje: escritura, creación de objetos, tipos de datos, carga de librerías y carga de bases de datos.
           </p>
           <p class="agenda-material">
-            <strong>Material sugerido:</strong> Urdinez & Cruz (2020), cap. 1; Wickham & Grolemund (2017), secciones 1, 2 y 4.
+            <strong>Material sugerido:</strong> Ritchey (2008), cap. 1; Urdinez & Cruz (2021), cap. 1; Wickham & Grolemund (2023), secciones 1, 2 y 4.
           </p>
         </div>
       </article>
     </section>
-
 
     <section class="agenda-month">
       <h3>Mayo 2026</h3>
@@ -234,7 +229,7 @@ format:
             Explorar, limpiar, seleccionar, filtrar, renombrar, recodificar y trabajar con casos perdidos.
           </p>
           <p class="agenda-material">
-            <strong>Material sugerido:</strong> Urdinez & Cruz (2020), cap. 2; Wickham & Grolemund (2017), secciones 5 y 6.
+            <strong>Material sugerido:</strong> Johnson (2008), cap. 1; Urdinez & Cruz (2021), cap. 2; Wickham & Grolemund (2023), secciones 5 y 6; Agresti, Franklin & Klingenberg (2023), cap. 1.
           </p>
         </div>
       </article>
@@ -250,12 +245,12 @@ format:
             <span class="agenda-badge agenda-badge-class">Clase 3</span>
             <span class="agenda-badge agenda-badge-stats">Estadística</span>
           </div>
-          <h4 class="agenda-event-title">Introducción a la estadística descriptiva</h4>
+          <h4 class="agenda-event-title">Distribución y estadística descriptiva</h4>
           <p class="agenda-event-desc">
-            Noción de distribución, análisis estadístico univariado y bivariado, tipos de gráficos y formas de visualización.
+            Noción de distribución, introducción a la estadística descriptiva, tipos de análisis estadístico univariado y bivariado, tipos de gráficos y formas de visualización.
           </p>
           <p class="agenda-material">
-            <strong>Material sugerido:</strong> Agresti (2013), pp. 23–72; Triola (2004), cap. 2.
+            <strong>Material sugerido:</strong> Ritchey (2008), cap. 2; Agresti, Franklin & Klingenberg (2023), cap. 1.
           </p>
         </div>
       </article>
@@ -270,14 +265,13 @@ format:
           <div class="agenda-card-head">
             <span class="agenda-badge agenda-badge-class">Clase 4</span>
             <span class="agenda-badge agenda-badge-r">ggplot</span>
-            <span class="agenda-badge agenda-badge-eval">Entrega parcial disponible</span>
           </div>
-          <h4 class="agenda-event-title">Estadística descriptiva univariada</h4>
+          <h4 class="agenda-event-title">Estadística descriptiva univariada y visualización</h4>
           <p class="agenda-event-desc">
-            Frecuencias, medidas de tendencia central, dispersión, posición y forma. Visualizaciones con ggplot: gráficos de barras univariados y boxplot.
+            Frecuencias, medidas de tendencia central, dispersión, posición y forma. Visualizaciones de datos con ggplot: gráficos de barras univariados y boxplot.
           </p>
           <p class="agenda-material">
-            <strong>Material sugerido:</strong> Schwabish (2017), cap. 5; Nussbaumer (2015), introducción y cap. 2; Wickham & Grolemund (2017), sección 28; R Graph Gallery.
+            <strong>Material sugerido:</strong> Ritchey (2008), caps. 3, 4 y 5; Agresti, Franklin & Klingenberg (2023), cap. 2; Johnson (2008), cap. 2; Wickham & Grolemund (2023), sección 28; R Graph Gallery.
           </p>
         </div>
       </article>
@@ -294,7 +288,7 @@ format:
           </div>
           <h4 class="agenda-event-title">Dudas para la entrega parcial</h4>
           <p class="agenda-event-desc">
-            Sesión de apoyo para resolver dudas sobre la elaboración de la entrega parcial.
+            Sesión de dudas para la elaboración de la entrega parcial.
           </p>
         </div>
       </article>
@@ -309,9 +303,9 @@ format:
           <div class="agenda-card-head">
             <span class="agenda-badge agenda-badge-eval">Entrega parcial</span>
           </div>
-          <h4 class="agenda-event-title">Entrega parcial del reporte</h4>
+          <h4 class="agenda-event-title">Entrega parcial</h4>
           <p class="agenda-event-desc">
-            Fecha límite para entregar la primera parte del reporte de investigación. Ponderación: 45%.
+            Fecha límite para entregar la entrega parcial. Ponderación: 45%.
           </p>
         </div>
       </article>
@@ -328,17 +322,16 @@ format:
             <span class="agenda-badge agenda-badge-r">Bivariado</span>
             <span class="agenda-badge agenda-badge-eval">Entrega final disponible</span>
           </div>
-          <h4 class="agenda-event-title">Estadística descriptiva bivariada</h4>
+          <h4 class="agenda-event-title">Asociación, correlación y documentos dinámicos</h4>
           <p class="agenda-event-desc">
-            Tablas de contingencia, asociación entre variables, correlación y visualizaciones con ggplot: dispersión, barras bivariadas y boxplot bivariado.
+            Tablas de contingencia, noción de asociación entre variables, correlación y visualizaciones con ggplot: gráficos de dispersión, gráficos de barras bivariados y boxplot bivariado. Introducción a Quarto y documentos dinámicos.
           </p>
           <p class="agenda-material">
-            <strong>Material sugerido:</strong> Agresti (2013), pp. 89–110; Pardo et al. (2009), cap. 10, pp. 282–289.
+            <strong>Material sugerido:</strong> Agresti, Franklin & Klingenberg (2023), cap. 3; Johnson (2008), cap. 3.
           </p>
         </div>
       </article>
     </section>
-
 
     <section class="agenda-month">
       <h3>Junio 2026</h3>
@@ -355,7 +348,7 @@ format:
           </div>
           <h4 class="agenda-event-title">Dudas para la entrega final</h4>
           <p class="agenda-event-desc">
-            Sesión de apoyo para resolver dudas sobre la elaboración de la entrega final.
+            Sesión de dudas para la elaboración de la entrega final.
           </p>
         </div>
       </article>
@@ -370,9 +363,9 @@ format:
           <div class="agenda-card-head">
             <span class="agenda-badge agenda-badge-eval">Entrega final</span>
           </div>
-          <h4 class="agenda-event-title">Entrega final del reporte</h4>
+          <h4 class="agenda-event-title">Entrega final</h4>
           <p class="agenda-event-desc">
-            Fecha límite para entregar la versión final del reporte de investigación. Ponderación: 55%.
+            Fecha límite para entregar la entrega final. Ponderación: 55%.
           </p>
         </div>
       </article>
@@ -444,3 +437,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 ```
+
+:::
