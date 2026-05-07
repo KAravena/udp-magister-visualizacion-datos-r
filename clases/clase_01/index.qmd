@@ -6,7 +6,6 @@ page-layout: full
 body-classes: clases-page clase-page
 ---
 
-
 ::: {.columns}
 ::: {.column}
 
@@ -15,18 +14,18 @@ body-classes: clases-page clase-page
   <div class="clase-slide">
     <div class="ratio ratio-16x9">
       <iframe 
-  src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_01%2Fclase_01.pptx%3Fv%3D20260507" 
-  allowfullscreen 
-  frameborder="0" 
-  scrolling="no">
-</iframe>
+        src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_01%2Fclase_01_v20260507b.pptx" 
+        allowfullscreen 
+        frameborder="0" 
+        scrolling="no">
+      </iframe>
     </div>
   </div>
 
   <div class="clase-info">
     <span class="clase-titulo">Clase 01 | Unidad 1. Introducción al uso de R</span>
     <span class="clase-descarga">
-     <a href="clase_01.pptx?v=20260507">Descargar diapositivas</a>
+      <a href="clase_01_v20260507b.pptx">Descargar diapositivas</a>
     </span>
   </div>
 </div>
