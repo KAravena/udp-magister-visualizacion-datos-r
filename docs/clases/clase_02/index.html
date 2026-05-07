@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -39,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -180,6 +215,247 @@ ul.task-list li input[type="checkbox"] {
     </span>
   </div>
 </div>
+<hr>
+<section id="contenidos-de-la-clase" class="level2">
+<h2 class="anchored" data-anchor-id="contenidos-de-la-clase">Contenidos de la clase</h2>
+<p>El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:</p>
+<ol type="1">
+<li>Instalar y cargar paquetes y librerías.</li>
+<li>Importar bases de datos en R.</li>
+<li>Explorar, limpiar y transformar variables.</li>
+<li>Exportar la base procesada.</li>
+</ol>
+<p>Para ello, trabajaremos con la ola 6 del <a href="https://coes.cl/encuesta-panel/">Estudio Longitudinal Social de Chile (ELSOC)</a> — ELSOC 2022.</p>
+<hr>
+</section>
+<section id="cargar-librerías" class="level2">
+<h2 class="anchored" data-anchor-id="cargar-librerías">1. Cargar librerías</h2>
+<p>En R se trabaja a partir de <strong>paquetes</strong> (<em>packages</em>): conjuntos de funciones que amplían las capacidades del lenguaje base. Los directorios donde se almacenan se llaman <strong>librerías</strong>. La lógica es instalar el paquete una vez y luego cargar la librería cada vez que la necesitamos.</p>
+<p>En este curso usaremos <strong><code>pacman</code></strong>, un paquete que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Luego, con <code>p_load()</code> instalamos y cargamos todos los paquetes que necesitamos en un solo paso:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># colección de paquetes para manipulación de datos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               dplyr,     <span class="co"># para manipular datos</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               haven,     <span class="co"># para importar datos en formato .sav y .dta</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               car)       <span class="co"># para recodificar datos</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># desactivar notación científica</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())       <span class="co"># limpiar el entorno de trabajo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El <code>::</code> antes de <code>p_load</code> indica que se “fuerza” el uso de esa función desde el paquete <code>pacman</code>. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="importar-datos" class="level2">
+<h2 class="anchored" data-anchor-id="importar-datos">2. Importar datos</h2>
+<p><a href="../../resources/ELSOC_W06_v1.0_SPSS.sav">Descargar ELSOC 2022</a></p>
+<p>En R es posible importar datos en prácticamente cualquier formato: <code>.csv</code>, <code>.dta</code>, <code>.sav</code>, <code>.xlsx</code>, <code>.rds</code>, <code>.RData</code>, entre otros. La estructura general es:</p>
+<p><code>read_*("ruta_hacia_archivo/nombre_archivo.*")</code></p>
+<p>Siguiendo el flujo de trabajo IPO, los datos deben estar guardados en la carpeta <code>input/data/</code> del proyecto. Una vez ubicados ahí, los importamos así:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>elsoc_2022 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"input/data/ELSOC_W06_v1.0_SPSS.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para importar datos correctamente hay que tener en cuenta tres cosas:</p>
+<ol type="1">
+<li>El <strong>nombre</strong> del archivo (ej. <code>ELSOC_W06_v1.0_SPSS</code>)</li>
+<li>El <strong>formato</strong> del archivo (ej. <code>.sav</code>)</li>
+<li>La <strong>ruta</strong> donde está alojado dentro del proyecto</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="explorar-datos" class="level2">
+<h2 class="anchored" data-anchor-id="explorar-datos">3. Explorar datos</h2>
+<p>Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(elsoc_2022)   <span class="co"># ver los datos como tabla</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elsoc_2022)  <span class="co"># nombres de las columnas/variables</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(elsoc_2022)    <span class="co"># dimensiones: filas y columnas</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elsoc_2022)    <span class="co"># estructura: clases y categorías de respuesta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="limpiar-datos" class="level2">
+<h2 class="anchored" data-anchor-id="limpiar-datos">4. Limpiar datos</h2>
+<p>Para limpiar y manipular datos usaremos el paquete <strong><code>dplyr</code></strong>, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:</p>
+<p><code>dplyr::funcion(datos, variable1, variable2, ...)</code></p>
+<section id="seleccionar-variables" class="level3">
+<h3 class="anchored" data-anchor-id="seleccionar-variables">4.1 Seleccionar variables</h3>
+<p>Con <code>select()</code> elegimos las columnas que nos interesan y las guardamos en una nueva base. Podemos seleccionar por posición, por nombre, o renombrar al mismo tiempo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Por posición</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="dv">1</span>, <span class="dv">2</span>)       <span class="co"># primera y segunda columna</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)        <span class="co"># de la primera a la cuarta</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>)) <span class="co"># primera, cuarta y quinta</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Por nombre</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, m0_sexo, m0_edad, m13)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Renombrando al seleccionar</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="at">sexo =</span> m0_sexo, <span class="at">edad =</span> m0_edad, <span class="at">ingreso =</span> m13)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Ahora seleccionamos y renombramos las variables de interés en una nueva base llamada <code>proc_elsoc</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">edad            =</span> m0_edad,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sexo            =</span> m0_sexo,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ingreso         =</span> m13,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">autor_democ     =</span> c25,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">jv_delincuentes =</span> f05_01)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="filtrar-casos" class="level3">
+<h3 class="anchored" data-anchor-id="filtrar-casos">4.2 Filtrar casos</h3>
+<p>Con <code>filter()</code> nos quedamos solo con las filas que cumplen una condición. Podemos combinar condiciones con operadores lógicos (<code>==</code>, <code>&gt;=</code>, <code>&amp;</code>, etc.):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Casos con preferencia autoritaria</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, autor_democ <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinando condiciones</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, autor_democ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> edad <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables tipo character o factor</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, sexo <span class="sc">==</span> <span class="st">"Mujer"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Filtramos quedándonos solo con personas de 25 años o más:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, edad <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="recodificar-variables" class="level3">
+<h3 class="anchored" data-anchor-id="recodificar-variables">4.3 Recodificar variables</h3>
+<p>La recodificación consiste en asignar nuevos valores a las categorías de una variable. Usaremos <code>recode()</code> del paquete <code>car</code>:</p>
+<p><code>car::recode(datos$variable, recodes = c('valor_orig = nuevo_valor'))</code></p>
+<p>Recodificamos <code>sexo</code> e <code>ingreso</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>sexo <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>sexo,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"'Hombre' = 'Masculino'; 'Mujer' = 'Femenino'"</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>ingreso <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>ingreso,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"-888 = NA; -999 = NA"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Para variables ordinales, podemos convertir a factor y asignar niveles en la misma función:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>autor_democ <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>autor_democ,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"1 = 'La democracia es preferible a cualquier otra forma de gobierno';</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">                                         2 = 'En algunas circunstancias, un gobierno autoritario puede ser preferible a uno democratico';</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">                                         3 = 'A la gente como uno, nos da lo mismo un regimen democratico que uno autoritario';</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                         4 = 'Ninguna';</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                        -888 = NA;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                        -999 = NA"</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">as.factor =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>jv_delincuentes <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>jv_delincuentes,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                                <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"1 = 'Nunca';</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="st">                                             2 = 'Pocas veces';</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="st">                                             3 = 'Algunas veces';</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="st">                                             4 = 'Muchas veces';</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="st">                                             5 = 'Siempre';</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="st">                                            -888 = NA;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="st">                                            -999 = NA"</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">as.factor =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Nunca"</span>, <span class="st">"Pocas veces"</span>, <span class="st">"Algunas veces"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"Muchas veces"</span>, <span class="st">"Siempre"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los valores <code>-888</code> y <code>-999</code> corresponden a <em>no sabe</em> y <em>no responde</em>, respectivamente, y se recodifican como <code>NA</code> (valores perdidos).</p>
+</div>
+</div>
+</section>
+<section id="tratamiento-de-casos-perdidos" class="level3">
+<h3 class="anchored" data-anchor-id="tratamiento-de-casos-perdidos">4.4 Tratamiento de casos perdidos</h3>
+<p>Los valores perdidos en R se denominan <code>NA</code>. Antes de eliminarlos, conviene identificar cuántos hay y en qué variables:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_elsoc))         <span class="co"># total de NA en la base</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(proc_elsoc))     <span class="co"># NA por variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Una vez identificados, los eliminamos con <code>na.omit()</code>, que remueve todas las filas que contengan al menos un <code>NA</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_elsoc)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="transformar-variables" class="level2">
+<h2 class="anchored" data-anchor-id="transformar-variables">5. Transformar variables</h2>
+<p>Con <code>mutate()</code> de <code>dplyr</code> podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.</p>
+<p>La estructura general es:</p>
+<p><code>dplyr::mutate(datos, nueva_variable = funcion())</code></p>
+<p>Creamos una variable <code>ano</code> con el año de la encuesta:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc, <span class="at">ano =</span> <span class="dv">2022</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Con <code>case_when()</code> creamos variables según condiciones múltiples (útil para tramos):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tramo_edad =</span> <span class="fu">case_when</span>(edad <span class="sc">&lt;=</span> <span class="dv">29</span>              <span class="sc">~</span> <span class="st">"Jovenes"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                            edad <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> edad <span class="sc">&lt;=</span> <span class="dv">59</span> <span class="sc">~</span> <span class="st">"Adultos"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                                            edad <span class="sc">&gt;=</span> <span class="dv">60</span>              <span class="sc">~</span> <span class="st">"Adultos mayores"</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tramo_ingreso =</span> <span class="fu">case_when</span>(ingreso <span class="sc">&lt;=</span> <span class="dv">250000</span>                          <span class="sc">~</span> <span class="st">"Tramo 1"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">250000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">500000</span>       <span class="sc">~</span> <span class="st">"Tramo 2"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">500000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">750000</span>       <span class="sc">~</span> <span class="st">"Tramo 3"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">750000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">1000000</span>      <span class="sc">~</span> <span class="st">"Tramo 4"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">1000000</span>                          <span class="sc">~</span> <span class="st">"Tramo 5"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Con <code>if_else()</code> creamos una variable dicotómica según una condición simple:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ingreso_minimo =</span> <span class="fu">if_else</span>(ingreso <span class="sc">&lt;</span> <span class="dv">410000</span>, <span class="st">"debajo minimo"</span>, <span class="st">"sobre minimo"</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(proc_elsoc, ingreso, ingreso_minimo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="guardar-y-exportar-datos-procesados" class="level2">
+<h2 class="anchored" data-anchor-id="guardar-y-exportar-datos-procesados">6. Guardar y exportar datos procesados</h2>
+<p>El último paso es guardar la base procesada en la carpeta <code>output/</code> del proyecto en formato <code>.RData</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(proc_elsoc, <span class="at">file =</span> <span class="st">"output/proc_elsoc.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
 <section class="comments-box comments-giscus-box">
   <div class="comments-heading">
     <h2 class="anchored">Preguntas, dudas y comentarios</h2>
@@ -190,6 +466,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://giscus.app/client.js" data-repo="KAravena/udp-magister-visualizacion-datos-r" data-repo-id="R_kgDOSC4xhA" data-category="Comentarios" data-category-id="DIC_kwDOSC4xhM4C8I67" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="es" data-loading="lazy" crossorigin="anonymous" async="">
 </script>
 
+</section>
 </section>
 </div>
 <div class="no-row-height column-margin column-container page-columns page-full"><div class="page-columns page-full">
