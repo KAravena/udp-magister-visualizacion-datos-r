@@ -11,29 +11,6 @@ body-classes: curso-page
 
 ::: {.panel-tabset .curso-tabset}
 
-## Programa
-
-::: {.programa-actions}
-[Descargar programa](resources/PROGRAMA_ESI_2026.pdf){.programa-download-btn download="" target="_blank" rel="noopener"}
-:::
-
-```{=html}
-<iframe
-  src="resources/PROGRAMA_ESI_2026.pdf"
-  class="programa-frame"
->
-</iframe>
-```
-
-## Evaluaciones
-
-::: {.evaluaciones-panel}
-| Evaluación | Fecha de entrega a las y los estudiantes | Fecha de entrega por parte de las y los estudiantes | Ponderación |
-|---|---|---|---:|
-| Entrega parcial | 1 de mayo | Domingo 24 de mayo | 45% |
-| Entrega final | 28 de mayo | Domingo 07 de junio | 55% |
-:::
-
 ## Calendarización
 
 ```{=html}
@@ -303,9 +280,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 ```
+## Evaluaciones
+
+::: {.evaluaciones-panel}
+| Evaluación | Fecha de entrega a las y los estudiantes | Fecha de entrega por parte de las y los estudiantes | Ponderación |
+|---|---|---|---:|
+| Entrega parcial | 1 de mayo | Domingo 24 de mayo | 45% |
+| Entrega final | 28 de mayo | Domingo 07 de junio | 55% |
+:::
+
+## Programa
+
+::: {.programa-actions}
+[Descargar programa](resources/PROGRAMA_ESI_2026.pdf){.programa-download-btn download="" target="_blank" rel="noopener"}
+:::
+
+```{=html}
+<iframe
+  src="resources/PROGRAMA_ESI_2026.pdf"
+  class="programa-frame"
+>
+</iframe>
+```
 
 :::
 
 :::
-
 :::
