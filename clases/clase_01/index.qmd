@@ -6,8 +6,10 @@ page-layout: full
 body-classes: clases-page clase-page
 ---
 
-::: {.columns}
-::: {.column}
+
+::: {.columns #catedra}
+
+::: {.column .clase-main}
 
 ```{=html}
 <div class="clase-presentacion">

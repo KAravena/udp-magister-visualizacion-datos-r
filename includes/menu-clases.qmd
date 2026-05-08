@@ -1,52 +1,75 @@
 ```{=html}
-<aside class="clases-sidebar">
-  <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
-    <!-- Unidad 0 -->
-    <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
-        <div class="unit-label-wrap">
-          <span class="unit-label">Unidad 0</span>
-          <span class="unit-title">Presentación del curso</span>
-        </div>
-        <i class="bi bi-chevron-down"></i>
-      </button>
+<div class="clases-sidebar-wrapper">
+  <button class="clases-sidebar-toggle" type="button" aria-label="Mostrar u ocultar menú de clases">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+
+  <aside class="clases-sidebar">
+    <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
+
+      <div class="sidebar-unit-header">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
+          <div class="unit-label-wrap">
+            <span class="unit-label">Unidad 0</span>
+            <span class="unit-title">Presentación del curso</span>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="collapse show" id="unidad0">
+        <a class="clase-link" href="/clases/clase_00/index.html" data-clase-link="clase_00">Clase 00 – Presentación</a>
+      </div>
+
+      <div class="sidebar-unit-header">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
+          <div class="unit-label-wrap">
+            <span class="unit-label">Unidad 1</span>
+            <span class="unit-title">Introducción al uso de R</span>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="collapse show" id="unidad1">
+        <a class="clase-link" href="/clases/clase_01/index.html" data-clase-link="clase_01">Clase 01 – Introducción al uso de R</a>
+        <a class="clase-link" href="/clases/clase_02/index.html" data-clase-link="clase_02">Clase 02 – Procesamiento de datos</a>
+      </div>
+
     </div>
-    <div class="collapse show" id="unidad0">
-      <a class="clase-link" href="/clases/clase_00/index.html" data-clase-link="clase_00">
-        Clase 00 – Presentación
-      </a>
-    </div>
-    <!-- Unidad 1 -->
-    <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
-        <div class="unit-label-wrap">
-          <span class="unit-label">Unidad 1</span>
-          <span class="unit-title">Introducción al uso de R</span>
-        </div>
-        <i class="bi bi-chevron-down"></i>
-      </button>
-    </div>
-    <div class="collapse show" id="unidad1">
-      <a class="clase-link" href="/clases/clase_01/index.html" data-clase-link="clase_01">
-        Clase 01 – Introducción al uso de R
-      </a>
-      <a class="clase-link" href="/clases/clase_02/index.html" data-clase-link="clase_02">
-        Clase 02 – Procesamiento de datos
-      </a>
-    </div>
-  </div>
-</aside>
+  </aside>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
+
   document.querySelectorAll("[data-clase-link]").forEach(function (link) {
     const clase = link.dataset.claseLink;
+
     if (
       path.includes("/" + clase + "/") ||
       path.endsWith("/" + clase + "/index.html")
     ) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
+    }
+  });
+
+  const toggle = document.querySelector(".clases-sidebar-toggle");
+  const icon = toggle ? toggle.querySelector("i") : null;
+
+  if (!toggle || !icon) return;
+
+  toggle.addEventListener("click", function () {
+    document.body.classList.toggle("sidebar-clases-collapsed");
+
+    if (document.body.classList.contains("sidebar-clases-collapsed")) {
+      icon.classList.remove("bi-chevron-right");
+      icon.classList.add("bi-chevron-left");
+    } else {
+      icon.classList.remove("bi-chevron-left");
+      icon.classList.add("bi-chevron-right");
     }
   });
 });

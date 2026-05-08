@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-9859d952baf36b9a7db628bbb9f3169e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -198,37 +198,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="columns page-columns page-full">
-<div class="column">
-<div class="clase-presentacion">
-  <div class="clase-slide">
-    <div class="ratio ratio-16x9">
-      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_02%2Fclase_02.pptx%3Fv%3D20260501" allowfullscreen="" frameborder="0" scrolling="no">
-</iframe>
-    </div>
-  </div>
-
-  <div class="clase-info">
-    <span class="clase-titulo">Clase 02 | Procesamiento de datos</span>
-    <span class="clase-descarga">
-      <a href="clase_02.pptx">Descargar diapositivas</a>
-    </span>
-  </div>
-</div>
-<hr>
-<section id="contenidos-de-la-clase" class="level2">
+<div id="catedra" class="columns page-columns page-full">
+<div class="column clase-main">
+<section class="clase-hero">
+  <p class="clase-kicker">Clase 02</p>
+  <h1>Procesamiento de datos</h1>
+  <p>Preparación, limpieza y transformación de bases de datos en R siguiendo un flujo de trabajo reproducible.</p>
+</section>
+<section id="contenidos-de-la-clase" class="level2 clase-card clase-intro">
 <h2 class="anchored" data-anchor-id="contenidos-de-la-clase">Contenidos de la clase</h2>
 <p>El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:</p>
-<ol type="1">
-<li>Instalar y cargar paquetes y librerías.</li>
-<li>Importar bases de datos en R.</li>
-<li>Explorar, limpiar y transformar variables.</li>
-<li>Exportar la base procesada.</li>
-</ol>
+<div class="clase-objetivos">
+<div class="objetivo-card">
+<p><strong>Preparar el entorno</strong></p>
+<p>Instalar y cargar paquetes y librerías.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Importar datos</strong></p>
+<p>Cargar bases de datos externas en R.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Procesar variables</strong></p>
+<p>Explorar, limpiar, seleccionar, filtrar y recodificar variables.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Exportar resultados</strong></p>
+<p>Guardar la base procesada para su uso posterior.</p>
+</div>
+</div>
 <p>Para ello, trabajaremos con la ola 6 del <a href="https://coes.cl/encuesta-panel/">Estudio Longitudinal Social de Chile (ELSOC)</a> — ELSOC 2022.</p>
-<hr>
 </section>
-<section id="cargar-librerías" class="level2">
+<section id="cargar-librerías" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="cargar-librerías">1. Cargar librerías</h2>
 <p>En R se trabaja a partir de <strong>paquetes</strong> (<em>packages</em>): conjuntos de funciones que amplían las capacidades del lenguaje base. Los directorios donde se almacenan se llaman <strong>librerías</strong>. La lógica es instalar el paquete una vez y luego cargar la librería cada vez que la necesitamos.</p>
 <p>En este curso usaremos <strong><code>pacman</code></strong>, un paquete que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:</p>
@@ -259,9 +259,8 @@ Note
 <p>El <code>::</code> antes de <code>p_load</code> indica que se “fuerza” el uso de esa función desde el paquete <code>pacman</code>. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.</p>
 </div>
 </div>
-<hr>
 </section>
-<section id="importar-datos" class="level2">
+<section id="importar-datos" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="importar-datos">2. Importar datos</h2>
 <p><a href="../../resources/ELSOC_W06_v1.0_SPSS.sav">Descargar ELSOC 2022</a></p>
 <p>En R es posible importar datos en prácticamente cualquier formato: <code>.csv</code>, <code>.dta</code>, <code>.sav</code>, <code>.xlsx</code>, <code>.rds</code>, <code>.RData</code>, entre otros. La estructura general es:</p>
@@ -288,9 +287,8 @@ Note
 </ol>
 </div>
 </div>
-<hr>
 </section>
-<section id="explorar-datos" class="level2">
+<section id="explorar-datos" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="explorar-datos">3. Explorar datos</h2>
 <p>Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:</p>
 <div class="cell">
@@ -299,9 +297,8 @@ Note
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(elsoc_2022)    <span class="co"># dimensiones: filas y columnas</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elsoc_2022)    <span class="co"># estructura: clases y categorías de respuesta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
 </section>
-<section id="limpiar-datos" class="level2">
+<section id="limpiar-datos" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="limpiar-datos">4. Limpiar datos</h2>
 <p>Para limpiar y manipular datos usaremos el paquete <strong><code>dplyr</code></strong>, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:</p>
 <p><code>dplyr::funcion(datos, variable1, variable2, ...)</code></p>
@@ -414,10 +411,9 @@ Note
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
 </section>
 </section>
-<section id="transformar-variables" class="level2">
+<section id="transformar-variables" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="transformar-variables">5. Transformar variables</h2>
 <p>Con <code>mutate()</code> de <code>dplyr</code> podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.</p>
 <p>La estructura general es:</p>
@@ -447,15 +443,14 @@ Note
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(proc_elsoc, ingreso, ingreso_minimo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
 </section>
-<section id="guardar-y-exportar-datos-procesados" class="level2">
+<section id="guardar-y-exportar-datos-procesados" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="guardar-y-exportar-datos-procesados">6. Guardar y exportar datos procesados</h2>
 <p>El último paso es guardar la base procesada en la carpeta <code>output/</code> del proyecto en formato <code>.RData</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(proc_elsoc, <span class="at">file =</span> <span class="st">"output/proc_elsoc.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
+</section>
 <section class="comments-box comments-giscus-box">
   <div class="comments-heading">
     <h2 class="anchored">Preguntas, dudas y comentarios</h2>
@@ -467,57 +462,79 @@ Note
 </script>
 
 </section>
-</section>
 </div>
 <div class="no-row-height column-margin column-container page-columns page-full"><div class="page-columns page-full">
-<aside class="clases-sidebar">
-  <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
-    <!-- Unidad 0 -->
-    <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
-        <div class="unit-label-wrap">
-          <span class="unit-label">Unidad 0</span>
-          <span class="unit-title">Presentación del curso</span>
-        </div>
-        <i class="bi bi-chevron-down"></i>
-      </button>
+<div class="clases-sidebar-wrapper page-columns page-full">
+  <button class="clases-sidebar-toggle" type="button" aria-label="Mostrar u ocultar menú de clases">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+
+  <aside class="clases-sidebar">
+    <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
+
+      <div class="sidebar-unit-header">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
+          <div class="unit-label-wrap">
+            <span class="unit-label">Unidad 0</span>
+            <span class="unit-title">Presentación del curso</span>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="collapse show" id="unidad0">
+        <a class="clase-link" href="../../clases/clase_00/index.html" data-clase-link="clase_00">Clase 00 – Presentación</a>
+      </div>
+
+      <div class="sidebar-unit-header">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
+          <div class="unit-label-wrap">
+            <span class="unit-label">Unidad 1</span>
+            <span class="unit-title">Introducción al uso de R</span>
+          </div>
+          <i class="bi bi-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="collapse show" id="unidad1">
+        <a class="clase-link" href="../../clases/clase_01/index.html" data-clase-link="clase_01">Clase 01 – Introducción al uso de R</a>
+        <a class="clase-link" href="../../clases/clase_02/index.html" data-clase-link="clase_02">Clase 02 – Procesamiento de datos</a>
+      </div>
+
     </div>
-    <div class="collapse show" id="unidad0">
-      <a class="clase-link" href="../../clases/clase_00/index.html" data-clase-link="clase_00">
-        Clase 00 – Presentación
-      </a>
-    </div>
-    <!-- Unidad 1 -->
-    <div class="sidebar-unit-header">
-      <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
-        <div class="unit-label-wrap">
-          <span class="unit-label">Unidad 1</span>
-          <span class="unit-title">Introducción al uso de R</span>
-        </div>
-        <i class="bi bi-chevron-down"></i>
-      </button>
-    </div>
-    <div class="collapse show" id="unidad1">
-      <a class="clase-link" href="../../clases/clase_01/index.html" data-clase-link="clase_01">
-        Clase 01 – Introducción al uso de R
-      </a>
-      <a class="clase-link" href="../../clases/clase_02/index.html" data-clase-link="clase_02">
-        Clase 02 – Procesamiento de datos
-      </a>
-    </div>
-  </div>
-</aside>
+  </aside>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
+
   document.querySelectorAll("[data-clase-link]").forEach(function (link) {
     const clase = link.dataset.claseLink;
+
     if (
       path.includes("/" + clase + "/") ||
       path.endsWith("/" + clase + "/index.html")
     ) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
+    }
+  });
+
+  const toggle = document.querySelector(".clases-sidebar-toggle");
+  const icon = toggle ? toggle.querySelector("i") : null;
+
+  if (!toggle || !icon) return;
+
+  toggle.addEventListener("click", function () {
+    document.body.classList.toggle("sidebar-clases-collapsed");
+
+    if (document.body.classList.contains("sidebar-clases-collapsed")) {
+      icon.classList.remove("bi-chevron-right");
+      icon.classList.add("bi-chevron-left");
+    } else {
+      icon.classList.remove("bi-chevron-left");
+      icon.classList.add("bi-chevron-right");
     }
   });
 });

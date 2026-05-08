@@ -1,5 +1,5 @@
 /* Clases: barra lateral fija (margen derecho) */
-.clases-sidebar .nav-pills {
+body.clases-page .clases-sidebar .nav-pills {
   border: none;
   border-radius: 0;
   padding: 0;
@@ -7,12 +7,12 @@
   box-shadow: none;
 }
 
-.clases-sidebar .nav-pills .nav-link {
+body.clases-page .clases-sidebar .nav-pills .nav-link {
   text-align: left;
 }
 
 /* Links de clases simples */
-.clase-link {
+body.clases-page .clase-link {
   display: block;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
@@ -23,161 +23,24 @@
   transition: color 0.15s, background-color 0.15s;
 }
 
-.clase-link:hover {
+body.clases-page .clase-link:hover {
   color: #0d6efd;
   background-color: rgba(13, 110, 253, 0.05);
 }
 
-.clase-link.active {
+body.clases-page .clase-link.active {
   color: #0d6efd;
   font-weight: 600;
   background-color: rgba(13, 110, 253, 0.1);
 }
 
-/* Presentación de clase: título arriba, slide grande, info abajo */
-.clase-presentacion {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0;
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-}
-
-.clase-titulo {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #495057;
-  margin: 0.25rem 0 0.5rem 0;
-  text-align: left;
-  width: 100%;
-  max-width: 1100px;
-}
-
-.clase-slide {
-  width: 100%;
-  max-width: 1100px;
-  margin-bottom: 0.5rem;
-}
-
-.clase-slide .ratio {
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.clase-slide .ratio-16x9 {
-  --bs-aspect-ratio: 50%;
-}
-
-.clase-slide .ratio iframe {
-  border: none;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.clase-info {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 1.5rem;
-  text-align: left;
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 0.25rem;
-}
-
-.clase-titulo {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #495057;
-  margin: 0;
-  display: inline;
-  font-family: "Georgia", "Times New Roman", serif;
-}
-
-.clase-descarga {
-  font-size: 0.9rem;
-  display: inline;
-  margin: 0;
-}
-
-.clase-descarga a {
-  display: inline-block;
-  background-color: #3d8b8b;
-  color: #fff !important;
-  text-decoration: none;
-  padding: 0.2rem 0.6rem;
-  border-radius: 2rem;
-  font-size: 0.65rem;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: background-color 0.2s ease;
-}
-
-.clase-descarga a::before,
-.clase-descarga a::after {
-  display: none !important;
-  content: none !important;
-}
-
-.clase-descarga i {
-  display: none !important;
-}
-
-.clase-descarga a:hover {
-  background-color: #2d7070;
-  text-decoration: none;
-}
-
-/* Contenido principal ocupa todo el ancho disponible */
-@media (min-width: 992px) {
-  .clases-page .tab-content {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-  }
-  
-  .clases-page .column {
-    width: 100% !important;
-    flex: 1 1 100% !important;
-    max-width: calc(100vw - 360px) !important;
-    padding-right: 1rem;
-  }
-  
-  .clases-page .columns {
-    display: block !important;
-  }
-  
-  .clases-page main#quarto-document-content {
-    padding-right: 340px;
-    padding-left: 1rem;
-    padding-top: 0;
-    margin-top: 0;
-    max-width: 100%;
-  }
-  
-  .clases-page #quarto-content {
-    max-width: 100%;
-  }
-  
-  .clases-page .tab-pane {
-    padding-top: 0;
-    margin-top: 0;
-  }
-}
-
 /* Botones de unidad desplegable */
-.sidebar-unit-header {
+body.clases-page .sidebar-unit-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 0.75rem 0;
 }
 
-.sidebar-unit-toggle {
+body.clases-page .sidebar-unit-toggle {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -189,21 +52,21 @@
   background: transparent;
 }
 
-.sidebar-unit-toggle:hover {
+body.clases-page .sidebar-unit-toggle:hover {
   text-decoration: none;
 }
 
-.sidebar-unit-toggle:hover .unit-title {
+body.clases-page .sidebar-unit-toggle:hover .unit-title {
   color: #0d6efd;
 }
 
-.unit-label-wrap {
+body.clases-page .unit-label-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
 }
 
-.unit-label {
+body.clases-page .unit-label {
   font-size: 0.75rem;
   font-weight: 500;
   color: #6c757d;
@@ -211,69 +74,24 @@
   letter-spacing: 0.02em;
 }
 
-.unit-title {
+body.clases-page .unit-title {
   font-size: 0.95rem;
   font-weight: 600;
   color: #212529;
   line-height: 1.3;
 }
 
-.sidebar-unit-toggle .bi {
+body.clases-page .sidebar-unit-toggle .bi {
   font-size: 1rem;
   color: #6c757d;
   margin-top: 0.25rem;
   transition: transform 0.2s ease;
 }
 
-.sidebar-unit-toggle[aria-expanded="false"] .bi {
+body.clases-page .sidebar-unit-toggle[aria-expanded="false"] .bi {
   transform: rotate(-90deg);
 }
 
-/* Sidebar fijo a la derecha (desktop) */
-@media (min-width: 992px) {
-  .clases-page .clases-sidebar {
-    position: fixed !important;
-    right: 0 !important;
-    top: 0 !important;
-    width: 320px !important;
-    height: 100vh !important;
-    overflow-y: auto;
-    z-index: 900; /* menor que el footer */
-    background: #ffffff;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 5rem 1rem 1.5rem 1rem; /* padding-top para no tapar con navbar */
-  }
-
-  /* Asegura que el contenedor del margin no mueva el sidebar */
-  .clases-page .column-margin {
-    position: static !important;
-  }
-
-  /* Deja espacio al contenido para que no quede centrado */
-  .clases-page main#quarto-document-content {
-    padding-right: 340px;
-  }
-
-  /* Footer por encima del sidebar */
-  .clases-page footer {
-    position: relative;
-    z-index: 1030;
-  }
-}
-
-/* En pantallas chicas, sidebar normal */
-@media (max-width: 991.98px) {
-  .clases-page .clases-sidebar {
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-  }
-
-  .clases-page main#quarto-document-content {
-    padding-right: 0;
-  }
-}
 .badge-year-min {
   display: flex;
   flex-direction: column;
@@ -369,7 +187,7 @@
   font-weight: 400;
   opacity: 0.75;
 }
-/* Badges de año aún más delgadas y minimalistas */
+/* Badges de aÃ±o aÃºn mÃ¡s delgadas y minimalistas */
 .badge-year-min {
   display: flex;
   flex-direction: column;
@@ -455,12 +273,12 @@
 
   --link:var(--mint-700); --link-hover:var(--mint-800);
 
-  --texto:#24414c; --texto-sec:#4b6b74; /* versión clara por defecto */
+  --texto:#24414c; --texto-sec:#4b6b74; /* versiÃ³n clara por defecto */
   --texto-claro:#f8fffb;
 }
 
 /* =========================================================
-   BASE + FONDO DINÁMICO
+   BASE + FONDO DINÃMICO
    ========================================================= */
 html{ scroll-behavior:smooth; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x: hidden; }
 body{
@@ -489,7 +307,7 @@ body::after{
 }
 
 /* =========================================================
-   TIPOGRAFÍA / ENLACES
+   TIPOGRAFÃA / ENLACES
    ========================================================= */
 h1,h2,h3,h4,h5,h6{
   font-family:var(--font-serif);
@@ -547,7 +365,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 .table, table{ color:var(--texto); border-color:#e3f1ea; }
 
 /* =========================================================
-   HÉROE
+   HÃ‰ROE
    ========================================================= */
 .hero{ position:relative; border-radius:16px; margin:8px auto 22px; padding:2.4rem 1.5rem; overflow:hidden; color:#fff; }
 .hero-anim{ background:linear-gradient(135deg, rgba(14,63,92,.94), rgba(52,120,129,.90) 45%, rgba(105,173,161,.86)); position:relative; }
@@ -561,7 +379,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
   box-shadow: inset 0 -1px 0 rgba(15,23,42,.04);
 }
 
-/* Accesos rápidos en una sola línea */
+/* Accesos rÃ¡pidos en una sola lÃ­nea */
 .course-sections{
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -612,7 +430,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 .quick-links .btn{
   line-height: 1.1;
 }
-/* Botones de accesos rápidos en sintonía con el hero */
+/* Botones de accesos rÃ¡pidos en sintonÃ­a con el hero */
 .quick-links .btn{
   border-radius: 999px;
   padding: .35rem .75rem;
@@ -953,7 +771,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
   border-radius: 16px !important;
   box-shadow: 0 10px 24px rgba(17,12,46,.10) !important;
 
-  /* como no usamos .card-body, damos el padding acá */
+  /* como no usamos .card-body, damos el padding acÃ¡ */
   padding: 18px 22px !important;
   display: block !important;
 }
@@ -989,7 +807,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 .bloques .row.g-4 { row-gap: 1.25rem !important; }
 
 
-/* ===== FIX 2: contraste dentro del héroe ===== */
+/* ===== FIX 2: contraste dentro del hÃ©roe ===== */
 .hero-anim input,
 .hero-anim .form-control,
 .hero-anim .form-select,
@@ -1013,10 +831,10 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
   text-decoration: underline;
 }
 
-/* Si algún texto quedó invisible por herencia, fuerza el color del párrafo principal: */
+/* Si algÃºn texto quedÃ³ invisible por herencia, fuerza el color del pÃ¡rrafo principal: */
 .hero-anim p { color: #f7f6ff !important; }
 
-/* === GRID DE FEATURES (3 columnas → 2 → 1) === */
+/* === GRID DE FEATURES (3 columnas â†’ 2 â†’ 1) === */
 .features-grid{
   display:grid !important;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -1058,7 +876,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
 }
 
-/* Tipografía interna del tile */
+/* TipografÃ­a interna del tile */
 .feature-tile h3,
 .feature-tile h4{
   margin:6px 0 2px !important;
@@ -1087,7 +905,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 .navbar .navbar-brand { display:flex; align-items:center; gap:.5rem; }
 .navbar .navbar-brand img { height: 28px; width:auto; }
 
-/* más grande y alineado */
+/* mÃ¡s grande y alineado */
 .navbar .navbar-brand {
   display:flex; align-items:center; gap:.6rem;
   padding:.25rem .4rem;              /* aire alrededor */
@@ -1098,13 +916,13 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
   line-height:1.1;
 }
 
-/* tamaño del logo */
+/* tamaÃ±o del logo */
 .navbar .navbar-brand img {
-  height: 32px;                      /* 28–36px funciona bien */
+  height: 32px;                      /* 28â€“36px funciona bien */
   width: auto;
 }
 
-/* hover sutil (resalta sin ser chillón) */
+/* hover sutil (resalta sin ser chillÃ³n) */
 .navbar .navbar-brand:hover {
   background: rgba(9,12,22,.06);
   box-shadow: 0 4px 12px rgba(9,12,22,.10);
@@ -1133,7 +951,7 @@ pre code{ background:#f4fcf8 !important; color:var(--mint-800) !important; borde
 
 /* 1) En claro: que la negrita herede el color del texto */
 strong, b {
-  color: inherit;           /* ← quita el morado oscuro fijo */
+  color: inherit;           /* â† quita el morado oscuro fijo */
   font-weight: 700;
 }
 
@@ -1146,7 +964,7 @@ strong, b {
   font-weight: 700;
 }
 
-/* (opcional) si tienes zonas con color forzado, refuerza ahí también */
+/* (opcional) si tienes zonas con color forzado, refuerza ahÃ­ tambiÃ©n */
 :root[data-bs-theme="dark"] .page-surface strong,
 :root[data-bs-theme="dark"] .tile strong,
 :root[data-bs-theme="dark"] .card strong,
@@ -1201,11 +1019,11 @@ strong, b {
   margin: 0;
 }
 
-/* Grilla de columnas: 3 en desktop, 2 en tablet, 1 en móvil */
+/* Grilla de columnas: 3 en desktop, 2 en tablet, 1 en mÃ³vil */
 .listing-grid.grid {
   --bs-columns: 12;
 }
-@media (min-width: 992px) {   /* ≥ lg */
+@media (min-width: 992px) {   /* â‰¥ lg */
   .listing-grid.grid .g-col-12 { width: 33.333%; }  /* 3 por fila */
 }
 @media (min-width: 640px) and (max-width: 991.98px) {
@@ -1215,7 +1033,7 @@ strong, b {
   .listing-grid.grid .g-col-12 { width: 100%; }     /* 1 por fila */
 }
 
-/* ===== Minimal: grilla de años ===== */
+/* ===== Minimal: grilla de aÃ±os ===== */
 .years-min{
   display:grid; gap:12px;
   grid-template-columns: repeat(4, minmax(0,1fr));
@@ -1277,11 +1095,11 @@ strong, b {
   font-size: 1em;
 }
 
-  /* ==== Equipo armonizado (igual altura + tipografía compacta) ==== */
+  /* ==== Equipo armonizado (igual altura + tipografÃ­a compacta) ==== */
 .people-grid{
-  /* knobs de ajuste rápido */
-  --avatar: 88px;               /* 80–96px */
-  --min-h: 190px;               /* alto mínimo del card */
+  /* knobs de ajuste rÃ¡pido */
+  --avatar: 88px;               /* 80â€“96px */
+  --min-h: 190px;               /* alto mÃ­nimo del card */
   --gap: .9rem;
   --pad-x: 1rem;
   --pad-y: .9rem;
@@ -1292,7 +1110,7 @@ strong, b {
   --lh: 1.32;
 }
 
-/* Grid responsive con tarjetas de misma “presencia” visual */
+/* Grid responsive con tarjetas de misma â€œpresenciaâ€ visual */
 .people-grid{
   display:grid !important;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
@@ -1327,7 +1145,7 @@ strong, b {
   display:block;
 }
 
-/* Contenido: columna 2 con “pie” pegado abajo para igualar alturas */
+/* Contenido: columna 2 con â€œpieâ€ pegado abajo para igualar alturas */
 .people-grid .person-body{
   grid-column: 2;
   display:flex; flex-direction:column; gap:.2rem;
@@ -1350,7 +1168,7 @@ strong, b {
   color: var(--texto) !important;     /* baja contraste del bold largo */
 }
 
-/* Enlaces al “pie” para emparejar alturas visuales */
+/* Enlaces al â€œpieâ€ para emparejar alturas visuales */
 .people-grid .person-links{ margin-top: auto; display:flex; flex-wrap:wrap; gap:.4rem; }
 .people-grid .person-links .pill{
   padding:.26rem .6rem !important; font-size:.84rem !important;
@@ -1358,7 +1176,7 @@ strong, b {
   background: linear-gradient(180deg, var(--superficie), var(--superficie-soft));
 }
 
-/* Clamps opcionales (evitan que un card se “estire” por texto muy largo) */
+/* Clamps opcionales (evitan que un card se â€œestireâ€ por texto muy largo) */
 .people-grid .person-body p{ display:-webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow:hidden; }
 .people-grid .person-body p:first-of-type{ -webkit-line-clamp: 2; }
 
@@ -1382,14 +1200,14 @@ strong, b {
   padding-bottom: 1rem;
   font-size: 0.9rem;
 
-  /* Fuerza alineación izquierda / derecha sin “columna” central */
+  /* Fuerza alineaciÃ³n izquierda / derecha sin â€œcolumnaâ€ central */
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.25rem;
 }
 
-/* Quarto a veces incluye un centro vacío (&nbsp;). Lo ocultamos. */
+/* Quarto a veces incluye un centro vacÃ­o (&nbsp;). Lo ocultamos. */
 .nav-footer .nav-footer-center{
   display: none;
 }
@@ -1425,7 +1243,7 @@ strong, b {
   margin: 0.15rem 0;
 }
 
-/* En el lado derecho, empuja cada línea hacia el borde */
+/* En el lado derecho, empuja cada lÃ­nea hacia el borde */
 .nav-footer .nav-footer-right .site-footer{
   display: flex;
   flex-direction: column;
@@ -1464,7 +1282,7 @@ strong, b {
 }
 
 /* =========================================================
-   BIBLIOGRAFÍA
+   BIBLIOGRAFÃA
    ========================================================= */
 .biblio-intro{
   max-width: 920px;
@@ -1696,7 +1514,7 @@ strong, b {
 }
 
 /* =========================================================
-   CALENDARIZACIÓN VISUAL
+   CALENDARIZACIÃ“N VISUAL
    ========================================================= */
 
 .calendar-note {
@@ -2037,7 +1855,7 @@ strong, b {
   display: none;
 }
 
-/* Columnas específicas */
+/* Columnas especÃ­ficas */
 .calendar-table-wrapper td:first-child,
 .calendar-table-wrapper th:first-child {
   text-align: center;
@@ -2147,8 +1965,8 @@ strong, b {
   .calendar-table-wrapper tbody td:nth-child(3)::before{ content: "Clase"; }
   .calendar-table-wrapper tbody td:nth-child(4)::before{ content: "Contenidos"; }
   .calendar-table-wrapper tbody td:nth-child(5)::before{ content: "Contenidos en R"; }
-  .calendar-table-wrapper tbody td:nth-child(6)::before{ content: "Ayudantía"; }
-  .calendar-table-wrapper tbody td:nth-child(7)::before{ content: "Contenidos ayudantía"; }
+  .calendar-table-wrapper tbody td:nth-child(6)::before{ content: "AyudantÃ­a"; }
+  .calendar-table-wrapper tbody td:nth-child(7)::before{ content: "Contenidos ayudantÃ­a"; }
 
   .calendar-table-wrapper tbody td:last-child{
     padding-bottom: 0;
@@ -2165,7 +1983,7 @@ strong, b {
   }
 }
 
-/* Última información dinámica desde QMD */
+/* Ãšltima informaciÃ³n dinÃ¡mica desde QMD */
 .latest-card {
   display: block;
   background: #ffffff;
@@ -2237,7 +2055,7 @@ strong, b {
   text-decoration: underline;
 }
 
-/* Páginas individuales de Última información */
+/* PÃ¡ginas individuales de Ãšltima informaciÃ³n */
 
 .notice-post {
   max-width: 920px;
@@ -2386,7 +2204,7 @@ strong, b {
   }
 }
 
-/* Ajuste fino: más texto e imagen más visible a la derecha */
+/* Ajuste fino: mÃ¡s texto e imagen mÃ¡s visible a la derecha */
 
 .latest-scroll {
   max-height: 190px;
@@ -2482,7 +2300,7 @@ strong, b {
   margin: 0 !important;
 }
 
-/* Ajuste final: más texto visible e imagen más grande */
+/* Ajuste final: mÃ¡s texto visible e imagen mÃ¡s grande */
 
 .latest-compact .listing-item,
 .latest-compact .quarto-grid-item,
@@ -2535,7 +2353,7 @@ strong, b {
   max-height: 215px !important;
 }
 
-/* Ajuste solo de imagen en Última información */
+/* Ajuste solo de imagen en Ãšltima informaciÃ³n */
 
 .latest-compact .listing-item,
 .latest-compact .quarto-grid-item,
@@ -2554,7 +2372,7 @@ strong, b {
   border-radius: 16px !important;
 }
 
-/* Última información: interacción elegante sin blur */
+/* Ãšltima informaciÃ³n: interacciÃ³n elegante sin blur */
 
 /* Contenedor con scroll interno y degradado visual */
 .latest-scroll {
@@ -2616,7 +2434,7 @@ strong, b {
     box-shadow 0.22s ease;
 }
 
-/* Línea lateral escondida */
+/* LÃ­nea lateral escondida */
 .latest-compact .quarto-post::before,
 .latest-compact .listing-item::before,
 .latest-compact .quarto-grid-item::before,
@@ -2680,7 +2498,7 @@ strong, b {
   border-color: rgba(44, 127, 141, 0.32);
 }
 
-/* Título: cambia levemente de tono al pasar */
+/* TÃ­tulo: cambia levemente de tono al pasar */
 .latest-compact .quarto-post:hover .listing-title a,
 .latest-compact .listing-item:hover .listing-title a,
 .latest-compact .quarto-grid-item:hover .listing-title a,
@@ -2752,7 +2570,7 @@ strong, b {
 }
 
 .bio-toggle[open] summary::after {
-  content: "−";
+  content: "âˆ’";
   background: rgba(44, 127, 141, 0.2);
   transform: rotate(180deg);
 }
@@ -2813,7 +2631,7 @@ strong, b {
   text-decoration: underline;
 }
 
-/* Hover más formal para noticias / última información */
+/* Hover mÃ¡s formal para noticias / Ãºltima informaciÃ³n */
 
 .latest-compact .quarto-post:hover,
 .latest-compact .listing-item:hover,
@@ -2824,7 +2642,7 @@ strong, b {
   box-shadow: 0 12px 28px rgba(20, 60, 75, 0.10) !important;
 }
 
-/* Línea lateral más sobria en hover */
+/* LÃ­nea lateral mÃ¡s sobria en hover */
 .latest-compact .quarto-post::before,
 .latest-compact .listing-item::before,
 .latest-compact .quarto-grid-item::before,
@@ -2832,7 +2650,7 @@ strong, b {
   background: rgba(44, 127, 141, 0.75) !important;
 }
 
-/* Título en hover sin verde excesivo */
+/* TÃ­tulo en hover sin verde excesivo */
 .latest-compact .quarto-post:hover .listing-title a,
 .latest-compact .listing-item:hover .listing-title a,
 .latest-compact .quarto-grid-item:hover .listing-title a,
@@ -2850,7 +2668,7 @@ strong, b {
   border-color: rgba(7, 63, 89, 0.18) !important;
 }
 
-/* Mejor calidad visual de imágenes en noticias */
+/* Mejor calidad visual de imÃ¡genes en noticias */
 
 .latest-compact .listing-image img,
 .latest-compact img.thumbnail-image,
@@ -2866,7 +2684,7 @@ strong, b {
   backface-visibility: hidden;
 }
 
-/* Página Última información */
+/* PÃ¡gina Ãšltima informaciÃ³n */
 
 .updates-page {
   max-width: 980px;
@@ -2913,7 +2731,7 @@ strong, b {
   font-size: 0.92rem;
 }
 
-/* Listing de la página completa */
+/* Listing de la pÃ¡gina completa */
 .updates-page + .quarto-listing,
 #listing-listing {
   max-width: 980px;
@@ -3024,7 +2842,7 @@ strong, b {
   }
 }
 
-/* Calendarización automática */
+/* CalendarizaciÃ³n automÃ¡tica */
 
 .agenda-auto {
   max-width: 980px;
@@ -3233,7 +3051,7 @@ strong, b {
 
 .agenda-event.is-next .agenda-card::before,
 .agenda-event.is-today .agenda-card::before {
-  content: "Próxima";
+  content: "PrÃ³xima";
   display: inline-flex;
   margin-bottom: 0.65rem;
   border-radius: 999px;
@@ -3277,8 +3095,263 @@ strong, b {
 }
 
 /* =========================================================
+   CURSO: programa, evaluaciones y calendarizacion
+   ========================================================= */
+
+body.curso-page {
+  --curso-content-w: clamp(1120px, 76vw, 1320px);
+  --curso-gutter: clamp(16px, 3vw, 44px);
+}
+
+body.curso-page header#title-block-header,
+body.curso-page .quarto-title-block,
+body.curso-page .quarto-title,
+body.curso-page .quarto-title-meta {
+  display: none !important;
+}
+
+body.curso-page #quarto-content,
+body.curso-page main#quarto-document-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+body.curso-page main#quarto-document-content {
+  display: block !important;
+}
+
+body.curso-page .curso-shell {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: clamp(0.25rem, 0.8vw, 0.7rem) var(--curso-gutter) 4rem !important;
+  box-sizing: border-box !important;
+}
+
+body.curso-page .curso-card {
+  width: min(100%, var(--curso-content-w));
+  max-width: var(--curso-content-w);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(14, 63, 92, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 24px 56px rgba(9, 12, 22, 0.08);
+}
+
+body.curso-page .curso-tabset {
+  margin: 0;
+}
+
+body.curso-page .curso-tabset .nav-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  border: 0;
+  background: linear-gradient(180deg, #f8fbfb 0%, #eef7f7 100%);
+  box-shadow: inset 0 -1px 0 rgba(14, 63, 92, 0.12);
+  overflow-x: auto;
+}
+
+body.curso-page .curso-tabset .nav-tabs .nav-link {
+  position: relative;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.66rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #245c66;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+body.curso-page .curso-tabset .nav-tabs .nav-link:hover,
+body.curso-page .curso-tabset .nav-tabs .nav-link:focus {
+  background: rgba(255, 255, 255, 0.72);
+  color: #073f59;
+}
+
+body.curso-page .curso-tabset .nav-tabs .nav-link.active {
+  border-color: rgba(14, 63, 92, 0.14);
+  background: #ffffff;
+  color: #073f59;
+  box-shadow: 0 8px 20px rgba(9, 12, 22, 0.08);
+}
+
+body.curso-page .curso-tabset .nav-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.34rem;
+  height: 3px;
+  border-radius: 999px;
+  background: #3d8b8b;
+}
+
+body.curso-page .curso-tabset .tab-content {
+  padding: clamp(1.15rem, 2.4vw, 2.4rem);
+  border: 0;
+  background: #ffffff;
+}
+
+body.curso-page .programa-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 1rem;
+}
+
+body.curso-page .programa-actions p {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0;
+}
+
+body.curso-page .programa-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(14, 63, 92, 0.12);
+  border-radius: 999px;
+  background: #3d8b8b;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none !important;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(61, 139, 139, 0.18);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+body.curso-page .programa-download-btn:hover,
+body.curso-page .programa-download-btn:focus {
+  background: #2d7070;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(61, 139, 139, 0.22);
+}
+
+body.curso-page .programa-frame {
+  display: block;
+  width: 100%;
+  height: clamp(620px, 72vh, 920px);
+  border: 1px solid rgba(14, 63, 92, 0.12);
+  border-radius: 12px;
+  background: #f8fbfb;
+}
+
+body.curso-page .evaluaciones-panel {
+  overflow-x: auto;
+}
+
+body.curso-page .evaluaciones-panel table {
+  width: 100%;
+  min-width: 760px;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid rgba(14, 63, 92, 0.12);
+  border-radius: 12px;
+  font-size: 0.93rem;
+}
+
+body.curso-page .evaluaciones-panel th,
+body.curso-page .evaluaciones-panel td {
+  padding: 0.85rem 0.95rem;
+  border: 0;
+  border-bottom: 1px solid rgba(14, 63, 92, 0.1);
+  color: #40545c;
+  vertical-align: top;
+}
+
+body.curso-page .evaluaciones-panel th {
+  background: #f1f8f8;
+  color: #073f59;
+  font-weight: 800;
+}
+
+body.curso-page .evaluaciones-panel tbody tr:nth-child(even) {
+  background: #fbfdfd;
+}
+
+body.curso-page .evaluaciones-panel tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+body.curso-page .agenda-auto {
+  max-width: 100%;
+  margin: 0;
+}
+
+body.curso-page .agenda-status-card {
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+body.curso-page .agenda-card {
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  body.curso-page .curso-shell {
+    padding: 0.35rem 0.85rem 2.75rem !important;
+  }
+
+  body.curso-page .curso-card {
+    border-radius: 16px;
+  }
+
+  body.curso-page .curso-tabset .nav-tabs {
+    padding: 0.55rem 0.55rem 0;
+  }
+
+  body.curso-page .curso-tabset .nav-tabs .nav-link {
+    padding: 0.62rem 0.78rem;
+    font-size: 0.88rem;
+  }
+
+  body.curso-page .curso-tabset .tab-content {
+    padding: 1rem;
+  }
+
+  body.curso-page .programa-actions {
+    justify-content: stretch;
+  }
+
+  body.curso-page .programa-actions p {
+    justify-content: stretch;
+  }
+
+  body.curso-page .programa-download-btn {
+    width: 100%;
+  }
+
+  body.curso-page .programa-frame {
+    height: 66vh;
+    min-height: 520px;
+  }
+
+  body.curso-page .evaluaciones-panel table {
+    min-width: 680px;
+  }
+}
+
+/* =========================================================
    BOTONES HERO
-   Botones más sobrios, profesionales y coherentes con el sitio
+   Botones mÃ¡s sobrios, profesionales y coherentes con el sitio
    ========================================================= */
 
 .hero-cta {
@@ -3300,7 +3373,7 @@ strong, b {
     color 0.22s ease;
 }
 
-/* Botón principal */
+/* BotÃ³n principal */
 .hero-cta .btn-primary {
   background: linear-gradient(135deg, #247985, #2c8c94) !important;
   border-color: rgba(36, 121, 133, 0.9) !important;
@@ -3344,7 +3417,7 @@ strong, b {
   outline-offset: 3px;
 }
 
-/* Versión móvil */
+/* VersiÃ³n mÃ³vil */
 @media (max-width: 576px) {
   .hero-cta .btn {
     width: 100%;
@@ -3359,9 +3432,9 @@ strong, b {
   margin-bottom: 1.6rem !important;
 }
 
-/* Flecha sutil solo en el botón principal */
+/* Flecha sutil solo en el botÃ³n principal */
 .hero-cta .btn-primary::after {
-  content: "→";
+  content: "â†’";
   display: inline-block;
   margin-left: 0.45rem;
   font-weight: 700;
@@ -3384,7 +3457,7 @@ strong, b {
   transform: translateY(-2px);
 }
 
-/* Información rápida bajo botones */
+/* InformaciÃ³n rÃ¡pida bajo botones */
 .hero-course .small.text-muted {
   color: #3f6873 !important;
   font-size: 0.95rem;
@@ -3419,7 +3492,7 @@ strong, b {
 
 /* =========================================================
    POST / NOTICIA INDIVIDUAL
-   Estilo para avisos de Última información
+   Estilo para avisos de Ãšltima informaciÃ³n
    ========================================================= */
 
 .notice-post {
@@ -3602,7 +3675,7 @@ strong, b {
   }
 }
 
-/* Ocultar title block automático de Quarto solo en posts/noticias */
+/* Ocultar title block automÃ¡tico de Quarto solo en posts/noticias */
 
 .notice-page #title-block-header,
 .notice-page .quarto-title-block,
@@ -3670,9 +3743,9 @@ strong, b {
 }
 
 /* =========================================================
-   OCULTAR TÍTULO AUTOMÁTICO EN PÁGINAS DE CLASE
+   OCULTAR TÃTULO AUTOMÃTICO EN PÃGINAS DE CLASE
    Mantiene el title del YAML para navegador/SEO,
-   pero no muestra el bloque superior en la página.
+   pero no muestra el bloque superior en la pÃ¡gina.
    ========================================================= */
 
 body.clase-page header#title-block-header,
@@ -4082,7 +4155,7 @@ body.clase-page .quarto-title-meta {
   }
 }
 
-/* Ocultar título automático solo en la página Recursos */
+/* Ocultar tÃ­tulo automÃ¡tico solo en la pÃ¡gina Recursos */
 .recursos-page #title-block-header,
 .recursos-page .quarto-title,
 .recursos-page .quarto-title-block,
@@ -4091,7 +4164,7 @@ body.clase-page .quarto-title-meta {
 }
 
 /* =========================================================
-   BIBLIOGRAFÍA — más compacta y mejor uso horizontal
+   BIBLIOGRAFÃA â€” mÃ¡s compacta y mejor uso horizontal
    ========================================================= */
 
 .biblioteca-page #title-block-header,
@@ -4131,7 +4204,7 @@ body.clase-page .quarto-title-meta {
   gap: 0.9rem;
 }
 
-/* segunda sección en 2 columnas */
+/* segunda secciÃ³n en 2 columnas */
 .library-grid-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem 1rem;
@@ -4252,7 +4325,7 @@ body.clase-page .quarto-title-meta {
 }
 
 .library-details summary::before {
-  content: "▸";
+  content: "â–¸";
   display: inline-block;
   margin-right: 0.4rem;
   transition: transform 0.18s ease;
@@ -4370,6 +4443,500 @@ body.clase-page .quarto-title-meta {
   .library-btn {
     width: 100%;
     min-width: 100%;
+  }
+}
+
+/* =========================================================
+   CLASES: layout centrado + sidebar retractable
+   ========================================================= */
+
+body.clases-page {
+  --clase-sidebar-w: 320px;
+  --clase-content-w: clamp(1180px, 68vw, 1320px);
+  --clase-page-gutter: clamp(16px, 2.2vw, 40px);
+}
+
+body.clases-page .clase-presentacion,
+body.clases-page .clase-slide,
+body.clases-page .clase-info,
+body.clases-page .comments-box.comments-giscus-box {
+  width: 100% !important;
+  max-width: var(--clase-content-w) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+body.clases-page .clase-presentacion {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+body.clases-page .clase-slide {
+  margin-bottom: 0.75rem;
+}
+
+body.clases-page .clase-slide .ratio {
+  width: 100% !important;
+  --bs-aspect-ratio: 52%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #f8fbfb;
+  box-shadow: 0 18px 44px rgba(9, 12, 22, 0.12);
+}
+
+body.clases-page .clase-slide iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+
+body.clases-page .clase-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  text-align: left;
+}
+
+body.clases-page .clase-titulo {
+  margin: 0;
+  color: #495057;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+body.clases-page .clase-descarga {
+  display: inline-flex;
+  margin: 0;
+}
+
+body.clases-page .clase-descarga a {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background-color: #3d8b8b;
+  color: #fff !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+body.clases-page .clase-descarga a::before,
+body.clases-page .clase-descarga a::after {
+  display: none !important;
+  content: none !important;
+}
+
+body.clases-page .clase-descarga a:hover {
+  background-color: #2d7070;
+  text-decoration: none;
+}
+
+body.clases-page .comments-box.comments-giscus-box {
+  margin-top: 3.2rem !important;
+  padding: clamp(1.25rem, 2.4vw, 2.6rem) !important;
+  border: 1px solid rgba(105, 173, 161, 0.32);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 24px 56px rgba(9, 12, 22, 0.08);
+}
+
+body.clases-page .comments-heading {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1.7rem 0;
+}
+
+body.clases-page .comments-heading h2 {
+  margin: 0;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(14, 63, 92, 0.14);
+  color: #0e3f5c;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 700;
+}
+
+body.clases-page .giscus,
+body.clases-page .giscus-frame {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (min-width: 992px) {
+  body.clases-page #quarto-content,
+  body.clases-page main#quarto-document-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.clases-page main#quarto-document-content {
+    display: block !important;
+  }
+
+  body.clases-page #catedra {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center !important;
+    width: calc(100vw - var(--clase-sidebar-w)) !important;
+    max-width: calc(100vw - var(--clase-sidebar-w)) !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+    padding: 0 var(--clase-page-gutter) 4rem !important;
+    box-sizing: border-box !important;
+    transition: width 0.25s ease, max-width 0.25s ease;
+  }
+
+  body.sidebar-clases-collapsed.clases-page #catedra {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  body.clases-page #catedra > .column.clase-main {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    width: min(100%, var(--clase-content-w), calc(100vw - var(--clase-sidebar-w) - (2 * var(--clase-page-gutter)))) !important;
+    max-width: min(var(--clase-content-w), calc(100vw - var(--clase-sidebar-w) - (2 * var(--clase-page-gutter)))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.clases-page #catedra > .column-margin {
+    position: static !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.clases-page .clases-sidebar-wrapper {
+    position: static !important;
+    overflow: visible !important;
+  }
+
+  body.clases-page .clases-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 900;
+    width: var(--clase-sidebar-w) !important;
+    height: 100vh !important;
+    padding: 5rem 1.4rem 1.5rem;
+    overflow-y: auto;
+    border-left: 1px solid rgba(14, 63, 92, 0.12);
+    background: #ffffff;
+    box-shadow: -18px 0 40px rgba(9, 12, 22, 0.06);
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform 0.25s ease, opacity 0.2s ease, visibility 0.2s ease;
+  }
+
+  body.sidebar-clases-collapsed.clases-page .clases-sidebar {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateX(100%) !important;
+  }
+
+  body.clases-page .clases-sidebar-toggle {
+    position: fixed !important;
+    top: 50% !important;
+    right: calc(var(--clase-sidebar-w) - 15px) !important;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 54px;
+    border: 1px solid rgba(14, 63, 92, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #0e3f5c;
+    box-shadow: 0 10px 28px rgba(9, 12, 22, 0.12);
+    cursor: pointer;
+    transform: translateY(-50%) !important;
+    transition: right 0.25s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  body.clases-page .clases-sidebar-toggle:hover {
+    background: #f6fbfb;
+    box-shadow: 0 12px 32px rgba(9, 12, 22, 0.16);
+  }
+
+  body.sidebar-clases-collapsed.clases-page .clases-sidebar-toggle {
+    right: 14px !important;
+  }
+
+  body.clases-page footer {
+    position: relative;
+    z-index: 1030;
+  }
+}
+
+@media (max-width: 991.98px) {
+  body.clases-page #quarto-content,
+  body.clases-page main#quarto-document-content,
+  body.clases-page #catedra {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.clases-page #catedra {
+    display: block !important;
+    padding: 0 1rem 3rem !important;
+  }
+
+  body.clases-page #catedra > .column.clase-main {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.clases-page .clases-sidebar {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 1rem 0 !important;
+    overflow: visible;
+    border-left: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body.clases-page .clases-sidebar-toggle {
+    display: none !important;
+  }
+
+  body.clases-page .clase-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   CLASES: contenido pedagogico y tarjetas academicas
+   ========================================================= */
+
+body.clases-page .clase-hero,
+body.clases-page .clase-card {
+  width: 100%;
+  max-width: var(--clase-content-w);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+body.clases-page .clase-hero {
+  margin-bottom: 1.2rem;
+  padding: 0 0 1.15rem;
+  border-bottom: 1px solid rgba(14, 63, 92, 0.14);
+  color: #0e3f5c;
+}
+
+body.clases-page .clase-kicker {
+  margin: 0 0 0.35rem;
+  color: #3d8b8b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.clases-page .clase-hero h1 {
+  margin: 0;
+  color: #0e3f5c;
+  font-family: "Source Serif 4", "Georgia", serif;
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+  line-height: 1.08;
+}
+
+body.clases-page .clase-hero p:last-child {
+  max-width: 760px;
+  margin: 0.55rem 0 0;
+  color: #526674;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+body.clases-page .clase-card {
+  margin-top: 1rem;
+  padding: clamp(1rem, 2vw, 1.55rem);
+  border: 1px solid rgba(14, 63, 92, 0.1);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+body.clases-page .clase-card:first-of-type {
+  margin-top: 0;
+}
+
+body.clases-page .clase-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #0e3f5c;
+  font-family: "Source Serif 4", "Georgia", serif;
+  font-size: clamp(1.32rem, 2vw, 1.7rem);
+  line-height: 1.15;
+}
+
+body.clases-page .clase-card h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.55rem;
+  color: #245c66;
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
+  line-height: 1.25;
+}
+
+body.clases-page .clase-card p,
+body.clases-page .clase-card li {
+  color: #40545c;
+  line-height: 1.68;
+}
+
+body.clases-page .clase-card p:last-child {
+  margin-bottom: 0;
+}
+
+body.clases-page .clase-intro {
+  background: #ffffff;
+}
+
+body.clases-page .clase-objetivos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1rem 0 1.15rem;
+}
+
+body.clases-page .objetivo-card {
+  min-height: 118px;
+  padding: 0.85rem;
+  border: 1px solid rgba(14, 63, 92, 0.1);
+  border-radius: 10px;
+  background: #f8fbfb;
+  box-shadow: none;
+}
+
+body.clases-page .objetivo-card p {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+body.clases-page .objetivo-card strong {
+  display: block;
+  color: #0e3f5c;
+  font-size: 0.98rem;
+}
+
+body.clases-page .clase-card a {
+  color: #2d7070;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
+}
+
+body.clases-page .clase-card a[href$=".sav"],
+body.clases-page .clase-card a[download] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.35rem 0;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  background: #3d8b8b;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+body.clases-page .clase-card div.sourceCode,
+body.clases-page .clase-card pre.sourceCode,
+body.clases-page .clase-card pre {
+  border: 1px solid rgba(14, 63, 92, 0.12);
+  border-radius: 14px;
+  background: #ffffff !important;
+  box-shadow: none;
+}
+
+body.clases-page .clase-card pre code {
+  display: block;
+  border: 0 !important;
+  background: #ffffff !important;
+  color: #183843 !important;
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+body.clases-page .clase-card pre code span {
+  background: transparent !important;
+}
+
+body.clases-page .clase-card code:not(pre code) {
+  border-radius: 0.35rem;
+  background: #f7f9fa;
+  color: #0e3f5c;
+  padding: 0.08rem 0.28rem;
+}
+
+body.clases-page .clase-card .callout {
+  overflow: hidden;
+  border-color: rgba(61, 139, 139, 0.24);
+  border-radius: 16px;
+  background: #f4f9fb;
+  box-shadow: none;
+}
+
+body.clases-page .clase-card .callout-title-container,
+body.clases-page .clase-card .callout-body {
+  color: #40545c;
+}
+
+@media (max-width: 1100px) {
+  body.clases-page .clase-objetivos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  body.clases-page .clase-hero,
+  body.clases-page .clase-card {
+    border-radius: 16px;
+  }
+
+  body.clases-page .clase-objetivos {
+    grid-template-columns: 1fr;
+  }
+
+  body.clases-page .objetivo-card {
+    min-height: auto;
   }
 }
 

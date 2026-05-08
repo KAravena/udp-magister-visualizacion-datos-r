@@ -6,46 +6,57 @@ page-layout: full
 body-classes: clases-page clase-page
 ---
 
+::: {.columns #catedra}
 
-::: {.columns}
-::: {.column}
+::: {.column .clase-main}
 
 ```{=html}
-<div class="clase-presentacion">
-  <div class="clase-slide">
-    <div class="ratio ratio-16x9">
-      <iframe 
-  src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_02%2Fclase_02.pptx%3Fv%3D20260501" 
-  allowfullscreen 
-  frameborder="0" 
-  scrolling="no">
-</iframe>
-    </div>
-  </div>
-
-  <div class="clase-info">
-    <span class="clase-titulo">Clase 02 | Procesamiento de datos</span>
-    <span class="clase-descarga">
-      <a href="clase_02.pptx">Descargar diapositivas</a>
-    </span>
-  </div>
-</div>
+<section class="clase-hero">
+  <p class="clase-kicker">Clase 02</p>
+  <h1>Procesamiento de datos</h1>
+  <p>Preparación, limpieza y transformación de bases de datos en R siguiendo un flujo de trabajo reproducible.</p>
+</section>
 ```
 
----
+::: {.clase-card .clase-intro}
 
 ## Contenidos de la clase
 
 El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:
 
-1. Instalar y cargar paquetes y librerías.
-2. Importar bases de datos en R.
-3. Explorar, limpiar y transformar variables.
-4. Exportar la base procesada.
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Preparar el entorno**
+
+Instalar y cargar paquetes y librerías.
+:::
+
+::: {.objetivo-card}
+**Importar datos**
+
+Cargar bases de datos externas en R.
+:::
+
+::: {.objetivo-card}
+**Procesar variables**
+
+Explorar, limpiar, seleccionar, filtrar y recodificar variables.
+:::
+
+::: {.objetivo-card}
+**Exportar resultados**
+
+Guardar la base procesada para su uso posterior.
+:::
+
+:::
 
 Para ello, trabajaremos con la ola 6 del [Estudio Longitudinal Social de Chile (ELSOC)](https://coes.cl/encuesta-panel/) — ELSOC 2022.
 
----
+:::
+
+::: {.clase-card}
 
 ## 1. Cargar librerías
 
@@ -82,7 +93,9 @@ rm(list = ls())       # limpiar el entorno de trabajo
 El `::` antes de `p_load` indica que se "fuerza" el uso de esa función desde el paquete `pacman`. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.
 :::
 
----
+:::
+
+::: {.clase-card}
 
 ## 2. Importar datos
 
@@ -110,7 +123,9 @@ Para importar datos correctamente hay que tener en cuenta tres cosas:
 3. La **ruta** donde está alojado dentro del proyecto
 :::
 
----
+:::
+
+::: {.clase-card}
 
 ## 3. Explorar datos
 
@@ -127,7 +142,9 @@ dim(elsoc_2022)    # dimensiones: filas y columnas
 str(elsoc_2022)    # estructura: clases y categorías de respuesta
 ```
 
----
+:::
+
+::: {.clase-card}
 
 ## 4. Limpiar datos
 
@@ -282,7 +299,9 @@ proc_elsoc <- na.omit(proc_elsoc)
 proc_elsoc
 ```
 
----
+:::
+
+::: {.clase-card}
 
 ## 5. Transformar variables
 
@@ -335,7 +354,9 @@ proc_elsoc <- mutate(proc_elsoc,
 select(proc_elsoc, ingreso, ingreso_minimo)
 ```
 
----
+:::
+
+::: {.clase-card}
 
 ## 6. Guardar y exportar datos procesados
 
@@ -349,14 +370,16 @@ El último paso es guardar la base procesada en la carpeta `output/` del proyect
 save(proc_elsoc, file = "output/proc_elsoc.RData")
 ```
 
----
+:::
 
 {{< include ../../includes/comentarios-giscus.qmd >}}
 
 :::
+
 ::: {.column-margin}
 
 {{< include ../../includes/menu-clases.qmd >}}
 
 :::
+
 :::

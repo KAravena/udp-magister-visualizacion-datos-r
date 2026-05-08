@@ -1,147 +1,13 @@
 ---
 title: "Curso"
 title-block: false
-format:
-  html:
-    page-layout: full
+page-layout: full
+body-classes: curso-page
 ---
 
-```{=html}
-<style>
-  header#title-block-header,
-  .quarto-title-block,
-  .quarto-title {
-    display: none !important;
-  }
+::: {.curso-shell}
 
-  .curso-note {
-    margin: 1rem 0 1.25rem;
-    padding: 1rem 1.15rem;
-    border-left: 4px solid #2f7f7f;
-    border-radius: 10px;
-    background: #f1f8f8;
-    color: #244d58;
-    font-size: .95rem;
-    line-height: 1.55;
-  }
-
-  .curso-note strong {
-    color: #0f4250;
-    font-weight: 700;
-  }
-
-  .curso-tabset {
-    margin-top: 1.25rem;
-  }
-
-  .curso-tabset .nav-tabs {
-    border-bottom: 1px solid #d9e5e8;
-    gap: .25rem;
-  }
-
-  .curso-tabset .nav-tabs .nav-link {
-    color: #1d5f70;
-    border: 1px solid transparent;
-    border-radius: 6px 6px 0 0;
-    font-weight: 600;
-    padding: .55rem .9rem;
-  }
-
-  .curso-tabset .nav-tabs .nav-link:hover,
-  .curso-tabset .nav-tabs .nav-link:focus {
-    border-color: #d9e5e8;
-    background: #f4f9fa;
-  }
-
-  .curso-tabset .nav-tabs .nav-link.active {
-    color: #0f4250;
-    background: #fff;
-    border-color: #d9e5e8 #d9e5e8 #fff;
-  }
-
-  .curso-tabset .tab-content {
-    background: #fff;
-    border: 1px solid #d9e5e8;
-    border-top: 0;
-    padding: 1.5rem;
-    border-radius: 0 0 8px 8px;
-  }
-
-  .programa-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-  }
-
-  .programa-download-btn {
-    display: inline-flex;
-    align-items: center;
-    background: #2f7f7f;
-    color: #fff !important;
-    text-decoration: none !important;
-    border-radius: 9999px;
-    padding: .45rem .85rem;
-    border: 1px solid rgba(0,0,0,.08);
-    box-shadow: 0 4px 12px rgba(0,0,0,.12);
-    font-weight: 600;
-    font-size: .9rem;
-    line-height: 1;
-  }
-
-  .programa-download-btn:hover,
-  .programa-download-btn:focus {
-    background: #276b6b;
-    color: #fff !important;
-    transform: translateY(-1px);
-  }
-
-  .programa-download-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 10px rgba(0,0,0,.12);
-  }
-
-  .evaluaciones-panel table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0 0;
-    font-size: .92rem;
-  }
-
-  .evaluaciones-panel th,
-  .evaluaciones-panel td {
-    border: 1px solid #dfe8ea;
-    padding: .75rem;
-    vertical-align: top;
-  }
-
-  .evaluaciones-panel th {
-    background: #edf7f5;
-    color: #0f4250;
-    font-weight: 700;
-  }
-
-  .evaluaciones-panel tbody tr:nth-child(even) {
-    background: #fbfdfd;
-  }
-
-  .programa-frame {
-    width: 100%;
-    height: 900px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-  }
-
-  @media (max-width: 768px) {
-    .curso-tabset .tab-content {
-      padding: 1rem;
-    }
-
-    .programa-frame {
-      height: 640px;
-    }
-  }
-</style>
-```
+::: {.curso-card}
 
 ::: {.panel-tabset .curso-tabset}
 
@@ -437,5 +303,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 ```
+
+:::
+
+:::
 
 :::

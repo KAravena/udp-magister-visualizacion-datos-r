@@ -1,30 +1,38 @@
 ```{=html}
-<section class="comments-box">
+<section id="comentarios-clase" class="comments-box comments-giscus-box">
   <div class="comments-heading">
+    <span class="comments-kicker">Espacio de interacción</span>
     <h2>Preguntas y comentarios</h2>
     <p>
       Puedes dejar una pregunta, duda o comentario sobre esta clase. El equipo del curso revisará los mensajes recibidos.
     </p>
   </div>
+
   <form name="comentarios-clases"
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
         class="comments-form">
+        
     <input type="hidden" name="form-name" value="comentarios-clases">
+
     <p class="d-none">
       <label>No completar: <input name="bot-field"></label>
     </p>
+
     <input type="hidden" name="pagina" id="comentario-pagina">
     <input type="hidden" name="url" id="comentario-url">
+
     <div class="comments-field">
       <label for="nombre">Nombre</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
     </div>
+
     <div class="comments-field">
       <label for="correo">Correo</label>
       <input type="email" id="correo" name="correo" placeholder="tu.correo@ejemplo.cl">
     </div>
+
     <div class="comments-field">
       <label for="tipo">Tipo de mensaje</label>
       <select id="tipo" name="tipo">
@@ -34,17 +42,210 @@
         <option value="Aviso">Aviso</option>
       </select>
     </div>
+
     <div class="comments-field">
       <label for="mensaje">Mensaje</label>
       <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu pregunta, duda o comentario"></textarea>
     </div>
+
     <button type="submit" class="comments-submit">Enviar comentario</button>
   </form>
 </section>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const pagina = document.getElementById("comentario-pagina");
   const url = document.getElementById("comentario-url");
+
+  if (pagina) pagina.value = document.title;
+  if (url) url.value = window.location.href;
+});
+</script>
+``````{=html}
+<section id="comentarios-clase" class="comments-box comments-giscus-box">
+  <div class="comments-heading">
+    <span class="comments-kicker">Espacio de interacción</span>
+    <h2>Preguntas y comentarios</h2>
+    <p>
+      Puedes dejar una pregunta, duda o comentario sobre esta clase. El equipo del curso revisará los mensajes recibidos.
+    </p>
+  </div>
+
+  <form name="comentarios-clases"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="comments-form">
+        
+    <input type="hidden" name="form-name" value="comentarios-clases">
+
+    <p class="d-none">
+      <label>No completar: <input name="bot-field"></label>
+    </p>
+
+    <input type="hidden" name="pagina" id="comentario-pagina">
+    <input type="hidden" name="url" id="comentario-url">
+
+    <div class="comments-field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+    </div>
+
+    <div class="comments-field">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" name="correo" placeholder="tu.correo@ejemplo.cl">
+    </div>
+
+    <div class="comments-field">
+      <label for="tipo">Tipo de mensaje</label>
+      <select id="tipo" name="tipo">
+        <option value="Pregunta">Pregunta</option>
+        <option value="Duda técnica">Duda técnica</option>
+        <option value="Comentario">Comentario</option>
+        <option value="Aviso">Aviso</option>
+      </select>
+    </div>
+
+    <div class="comments-field">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu pregunta, duda o comentario"></textarea>
+    </div>
+
+    <button type="submit" class="comments-submit">Enviar comentario</button>
+  </form>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pagina = document.getElementById("comentario-pagina");
+  const url = document.getElementById("comentario-url");
+
+  if (pagina) pagina.value = document.title;
+  if (url) url.value = window.location.href;
+});
+</script>
+``````{=html}
+<section id="comentarios-clase" class="comments-box comments-giscus-box">
+  <div class="comments-heading">
+    <span class="comments-kicker">Espacio de interacción</span>
+    <h2>Preguntas y comentarios</h2>
+    <p>
+      Puedes dejar una pregunta, duda o comentario sobre esta clase. El equipo del curso revisará los mensajes recibidos.
+    </p>
+  </div>
+
+  <form name="comentarios-clases"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="comments-form">
+        
+    <input type="hidden" name="form-name" value="comentarios-clases">
+
+    <p class="d-none">
+      <label>No completar: <input name="bot-field"></label>
+    </p>
+
+    <input type="hidden" name="pagina" id="comentario-pagina">
+    <input type="hidden" name="url" id="comentario-url">
+
+    <div class="comments-field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+    </div>
+
+    <div class="comments-field">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" name="correo" placeholder="tu.correo@ejemplo.cl">
+    </div>
+
+    <div class="comments-field">
+      <label for="tipo">Tipo de mensaje</label>
+      <select id="tipo" name="tipo">
+        <option value="Pregunta">Pregunta</option>
+        <option value="Duda técnica">Duda técnica</option>
+        <option value="Comentario">Comentario</option>
+        <option value="Aviso">Aviso</option>
+      </select>
+    </div>
+
+    <div class="comments-field">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu pregunta, duda o comentario"></textarea>
+    </div>
+
+    <button type="submit" class="comments-submit">Enviar comentario</button>
+  </form>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pagina = document.getElementById("comentario-pagina");
+  const url = document.getElementById("comentario-url");
+
+  if (pagina) pagina.value = document.title;
+  if (url) url.value = window.location.href;
+});
+</script>
+``````{=html}
+<section id="comentarios-clase" class="comments-box comments-giscus-box">
+  <div class="comments-heading">
+    <span class="comments-kicker">Espacio de interacción</span>
+    <h2>Preguntas y comentarios</h2>
+    <p>
+      Puedes dejar una pregunta, duda o comentario sobre esta clase. El equipo del curso revisará los mensajes recibidos.
+    </p>
+  </div>
+
+  <form name="comentarios-clases"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="comments-form">
+        
+    <input type="hidden" name="form-name" value="comentarios-clases">
+
+    <p class="d-none">
+      <label>No completar: <input name="bot-field"></label>
+    </p>
+
+    <input type="hidden" name="pagina" id="comentario-pagina">
+    <input type="hidden" name="url" id="comentario-url">
+
+    <div class="comments-field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+    </div>
+
+    <div class="comments-field">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" name="correo" placeholder="tu.correo@ejemplo.cl">
+    </div>
+
+    <div class="comments-field">
+      <label for="tipo">Tipo de mensaje</label>
+      <select id="tipo" name="tipo">
+        <option value="Pregunta">Pregunta</option>
+        <option value="Duda técnica">Duda técnica</option>
+        <option value="Comentario">Comentario</option>
+        <option value="Aviso">Aviso</option>
+      </select>
+    </div>
+
+    <div class="comments-field">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu pregunta, duda o comentario"></textarea>
+    </div>
+
+    <button type="submit" class="comments-submit">Enviar comentario</button>
+  </form>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const pagina = document.getElementById("comentario-pagina");
+  const url = document.getElementById("comentario-url");
+
   if (pagina) pagina.value = document.title;
   if (url) url.value = window.location.href;
 });
