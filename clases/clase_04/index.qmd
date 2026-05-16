@@ -1,0 +1,407 @@
+---
+title: "Clase 04 | Unidad 3. Estadística Descriptiva Univariada"
+title-block: false
+toc: false
+page-layout: full
+body-classes: clases-page clase-page
+---
+
+::: {.columns #catedra}
+
+::: {.column .clase-main}
+
+```{=html}
+<div class="clase-presentacion">
+  <div class="clase-slide">
+    <div class="ratio ratio-16x9">
+      <iframe 
+        src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_04%2Fclase_04.pptx" 
+        allowfullscreen 
+        frameborder="0" 
+        scrolling="no">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="clase-info">
+    <span class="clase-titulo">Clase 04 | Unidad 3. Estadística Descriptiva Univariada</span>
+    <span class="clase-descarga">
+      <a href="clase_04.pptx">Descargar diapositivas</a>
+    </span>
+  </div>
+</div>
+```
+
+```{=html}
+<section class="clase-hero">
+  <p class="clase-kicker">Clase 04</p>
+  <h1>Estadística Descriptiva Univariada</h1>
+  <p>Preparación, limpieza, transformación y exportación de bases de datos en R siguiendo un flujo de trabajo reproducible.</p>
+</section>
+```
+
+::: {.clase-card .clase-intro}
+
+## Contenidos de la clase
+
+El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Cargar librerías**
+
+Instalar y cargar paquetes necesarios para trabajar en R.
+:::
+
+::: {.objetivo-card}
+**Importar datos**
+
+Cargar bases de datos externas en R.
+:::
+
+::: {.objetivo-card}
+**Explorar, limpiar y transformar variables**
+
+Preparar variables para su posterior análisis descriptivo.
+:::
+
+::: {.objetivo-card}
+**Exportar resultados**
+
+Guardar una base procesada para su uso posterior.
+:::
+
+:::
+
+Para ello, trabajaremos con la ola 6 del [Estudio Longitudinal Social de Chile (ELSOC)](https://coes.cl/encuesta-panel/) — ELSOC 2022.
+
+:::
+
+::: {.clase-card}
+
+## 1. Cargar librerías
+
+En R se trabaja a partir de **paquetes** (*packages*): conjuntos de funciones que amplían las capacidades del lenguaje base. Los directorios donde se almacenan se llaman **librerías**. La lógica es instalar el paquete una vez y luego cargar la librería cada vez que la necesitamos.
+
+En este curso usaremos **`pacman`**, un paquete que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:
+
+```{r}
+#| label: instalar-pacman
+#| echo: true
+#| eval: false
+
+install.packages("pacman")
+library(pacman)
+```
+
+Luego, con `p_load()` instalamos y cargamos todos los paquetes que necesitamos en un solo paso:
+
+```{r}
+#| label: cargar-librerias
+#| echo: true
+#| eval: false
+
+pacman::p_load(tidyverse, # colección de paquetes para manipulación de datos
+               dplyr,     # para manipular datos
+               haven,     # para importar datos en formato .sav y .dta
+               car)       # para recodificar datos
+
+options(scipen = 999) # desactivar notación científica
+rm(list = ls())       # limpiar el entorno de trabajo
+```
+
+::: {.callout-note}
+El `::` antes de `p_load` indica que se "fuerza" el uso de esa función desde el paquete `pacman`. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.
+:::
+
+:::
+
+::: {.clase-card}
+
+## 2. Importar datos
+
+[Descargar ELSOC 2022](../../resources/ELSOC_W06_v1.0_SPSS.sav)
+
+En R es posible importar datos en prácticamente cualquier formato: `.csv`, `.dta`, `.sav`, `.xlsx`, `.rds`, `.RData`, entre otros. La estructura general es:
+
+`read_*("ruta_hacia_archivo/nombre_archivo.*")`
+
+Siguiendo el flujo de trabajo IPO, los datos deben estar guardados en la carpeta `input/data/` del proyecto. Una vez ubicados ahí, los importamos así:
+
+```{r}
+#| label: importar-datos
+#| echo: true
+#| eval: false
+
+elsoc_2022 <- read_sav("input/data/ELSOC_W06_v1.0_SPSS.sav")
+```
+
+::: {.callout-note}
+Para importar datos correctamente hay que tener en cuenta tres cosas:
+
+1. El **nombre** del archivo, por ejemplo `ELSOC_W06_v1.0_SPSS`.
+2. El **formato** del archivo, por ejemplo `.sav`.
+3. La **ruta** donde está alojado dentro del proyecto.
+:::
+
+:::
+
+::: {.clase-card}
+
+## 3. Explorar datos
+
+Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:
+
+```{r}
+#| label: explorar-datos
+#| echo: true
+#| eval: false
+
+View(elsoc_2022)   # ver los datos como tabla
+names(elsoc_2022)  # nombres de las columnas/variables
+dim(elsoc_2022)    # dimensiones: filas y columnas
+str(elsoc_2022)    # estructura: clases y categorías de respuesta
+```
+
+:::
+
+::: {.clase-card}
+
+## 4. Limpiar datos
+
+Para limpiar y manipular datos usaremos el paquete **`dplyr`**, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:
+
+`dplyr::funcion(datos, variable1, variable2, ...)`
+
+### 4.1 Seleccionar variables
+
+Con `select()` elegimos las columnas que nos interesan y las guardamos en una nueva base. Podemos seleccionar por posición, por nombre o renombrar al mismo tiempo:
+
+```{r}
+#| label: select-ejemplos
+#| echo: true
+#| eval: false
+
+# Por posición
+dplyr::select(elsoc_2022, 1, 2)       # primera y segunda columna
+dplyr::select(elsoc_2022, 1:4)        # de la primera a la cuarta
+dplyr::select(elsoc_2022, c(1, 4, 5)) # primera, cuarta y quinta
+
+# Por nombre
+dplyr::select(elsoc_2022, m0_sexo, m0_edad, m13)
+
+# Renombrando al seleccionar
+dplyr::select(elsoc_2022, sexo = m0_sexo, edad = m0_edad, ingreso = m13)
+```
+
+Ahora seleccionamos y renombramos las variables de interés en una nueva base llamada `proc_elsoc`:
+
+```{r}
+#| label: select-aplicado
+#| echo: true
+#| eval: false
+
+proc_elsoc <- dplyr::select(elsoc_2022,
+                            edad            = m0_edad,
+                            sexo            = m0_sexo,
+                            ingreso         = m13,
+                            autor_democ     = c25,
+                            jv_delincuentes = f05_01)
+
+proc_elsoc
+```
+
+### 4.2 Filtrar casos
+
+Con `filter()` nos quedamos solo con las filas que cumplen una condición. Podemos combinar condiciones con operadores lógicos (`==`, `>=`, `&`, etc.):
+
+```{r}
+#| label: filter-ejemplos
+#| echo: true
+#| eval: false
+
+# Casos con preferencia autoritaria
+dplyr::filter(proc_elsoc, autor_democ == 1)
+
+# Combinando condiciones
+dplyr::filter(proc_elsoc, autor_democ == 1 & edad >= 25)
+
+# Variables tipo character o factor
+dplyr::filter(proc_elsoc, sexo == "Mujer")
+```
+
+Filtramos quedándonos solo con personas de 25 años o más:
+
+```{r}
+#| label: filter-aplicado
+#| echo: true
+#| eval: false
+
+proc_elsoc <- dplyr::filter(proc_elsoc, edad >= 25)
+
+proc_elsoc
+```
+
+### 4.3 Recodificar variables
+
+La recodificación consiste en asignar nuevos valores a las categorías de una variable. Usaremos `recode()` del paquete `car`:
+
+`car::recode(datos$variable, recodes = c('valor_orig = nuevo_valor'))`
+
+Recodificamos `sexo` e `ingreso`:
+
+```{r}
+#| label: recode-1
+#| echo: true
+#| eval: false
+
+proc_elsoc$sexo <- car::recode(proc_elsoc$sexo,
+                               recodes = c("'Hombre' = 'Masculino'; 'Mujer' = 'Femenino'"))
+
+proc_elsoc$ingreso <- car::recode(proc_elsoc$ingreso,
+                                  recodes = c("-888 = NA; -999 = NA"))
+```
+
+Para variables ordinales, podemos convertir a factor y asignar niveles en la misma función:
+
+```{r}
+#| label: recode-2
+#| echo: true
+#| eval: false
+
+proc_elsoc$autor_democ <- car::recode(proc_elsoc$autor_democ,
+                            recodes = c("1 = 'La democracia es preferible a cualquier otra forma de gobierno';
+                                         2 = 'En algunas circunstancias, un gobierno autoritario puede ser preferible a uno democratico';
+                                         3 = 'A la gente como uno, nos da lo mismo un regimen democratico que uno autoritario';
+                                         4 = 'Ninguna';
+                                        -888 = NA;
+                                        -999 = NA"),
+                            as.factor = TRUE)
+
+proc_elsoc$jv_delincuentes <- car::recode(proc_elsoc$jv_delincuentes,
+                                recodes = c("1 = 'Nunca';
+                                             2 = 'Pocas veces';
+                                             3 = 'Algunas veces';
+                                             4 = 'Muchas veces';
+                                             5 = 'Siempre';
+                                            -888 = NA;
+                                            -999 = NA"),
+                                as.factor = TRUE,
+                                levels = c("Nunca", "Pocas veces", "Algunas veces",
+                                           "Muchas veces", "Siempre"))
+```
+
+::: {.callout-note}
+Los valores `-888` y `-999` corresponden a *no sabe* y *no responde*, respectivamente, y se recodifican como `NA` valores perdidos.
+:::
+
+### 4.4 Tratamiento de casos perdidos
+
+Los valores perdidos en R se denominan `NA`. Antes de eliminarlos, conviene identificar cuántos hay y en qué variables:
+
+```{r}
+#| label: na-identificar
+#| echo: true
+#| eval: false
+
+sum(is.na(proc_elsoc))         # total de NA en la base
+colSums(is.na(proc_elsoc))     # NA por variable
+```
+
+Una vez identificados, los eliminamos con `na.omit()`, que remueve todas las filas que contengan al menos un `NA`:
+
+```{r}
+#| label: na-omit
+#| echo: true
+#| eval: false
+
+proc_elsoc <- na.omit(proc_elsoc)
+
+proc_elsoc
+```
+
+:::
+
+::: {.clase-card}
+
+## 5. Transformar variables
+
+Con `mutate()` de `dplyr` podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.
+
+La estructura general es:
+
+`dplyr::mutate(datos, nueva_variable = funcion())`
+
+Creamos una variable `ano` con el año de la encuesta:
+
+```{r}
+#| label: mutate-ano
+#| echo: true
+#| eval: false
+
+proc_elsoc <- mutate(proc_elsoc, ano = 2022)
+```
+
+Con `case_when()` creamos variables según condiciones múltiples, útil para construir tramos:
+
+```{r}
+#| label: mutate-tramos
+#| echo: true
+#| eval: false
+
+proc_elsoc <- mutate(proc_elsoc,
+                     tramo_edad = case_when(edad <= 29              ~ "Jovenes",
+                                            edad >= 30 & edad <= 59 ~ "Adultos",
+                                            edad >= 60              ~ "Adultos mayores"))
+
+proc_elsoc <- mutate(proc_elsoc,
+                     tramo_ingreso = case_when(ingreso <= 250000                          ~ "Tramo 1",
+                                               ingreso > 250000 & ingreso <= 500000       ~ "Tramo 2",
+                                               ingreso > 500000 & ingreso <= 750000       ~ "Tramo 3",
+                                               ingreso > 750000 & ingreso <= 1000000      ~ "Tramo 4",
+                                               ingreso > 1000000                          ~ "Tramo 5"))
+```
+
+Con `if_else()` creamos una variable dicotómica según una condición simple:
+
+```{r}
+#| label: mutate-ifelse
+#| echo: true
+#| eval: false
+
+proc_elsoc <- mutate(proc_elsoc,
+                     ingreso_minimo = if_else(ingreso < 410000, "debajo minimo", "sobre minimo"))
+
+select(proc_elsoc, ingreso, ingreso_minimo)
+```
+
+:::
+
+::: {.clase-card}
+
+## 6. Guardar y exportar datos procesados
+
+El último paso es guardar la base procesada en la carpeta `output/` del proyecto en formato `.RData`:
+
+```{r}
+#| label: guardar
+#| echo: true
+#| eval: false
+
+save(proc_elsoc, file = "output/proc_elsoc.RData")
+```
+
+:::
+
+{{< include ../../includes/comentarios-giscus.qmd >}}
+
+:::
+
+::: {.column-margin}
+
+{{< include ../../includes/menu-clases.qmd >}}
+
+:::
+
+:::

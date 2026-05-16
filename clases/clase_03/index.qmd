@@ -1,0 +1,436 @@
+---
+title: "Clase 03 | Unidad 2. Introducción a la Estadística"
+title-block: false
+toc: false
+page-layout: full
+body-classes: clases-page clase-page
+---
+
+::: {.columns #catedra}
+
+::: {.column .clase-main}
+
+```{=html}
+<div class="clase-presentacion">
+  <div class="clase-slide">
+    <div class="ratio ratio-16x9">
+      <iframe 
+        src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fudp-visualizacion-datos-r.netlify.app%2Fclases%2Fclase_03%2Fclase_03.pptx" 
+        allowfullscreen 
+        frameborder="0" 
+        scrolling="no">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="clase-info">
+    <span class="clase-titulo">Clase 03 | Unidad 2. Introducción a la Estadística</span>
+    <span class="clase-descarga">
+      <a href="clase_03.pptx">Descargar diapositivas</a>
+    </span>
+  </div>
+</div>
+```
+
+```{=html}
+<section class="clase-hero">
+  <p class="clase-kicker">Clase 03</p>
+  <h1>Introducción a la Estadística</h1>
+  <p>Visualización y reconocimiento de la forma de una distribución de datos usando R.</p>
+</section>
+```
+
+::: {.clase-card .clase-intro}
+
+## Contenidos de la clase
+
+El objetivo de esta clase es visualizar y reconocer la forma de una distribución de datos. En detalle, aprenderemos a:
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Cargar librerías**
+
+Instalar y cargar paquetes necesarios para trabajar en R.
+:::
+
+::: {.objetivo-card}
+**Importar datos**
+
+Cargar bases de datos externas en R.
+:::
+
+::: {.objetivo-card}
+**Explorar y transformar variables**
+
+Revisar, limpiar y preparar variables para el análisis.
+:::
+
+::: {.objetivo-card}
+**Visualizar distribuciones**
+
+Construir gráficos univariados para observar la forma de los datos.
+:::
+
+:::
+
+Para ello, trabajaremos con la encuesta 2023 de [Latinobarómetro](https://www.latinobarometro.org/).
+
+:::
+
+::: {.clase-card}
+
+## 1. Cargar librerías
+
+Al igual que la sesión anterior, usaremos el paquete **`pacman`**, que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:
+
+```{r}
+#| label: instalar-pacman
+#| echo: true
+#| eval: false
+
+install.packages("pacman")
+library(pacman)
+```
+
+Luego, con `p_load()` instalamos y cargamos todos los paquetes que necesitamos en un solo paso:
+
+```{r}
+#| label: cargar-librerias
+#| echo: true
+#| eval: false
+
+pacman::p_load(tidyverse, # colección de paquetes para manipulación de datos
+               dplyr,     # para manipular datos
+               haven)     # para importar datos en formato .sav y .dta
+
+options(scipen = 999) # desactivar notación científica
+rm(list = ls())       # limpiar el entorno de trabajo
+```
+
+:::
+
+::: {.clase-card}
+
+## 2. Importar datos
+
+[Descargar Latinobarómetro 2023](../../resources/Latinobarometro_2023.sav)
+
+En R es posible importar datos en prácticamente cualquier formato: `.csv`, `.dta`, `.sav`, `.xlsx`, `.rds`, `.RData`, entre otros. La estructura general es:
+
+`read_*("ruta_hacia_archivo/nombre_archivo.*")`
+
+En este caso, como el archivo está en formato `.rdata`, lo importamos con `load()`, que carga el objeto directamente en el entorno de trabajo:
+
+```{r}
+#| label: importar-datos
+#| echo: true
+#| eval: false
+
+load("input/data/Latinobarometro_2023_Esp_Rdata_v1_0.rdata")
+datos <- Latinobarometro_2023_Esp_v1_0
+```
+
+:::
+
+::: {.clase-card}
+
+## 3. Explorar datos
+
+Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:
+
+```{r}
+#| label: explorar-datos
+#| echo: true
+#| eval: false
+
+View(datos)   # ver los datos como tabla
+names(datos)  # nombres de las columnas/variables
+dim(datos)    # dimensiones: filas y columnas
+str(datos)    # estructura: clases y categorías de respuesta
+```
+
+:::
+
+::: {.clase-card}
+
+## 4. Limpiar datos
+
+Para limpiar y manipular datos usaremos el paquete **`dplyr`**, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:
+
+`dplyr::funcion(datos, variable1, variable2, ...)`
+
+### 4.1 Seleccionar variables
+
+Con `select()` elegimos las columnas que nos interesan y las guardamos en una nueva base. Podemos seleccionar por posición, por nombre o renombrar al mismo tiempo:
+
+```{r}
+#| label: select-ejemplos
+#| echo: true
+#| eval: false
+
+# Por posición
+dplyr::select(datos, 1, 2)       # primera y segunda columna
+dplyr::select(datos, 1:4)        # de la primera a la cuarta
+dplyr::select(datos, c(1, 4, 5)) # primera, cuarta y quinta
+```
+
+También podemos seleccionar variables por nombre:
+
+```{r}
+#| label: select-por-nombre
+#| echo: true
+#| eval: false
+
+# Ejemplo general
+dplyr::select(datos, variable_1, variable_2, variable_3)
+```
+
+Y renombrarlas al mismo tiempo:
+
+```{r}
+#| label: select-renombrando
+#| echo: true
+#| eval: false
+
+# Ejemplo general
+datos_proc <- dplyr::select(datos,
+                            nueva_variable_1 = variable_1,
+                            nueva_variable_2 = variable_2,
+                            nueva_variable_3 = variable_3)
+
+datos_proc
+```
+
+::: {.callout-note}
+En esta parte debes reemplazar `variable_1`, `variable_2` y `variable_3` por los nombres reales de las variables que quieras usar en Latinobarómetro.
+:::
+
+### 4.2 Filtrar casos
+
+Con `filter()` nos quedamos solo con las filas que cumplen una condición. Podemos combinar condiciones con operadores lógicos como `==`, `>=`, `<=`, `&` y `|`.
+
+```{r}
+#| label: filter-ejemplos
+#| echo: true
+#| eval: false
+
+# Filtrar casos según una condición
+dplyr::filter(datos_proc, variable_1 == 1)
+
+# Combinar condiciones
+dplyr::filter(datos_proc, variable_1 == 1 & variable_2 >= 25)
+
+# Filtrar variables tipo character o factor
+dplyr::filter(datos_proc, variable_3 == "Categoría")
+```
+
+Ejemplo de filtrado aplicado:
+
+```{r}
+#| label: filter-aplicado
+#| echo: true
+#| eval: false
+
+datos_proc <- dplyr::filter(datos_proc, variable_2 >= 25)
+
+datos_proc
+```
+
+### 4.3 Recodificar variables
+
+La recodificación consiste en asignar nuevos valores a las categorías de una variable. Una forma simple es usar `mutate()` junto con `case_when()`:
+
+```{r}
+#| label: recode-case-when
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(variable_recodificada = case_when(
+    variable_1 == 1 ~ "Categoría 1",
+    variable_1 == 2 ~ "Categoría 2",
+    variable_1 == 3 ~ "Categoría 3",
+    TRUE ~ NA_character_
+  ))
+```
+
+También podemos recodificar valores perdidos o respuestas no válidas como `NA`:
+
+```{r}
+#| label: recode-na
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(variable_limpia = case_when(
+    variable_1 %in% c(-888, -999) ~ NA_real_,
+    TRUE ~ as.numeric(variable_1)
+  ))
+```
+
+::: {.callout-note}
+Los valores como `-888`, `-999`, `98` o `99` suelen representar respuestas como *no sabe*, *no responde* o *no aplica*. Siempre hay que revisar el cuestionario o libro de códigos de la encuesta antes de recodificar.
+:::
+
+### 4.4 Tratamiento de casos perdidos
+
+Los valores perdidos en R se denominan `NA`. Antes de eliminarlos o tratarlos, conviene identificar cuántos hay y en qué variables:
+
+```{r}
+#| label: na-identificar
+#| echo: true
+#| eval: false
+
+sum(is.na(datos_proc))         # total de NA en la base
+colSums(is.na(datos_proc))     # NA por variable
+```
+
+Una vez identificados, podemos eliminar las filas que contengan al menos un `NA`:
+
+```{r}
+#| label: na-omit
+#| echo: true
+#| eval: false
+
+datos_proc <- na.omit(datos_proc)
+
+datos_proc
+```
+
+:::
+
+::: {.clase-card}
+
+## 5. Transformar variables
+
+Con `mutate()` de `dplyr` podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.
+
+La estructura general es:
+
+`dplyr::mutate(datos, nueva_variable = funcion())`
+
+Creamos una variable con el año de la encuesta:
+
+```{r}
+#| label: mutate-ano
+#| echo: true
+#| eval: false
+
+datos_proc <- mutate(datos_proc, ano = 2023)
+```
+
+Con `case_when()` creamos variables según condiciones múltiples:
+
+```{r}
+#| label: mutate-tramos
+#| echo: true
+#| eval: false
+
+datos_proc <- mutate(datos_proc,
+                     tramo_edad = case_when(
+                       edad <= 29 ~ "Jóvenes",
+                       edad >= 30 & edad <= 59 ~ "Adultos",
+                       edad >= 60 ~ "Adultos mayores"
+                     ))
+```
+
+Con `if_else()` creamos una variable dicotómica según una condición simple:
+
+```{r}
+#| label: mutate-ifelse
+#| echo: true
+#| eval: false
+
+datos_proc <- mutate(datos_proc,
+                     grupo_edad = if_else(edad < 30, 
+                                          "Menor de 30", 
+                                          "30 años o más"))
+
+select(datos_proc, edad, grupo_edad)
+```
+
+:::
+
+::: {.clase-card}
+
+## 6. Visualizar distribuciones de datos
+
+Una vez que tenemos una base limpia, podemos comenzar a visualizar la distribución de las variables.
+
+### 6.1 Gráfico de barras para variables categóricas
+
+Los gráficos de barras permiten observar cómo se distribuyen las categorías de una variable cualitativa.
+
+```{r}
+#| label: grafico-barras
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = variable_recodificada)) +
+  geom_bar() +
+  labs(title = "Distribución de la variable",
+       x = "Categorías",
+       y = "Frecuencia")
+```
+
+### 6.2 Histograma para variables numéricas
+
+Los histogramas permiten observar la forma de la distribución de una variable cuantitativa.
+
+```{r}
+#| label: histograma
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = edad)) +
+  geom_histogram(bins = 30) +
+  labs(title = "Distribución de la edad",
+       x = "Edad",
+       y = "Frecuencia")
+```
+
+### 6.3 Boxplot para observar dispersión
+
+El boxplot permite observar la mediana, la dispersión y posibles valores extremos.
+
+```{r}
+#| label: boxplot
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(y = edad)) +
+  geom_boxplot() +
+  labs(title = "Distribución de la edad",
+       y = "Edad")
+```
+
+:::
+
+::: {.clase-card}
+
+## 7. Guardar y exportar datos procesados
+
+El último paso es guardar la base procesada en la carpeta `output/` del proyecto en formato `.RData`:
+
+```{r}
+#| label: guardar
+#| echo: true
+#| eval: false
+
+save(datos_proc, file = "output/datos_proc_latinobarometro_2023.RData")
+```
+
+:::
+
+{{< include ../../includes/comentarios-giscus.qmd >}}
+
+:::
+
+::: {.column-margin}
+
+{{< include ../../includes/menu-clases.qmd >}}
+
+:::
+
+:::
