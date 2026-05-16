@@ -44,58 +44,119 @@ body-classes: clases-page clase-page
 
 ## Contenidos de la clase
 
-El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:
+El objetivo de esta guía práctica es conocer las principales formas de realizar **análisis estadístico descriptivo en R**, aplicando los conocimientos aprendidos durante el curso.
+
+En detalle, aprenderemos a:
 
 ::: {.clase-objetivos}
 
 ::: {.objetivo-card}
-**Cargar librerías**
+**Establecer un flujo de trabajo**
 
-Instalar y cargar paquetes necesarios para trabajar en R.
+Organizar un script `.R` de manera ordenada y reproducible.
 :::
 
 ::: {.objetivo-card}
-**Importar datos**
+**Analizar variables categóricas**
 
-Cargar bases de datos externas en R.
+Calcular frecuencias, porcentajes y tablas de contingencia.
 :::
 
 ::: {.objetivo-card}
-**Explorar, limpiar y transformar variables**
+**Analizar variables numéricas**
 
-Preparar variables para su posterior análisis descriptivo.
+Calcular medidas de tendencia central, dispersión y posición.
 :::
 
 ::: {.objetivo-card}
-**Exportar resultados**
+**Interpretar resultados descriptivos**
 
-Guardar una base procesada para su uso posterior.
+Traducir los resultados estadísticos a una lectura sustantiva.
 :::
 
 :::
 
-Para ello, trabajaremos con la ola 6 del [Estudio Longitudinal Social de Chile (ELSOC)](https://coes.cl/encuesta-panel/) — ELSOC 2022.
+En esta práctica trabajaremos con los datos procesados obtenidos en la práctica anterior a partir del [Estudio Longitudinal Social de Chile ELSOC](https://coes.cl/encuesta-panel/), realizado por COES.
 
 :::
 
 ::: {.clase-card}
 
+## Recursos de la práctica
+
+En esta práctica usaremos la base procesada `proc_elsoc.RData`, construida a partir de la ola 6 del Estudio Longitudinal Social de Chile — ELSOC 2022.
+
+Recuerden que siempre es importante trabajar junto con el manual o libro de códigos de la base de datos. El manual de variables de ELSOC 2022 se puede revisar en el siguiente enlace:
+
+[Manual de variables ELSOC 2022](https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx)
+
+:::
+
+::: {.clase-card}
+
+## Flujo de trabajo reproducible
+
+Por temas de orden y reproducibilidad, en este curso vamos a separar el trabajo con datos en dos momentos:
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Preparación**
+
+Corresponde a la limpieza y modificación previa de los datos. En esta etapa se seleccionan variables, se filtran casos, se recodifican respuestas y se construyen nuevas variables.
+:::
+
+::: {.objetivo-card}
+**Análisis**
+
+Corresponde al cálculo de estadísticos descriptivos y a la interpretación de los resultados en función de preguntas de investigación.
+:::
+
+:::
+
+En términos generales, distinguimos entre **datos originales** y **datos preparados o procesados**. Los datos originales provienen directamente de la fuente, mientras que los datos procesados son aquellos que ya fueron adaptados para el análisis.
+
+**Los procesos de preparación y análisis vinculados tanto a datos como a resultados se presentan en el siguiente esquema:**
+
+![](../../images/image.png)
+
+Tanto la preparación como el análisis quedan registrados en archivos de código separados. En esta guía nos centraremos en el **análisis de datos** con R.
+
+El documento de código de análisis tiene, por lo menos, las siguientes partes:
+
+0. Identificación y descripción general: título, autoría, fecha e información breve sobre el contenido.
+1. Librerías: instalación y carga de paquetes.
+2. Datos: carga de datos procesados.
+3. Exploración: revisión inicial de la base.
+4. Análisis: cálculo de estadísticos descriptivos.
+
+:::
+
+::: {.clase-card}
+
+# Análisis descriptivo de datos
+
 ## 1. Cargar librerías
 
-En R se trabaja a partir de **paquetes** (*packages*): conjuntos de funciones que amplían las capacidades del lenguaje base. Los directorios donde se almacenan se llaman **librerías**. La lógica es instalar el paquete una vez y luego cargar la librería cada vez que la necesitamos.
-
-En este curso usaremos **`pacman`**, un paquete que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:
+Este paso ya lo realizamos en sesiones anteriores. Sin embargo, si trabajamos en una nueva sesión de R, debemos volver a cargar las librerías necesarias.
 
 ```{r}
 #| label: instalar-pacman
 #| echo: true
 #| eval: false
 
-install.packages("pacman")
-library(pacman)
+install.packages("pacman") # para instalar
+library(pacman)            # para llamar/cargar
 ```
 
-Luego, con `p_load()` instalamos y cargamos todos los paquetes que necesitamos en un solo paso:
+En este práctico utilizaremos los siguientes paquetes:
+
+1. `pacman`: facilita la instalación y carga de paquetes.
+2. `tidyverse`: colección de paquetes para manipulación y análisis de datos.
+3. `dplyr`: permite seleccionar, transformar y resumir variables.
+4. `psych`: permite calcular estadísticos descriptivos.
+5. `sjmisc`: permite calcular frecuencias y otros descriptivos.
+6. `sjPlot`: permite construir tablas cruzadas o de contingencia.
 
 ```{r}
 #| label: cargar-librerias
@@ -104,16 +165,13 @@ Luego, con `p_load()` instalamos y cargamos todos los paquetes que necesitamos e
 
 pacman::p_load(tidyverse, # colección de paquetes para manipulación de datos
                dplyr,     # para manipular datos
-               haven,     # para importar datos en formato .sav y .dta
-               car)       # para recodificar datos
+               psych,     # para analizar datos
+               sjmisc,    # para analizar datos
+               sjPlot)    # para tablas de contingencia
 
 options(scipen = 999) # desactivar notación científica
 rm(list = ls())       # limpiar el entorno de trabajo
 ```
-
-::: {.callout-note}
-El `::` antes de `p_load` indica que se "fuerza" el uso de esa función desde el paquete `pacman`. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.
-:::
 
 :::
 
@@ -121,28 +179,30 @@ El `::` antes de `p_load` indica que se "fuerza" el uso de esa función desde el
 
 ## 2. Importar datos
 
-[Descargar ELSOC 2022](../../resources/ELSOC_W06_v1.0_SPSS.sav)
-
-En R es posible importar datos en prácticamente cualquier formato: `.csv`, `.dta`, `.sav`, `.xlsx`, `.rds`, `.RData`, entre otros. La estructura general es:
-
-`read_*("ruta_hacia_archivo/nombre_archivo.*")`
-
-Siguiendo el flujo de trabajo IPO, los datos deben estar guardados en la carpeta `input/data/` del proyecto. Una vez ubicados ahí, los importamos así:
+Usaremos los datos procesados en la práctica anterior, guardados en la carpeta `output`.
 
 ```{r}
-#| label: importar-datos
+#| label: importar-datos-local
 #| echo: true
 #| eval: false
 
-elsoc_2022 <- read_sav("input/data/ELSOC_W06_v1.0_SPSS.sav")
+load("output/proc_elsoc.RData")
+```
+
+También podemos cargar una base directamente desde internet usando `url()`:
+
+```{r}
+#| label: importar-datos-url
+#| echo: true
+#| eval: false
+
+load(url("https://github.com/cursos-metodos-facso/descriptiva/raw/main/assignment/output/proc_elsoc.Rdata"))
 ```
 
 ::: {.callout-note}
-Para importar datos correctamente hay que tener en cuenta tres cosas:
+La función `load()` proviene de **R base** y permite cargar bases de datos en formato `.RData` o `.Rdata`.
 
-1. El **nombre** del archivo, por ejemplo `ELSOC_W06_v1.0_SPSS`.
-2. El **formato** del archivo, por ejemplo `.sav`.
-3. La **ruta** donde está alojado dentro del proyecto.
+También podemos cargar bases desde internet utilizando la función `url()`.
 :::
 
 :::
@@ -151,246 +211,862 @@ Para importar datos correctamente hay que tener en cuenta tres cosas:
 
 ## 3. Explorar datos
 
-Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:
+Antes de comenzar el análisis, conviene revisar la base de datos.
 
 ```{r}
 #| label: explorar-datos
 #| echo: true
 #| eval: false
 
-View(elsoc_2022)   # ver los datos como tabla
-names(elsoc_2022)  # nombres de las columnas/variables
-dim(elsoc_2022)    # dimensiones: filas y columnas
-str(elsoc_2022)    # estructura: clases y categorías de respuesta
+View(proc_elsoc)   # ver datos
+names(proc_elsoc)  # nombres de columnas
+dim(proc_elsoc)    # dimensiones
+str(proc_elsoc)    # estructura de los datos
+```
+
+En este caso, nuestra base de datos procesada tiene **496 casos** y **9 variables**.
+
+:::
+
+::: {.clase-card}
+
+## 4. Análisis descriptivo para variables categóricas
+
+Cuando trabajamos con variables categóricas, sean **nominales** u **ordinales**, podemos utilizar tablas de frecuencias.
+
+Las frecuencias permiten ordenar los datos según los valores o categorías alcanzadas por una variable.
+
+### 4.1 Medidas de frecuencia
+
+#### a) Frecuencias absolutas y relativas
+
+Para variables nominales podemos usar tablas de frecuencias absolutas y relativas. Esto también nos permite identificar la **moda**, es decir, la categoría con mayor cantidad de observaciones.
+
+Una forma sencilla de calcular frecuencias absolutas es mediante la función `table()`:
+
+```{r}
+#| label: frecuencias-absolutas
+#| echo: true
+#| eval: false
+
+table(proc_elsoc$sexo)
+
+table(proc_elsoc$ingreso_minimo)
+
+table(proc_elsoc$autor_democ)
+```
+
+Lo anterior entrega la frecuencia absoluta de las variables. Por ejemplo, en cuanto a preferencias entre autoritarismo y democracia, podemos observar en qué categoría se concentra la mayor cantidad de casos.
+
+Para conocer la frecuencia relativa o porcentual, usamos `prop.table()`:
+
+```{r}
+#| label: frecuencias-relativas
+#| echo: true
+#| eval: false
+
+prop.table(table(proc_elsoc$autor_democ)) * 100
+```
+
+Otra forma de calcularlo es utilizando lenguaje orientado a objetos:
+
+```{r}
+#| label: frecuencias-objetos
+#| echo: true
+#| eval: false
+
+freq_table1 <- table(proc_elsoc$autor_democ)
+
+prop.table(freq_table1) * 100
+```
+
+Así, podemos interpretar qué porcentaje de los casos se ubica en cada categoría de respuesta.
+
+:::
+
+::: {.clase-card}
+
+## 5. Frecuencias acumuladas
+
+Cuando trabajamos con variables ordinales, también podemos calcular frecuencias acumuladas.
+
+```{r}
+#| label: frecuencias-acumuladas
+#| echo: true
+#| eval: false
+
+cumsum(prop.table(table(proc_elsoc$tramo_ingreso)) * 100)
+```
+
+Otra forma de calcularlo es guardando los resultados en objetos:
+
+```{r}
+#| label: frecuencias-acumuladas-objetos
+#| echo: true
+#| eval: false
+
+freq_table2 <- table(proc_elsoc$tramo_ingreso)
+
+freq_table3 <- prop.table(freq_table2) * 100
+
+cumsum(freq_table3)
+```
+
+A partir de este estadístico, podemos observar qué porcentaje acumulado de casos se ubica hasta cierto tramo de ingresos.
+
+También podemos unir todas estas frecuencias en una sola tabla:
+
+```{r}
+#| label: tabla-frecuencias-completa
+#| echo: true
+#| eval: false
+
+tbl3 <- table(proc_elsoc$tramo_ingreso)
+
+cbind(
+  Freq = tbl3,
+  Relativa = prop.table(tbl3) * 100,
+  Acumulada = cumsum(tbl3)
+)
+```
+
+Otra manera de calcular frecuencias absolutas, relativas y acumuladas en R es mediante la función `frq()` del paquete `sjmisc`:
+
+```{r}
+#| label: frecuencia-sjmisc
+#| echo: true
+#| eval: false
+
+sjmisc::frq(proc_elsoc$tramo_ingreso)
 ```
 
 :::
 
 ::: {.clase-card}
 
-## 4. Limpiar datos
+## 6. Tablas de contingencia
 
-Para limpiar y manipular datos usaremos el paquete **`dplyr`**, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:
+También podemos cruzar dos variables mediante **tablas de contingencia** o **tablas cruzadas**.
 
-`dplyr::funcion(datos, variable1, variable2, ...)`
-
-### 4.1 Seleccionar variables
-
-Con `select()` elegimos las columnas que nos interesan y las guardamos en una nueva base. Podemos seleccionar por posición, por nombre o renombrar al mismo tiempo:
+Estas tablas permiten observar la distribución conjunta de dos variables categóricas. Además de la frecuencia absoluta en cada celda, podemos calcular porcentajes por fila, columna o celda.
 
 ```{r}
-#| label: select-ejemplos
+#| label: tabla-contingencia-simple
 #| echo: true
 #| eval: false
 
-# Por posición
-dplyr::select(elsoc_2022, 1, 2)       # primera y segunda columna
-dplyr::select(elsoc_2022, 1:4)        # de la primera a la cuarta
-dplyr::select(elsoc_2022, c(1, 4, 5)) # primera, cuarta y quinta
-
-# Por nombre
-dplyr::select(elsoc_2022, m0_sexo, m0_edad, m13)
-
-# Renombrando al seleccionar
-dplyr::select(elsoc_2022, sexo = m0_sexo, edad = m0_edad, ingreso = m13)
+sjt.xtab(proc_elsoc$sexo, proc_elsoc$tramo_edad)
 ```
 
-Ahora seleccionamos y renombramos las variables de interés en una nueva base llamada `proc_elsoc`:
+Tabla cruzada con porcentaje de celda:
 
 ```{r}
-#| label: select-aplicado
+#| label: tabla-contingencia-celda
 #| echo: true
 #| eval: false
 
-proc_elsoc <- dplyr::select(elsoc_2022,
-                            edad            = m0_edad,
-                            sexo            = m0_sexo,
-                            ingreso         = m13,
-                            autor_democ     = c25,
-                            jv_delincuentes = f05_01)
-
-proc_elsoc
+sjt.xtab(proc_elsoc$sexo, proc_elsoc$tramo_edad,
+         show.cell.prc = TRUE,
+         show.summary = FALSE)
 ```
 
-### 4.2 Filtrar casos
-
-Con `filter()` nos quedamos solo con las filas que cumplen una condición. Podemos combinar condiciones con operadores lógicos (`==`, `>=`, `&`, etc.):
+Tabla cruzada con porcentaje por fila:
 
 ```{r}
-#| label: filter-ejemplos
+#| label: tabla-contingencia-fila
 #| echo: true
 #| eval: false
 
-# Casos con preferencia autoritaria
-dplyr::filter(proc_elsoc, autor_democ == 1)
-
-# Combinando condiciones
-dplyr::filter(proc_elsoc, autor_democ == 1 & edad >= 25)
-
-# Variables tipo character o factor
-dplyr::filter(proc_elsoc, sexo == "Mujer")
+sjt.xtab(proc_elsoc$sexo, proc_elsoc$tramo_edad,
+         show.row.prc = TRUE,
+         show.summary = FALSE)
 ```
 
-Filtramos quedándonos solo con personas de 25 años o más:
+Tabla cruzada con porcentaje por columna:
 
 ```{r}
-#| label: filter-aplicado
+#| label: tabla-contingencia-columna
 #| echo: true
 #| eval: false
 
-proc_elsoc <- dplyr::filter(proc_elsoc, edad >= 25)
-
-proc_elsoc
-```
-
-### 4.3 Recodificar variables
-
-La recodificación consiste en asignar nuevos valores a las categorías de una variable. Usaremos `recode()` del paquete `car`:
-
-`car::recode(datos$variable, recodes = c('valor_orig = nuevo_valor'))`
-
-Recodificamos `sexo` e `ingreso`:
-
-```{r}
-#| label: recode-1
-#| echo: true
-#| eval: false
-
-proc_elsoc$sexo <- car::recode(proc_elsoc$sexo,
-                               recodes = c("'Hombre' = 'Masculino'; 'Mujer' = 'Femenino'"))
-
-proc_elsoc$ingreso <- car::recode(proc_elsoc$ingreso,
-                                  recodes = c("-888 = NA; -999 = NA"))
-```
-
-Para variables ordinales, podemos convertir a factor y asignar niveles en la misma función:
-
-```{r}
-#| label: recode-2
-#| echo: true
-#| eval: false
-
-proc_elsoc$autor_democ <- car::recode(proc_elsoc$autor_democ,
-                            recodes = c("1 = 'La democracia es preferible a cualquier otra forma de gobierno';
-                                         2 = 'En algunas circunstancias, un gobierno autoritario puede ser preferible a uno democratico';
-                                         3 = 'A la gente como uno, nos da lo mismo un regimen democratico que uno autoritario';
-                                         4 = 'Ninguna';
-                                        -888 = NA;
-                                        -999 = NA"),
-                            as.factor = TRUE)
-
-proc_elsoc$jv_delincuentes <- car::recode(proc_elsoc$jv_delincuentes,
-                                recodes = c("1 = 'Nunca';
-                                             2 = 'Pocas veces';
-                                             3 = 'Algunas veces';
-                                             4 = 'Muchas veces';
-                                             5 = 'Siempre';
-                                            -888 = NA;
-                                            -999 = NA"),
-                                as.factor = TRUE,
-                                levels = c("Nunca", "Pocas veces", "Algunas veces",
-                                           "Muchas veces", "Siempre"))
+sjt.xtab(proc_elsoc$sexo, proc_elsoc$tramo_edad,
+         show.col.prc = TRUE,
+         show.summary = FALSE)
 ```
 
 ::: {.callout-note}
-Los valores `-888` y `-999` corresponden a *no sabe* y *no responde*, respectivamente, y se recodifican como `NA` valores perdidos.
+En una tabla cruzada, los porcentajes por fila y por columna responden preguntas distintas.
+
+El porcentaje por fila permite leer cómo se distribuyen las categorías de la variable de columna dentro de cada fila.
+
+El porcentaje por columna permite leer cómo se distribuyen las categorías de la variable de fila dentro de cada columna.
 :::
 
-### 4.4 Tratamiento de casos perdidos
+:::
 
-Los valores perdidos en R se denominan `NA`. Antes de eliminarlos, conviene identificar cuántos hay y en qué variables:
+::: {.clase-card}
+
+## 7. Estadísticos descriptivos para variables numéricas
+
+A diferencia de las variables categóricas, a las variables numéricas, intervalares o de razón, les podemos calcular una mayor cantidad de estadísticos descriptivos.
+
+Entre ellos encontramos:
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Tendencia central**
+
+Media o promedio y mediana.
+:::
+
+::: {.objetivo-card}
+**Dispersión**
+
+Desviación estándar, varianza y rango.
+:::
+
+::: {.objetivo-card}
+**Posición**
+
+Mínimo, máximo, cuartiles y percentiles.
+:::
+
+:::
+
+::: {.callout-tip}
+Recordemos que:
+
+- Las **medidas de tendencia central** expresan el valor alrededor del cual se sitúa la mayor cantidad de los datos.
+- Las **medidas de dispersión** permiten observar qué tan próximos o alejados están los valores respecto a un punto central.
+- Las **medidas de posición** indican en qué lugar de la distribución se encuentra un dato o conjunto de datos en relación con el resto.
+:::
+
+:::
+
+::: {.clase-card}
+
+## 8. Medidas de tendencia central
+
+### Media o promedio
+
+La media corresponde al promedio aritmético de una variable numérica.
 
 ```{r}
-#| label: na-identificar
+#| label: media-ingreso
 #| echo: true
 #| eval: false
 
-sum(is.na(proc_elsoc))         # total de NA en la base
-colSums(is.na(proc_elsoc))     # NA por variable
+mean(proc_elsoc$ingreso, na.rm = TRUE)
 ```
 
-Una vez identificados, los eliminamos con `na.omit()`, que remueve todas las filas que contengan al menos un `NA`:
+### Mediana
+
+La mediana corresponde al valor que divide la distribución en dos partes iguales.
 
 ```{r}
-#| label: na-omit
+#| label: mediana-ingreso
 #| echo: true
 #| eval: false
 
-proc_elsoc <- na.omit(proc_elsoc)
-
-proc_elsoc
+median(proc_elsoc$ingreso, na.rm = TRUE)
 ```
 
 :::
 
 ::: {.clase-card}
 
-## 5. Transformar variables
+## 9. Medidas de dispersión
 
-Con `mutate()` de `dplyr` podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.
+### Varianza
 
-La estructura general es:
-
-`dplyr::mutate(datos, nueva_variable = funcion())`
-
-Creamos una variable `ano` con el año de la encuesta:
+La varianza mide cuánto se alejan los datos respecto a la media.
 
 ```{r}
-#| label: mutate-ano
+#| label: varianza-ingreso
 #| echo: true
 #| eval: false
 
-proc_elsoc <- mutate(proc_elsoc, ano = 2022)
+var(proc_elsoc$ingreso, na.rm = TRUE)
 ```
 
-Con `case_when()` creamos variables según condiciones múltiples, útil para construir tramos:
+### Desviación estándar
+
+La desviación estándar es la raíz cuadrada de la varianza. Es una de las medidas de dispersión más utilizadas porque está expresada en la misma unidad que la variable original.
 
 ```{r}
-#| label: mutate-tramos
+#| label: desviacion-ingreso
 #| echo: true
 #| eval: false
 
-proc_elsoc <- mutate(proc_elsoc,
-                     tramo_edad = case_when(edad <= 29              ~ "Jovenes",
-                                            edad >= 30 & edad <= 59 ~ "Adultos",
-                                            edad >= 60              ~ "Adultos mayores"))
-
-proc_elsoc <- mutate(proc_elsoc,
-                     tramo_ingreso = case_when(ingreso <= 250000                          ~ "Tramo 1",
-                                               ingreso > 250000 & ingreso <= 500000       ~ "Tramo 2",
-                                               ingreso > 500000 & ingreso <= 750000       ~ "Tramo 3",
-                                               ingreso > 750000 & ingreso <= 1000000      ~ "Tramo 4",
-                                               ingreso > 1000000                          ~ "Tramo 5"))
+sd(proc_elsoc$ingreso, na.rm = TRUE)
 ```
 
-Con `if_else()` creamos una variable dicotómica según una condición simple:
+### Rango
+
+El rango corresponde a la diferencia entre el valor máximo y el valor mínimo.
 
 ```{r}
-#| label: mutate-ifelse
+#| label: rango-ingreso
 #| echo: true
 #| eval: false
 
-proc_elsoc <- mutate(proc_elsoc,
-                     ingreso_minimo = if_else(ingreso < 410000, "debajo minimo", "sobre minimo"))
-
-select(proc_elsoc, ingreso, ingreso_minimo)
+diff(range(proc_elsoc$ingreso, na.rm = TRUE))
 ```
 
 :::
 
 ::: {.clase-card}
 
-## 6. Guardar y exportar datos procesados
+## 10. Medidas de posición
 
-El último paso es guardar la base procesada en la carpeta `output/` del proyecto en formato `.RData`:
+### Primer cuartil Q1
+
+El primer cuartil corresponde al valor bajo el cual se encuentra el 25% de los datos.
 
 ```{r}
-#| label: guardar
+#| label: q1-ingreso
 #| echo: true
 #| eval: false
 
-save(proc_elsoc, file = "output/proc_elsoc.RData")
+quantile(proc_elsoc$ingreso, probs = .25, na.rm = TRUE)
 ```
+
+### Segundo cuartil Q2 o mediana
+
+El segundo cuartil corresponde al valor bajo el cual se encuentra el 50% de los datos.
+
+```{r}
+#| label: q2-ingreso
+#| echo: true
+#| eval: false
+
+quantile(proc_elsoc$ingreso, probs = .50, na.rm = TRUE)
+```
+
+### Tercer cuartil Q3
+
+El tercer cuartil corresponde al valor bajo el cual se encuentra el 75% de los datos.
+
+```{r}
+#| label: q3-ingreso
+#| echo: true
+#| eval: false
+
+quantile(proc_elsoc$ingreso, probs = .75, na.rm = TRUE)
+```
+
+### Percentiles
+
+Los percentiles dividen la distribución en cien partes.
+
+```{r}
+#| label: percentiles-ingreso
+#| echo: true
+#| eval: false
+
+quantile(proc_elsoc$ingreso, probs = seq(0, 1, 0.01), na.rm = TRUE)
+```
+
+:::
+
+::: {.clase-card}
+
+## 11. Resumen de estadísticos con `summary()`
+
+Podemos obtener rápidamente un resumen de los datos con la función `summary()` de R base.
+
+```{r}
+#| label: summary-ingreso
+#| echo: true
+#| eval: false
+
+summary(proc_elsoc$ingreso)
+```
+
+Con esto podemos ver el mínimo, primer cuartil, mediana, media, tercer cuartil y máximo de la variable.
+
+Aunque es informativo, `summary()` no entrega todos los estadísticos que podríamos necesitar, como la desviación estándar o la varianza.
+
+:::
+
+::: {.clase-card}
+
+## 12. Resumen de estadísticos con `psych`
+
+Usando la función `describe()` del paquete `psych`, podemos obtener una mayor cantidad de estadísticos descriptivos.
+
+```{r}
+#| label: psych-describe-ingreso
+#| echo: true
+#| eval: false
+
+psych::describe(proc_elsoc$ingreso,
+                quant = c(.25, .75),
+                IQR = TRUE)
+```
+
+Esta función entrega medidas como la media, mediana, media recortada, desviación estándar, rango y recorrido intercuartílico.
+
+El recorrido intercuartílico corresponde a:
+
+$$
+IQR = Q3 - Q1
+$$
+
+Es decir, mide la dispersión del 50% central de los datos.
+
+:::
+
+::: {.clase-card}
+
+## 13. Resumen de estadísticos con `summarise()`
+
+Otra manera de obtener los estadísticos descriptivos es utilizando `summarise()` de `dplyr`.
+
+Aquí debemos especificar explícitamente qué medidas queremos calcular:
+
+```{r}
+#| label: summarise-ingreso
+#| echo: true
+#| eval: false
+
+proc_elsoc %>% 
+  summarise(
+    media = mean(ingreso, na.rm = TRUE),
+    mediana = median(ingreso, na.rm = TRUE),
+    q1 = quantile(ingreso, probs = .25, na.rm = TRUE),
+    q3 = quantile(ingreso, probs = .75, na.rm = TRUE),
+    rango = max(ingreso, na.rm = TRUE) - min(ingreso, na.rm = TRUE),
+    desviacion_estandar = sd(ingreso, na.rm = TRUE),
+    varianza = var(ingreso, na.rm = TRUE)
+  )
+```
+
+Esta forma es especialmente útil porque permite construir tablas personalizadas con los estadísticos que necesitamos reportar.
+
+:::
+
+::: {.clase-card}
+
+## 14. Visualización de datos con `ggplot2`
+
+Una vez que conocemos cómo es la distribución de nuestras variables, podemos graficarlas considerando algunos principios básicos para una buena visualización de datos.
+
+Antes de construir los gráficos, es importante comprender qué es `ggplot2` y cuál es su lógica.
+
+`ggplot2` es un potente paquete para visualizar datos en R. Su lógica principal es que **funciona por capas**, comenzando desde lo más central hasta llegar a los detalles estéticos.
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Datos**
+
+La primera capa corresponde a la base de datos que queremos graficar.
+:::
+
+::: {.objetivo-card}
+**Mapping**
+
+La segunda capa define qué variables irán en el eje X, eje Y, color, relleno o grupos.
+:::
+
+::: {.objetivo-card}
+**Geometría**
+
+La tercera capa define la forma del gráfico: barras, puntos, líneas, histogramas, boxplot, entre otros.
+:::
+
+:::
+
+La estructura básica de un gráfico con `ggplot2` es:
+
+```{r}
+#| label: estructura-ggplot
+#| echo: true
+#| eval: false
+
+ggplot(data = base_de_datos,
+       mapping = aes(x = variable_x, y = variable_y)) +
+  geom_tipo_de_grafico()
+```
+
+**¡Comencemos!**
+
+:::
+
+::: {.clase-card}
+
+## 15. Diagrama de barras
+
+La forma más común de presentar variables nominales u ordinales es mediante un **gráfico de barras**.
+
+En este primer ejemplo iremos capa por capa para entender la lógica de `ggplot2`. En los siguientes ejemplos lo haremos directamente en conjunto.
+
+Primero especificamos los datos y el mapping:
+
+```{r}
+#| label: barras-capa-1
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo))
+```
+
+Luego agregamos la geometría de barras:
+
+```{r}
+#| label: barras-capa-2
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo)) +
+  geom_bar()
+```
+
+Después podemos agregar color de borde y relleno:
+
+```{r}
+#| label: barras-capa-3
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo)) +
+  geom_bar(color = "black", fill = "darkblue")
+```
+
+También podemos ajustar la escala del eje Y:
+
+```{r}
+#| label: barras-capa-4
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo)) +
+  geom_bar(color = "black", fill = "darkblue") +
+  scale_y_continuous(limits = c(0, 500))
+```
+
+Agregamos título, nombres de ejes y fuente:
+
+```{r}
+#| label: barras-capa-5
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo)) +
+  geom_bar(color = "black", fill = "darkblue") +
+  scale_y_continuous(limits = c(0, 500)) +
+  labs(title = "Situación respecto al ingreso mínimo",
+       x = "Situación de ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+Finalmente, podemos agregar las frecuencias de cada barra:
+
+```{r}
+#| label: barras-capa-6
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo)) +
+  geom_bar(color = "black", fill = "darkblue") +
+  scale_y_continuous(limits = c(0, 500)) +
+  labs(title = "Situación respecto al ingreso mínimo",
+       x = "Situación de ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.") +
+  geom_text(aes(label = after_stat(count)),
+            stat = "count",
+            vjust = 1.5,
+            colour = "white")
+```
+
+:::
+
+::: {.clase-card}
+
+## 16. Diagrama de barras agrupado
+
+También podemos diferenciar una variable categórica según otra variable. Para ello indicamos la variable de agrupación dentro del mapping mediante el argumento `fill`.
+
+Por ejemplo, podemos graficar la situación respecto al ingreso mínimo según sexo:
+
+```{r}
+#| label: barras-apiladas-sexo
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo, fill = sexo)) +
+  geom_bar() +
+  labs(title = "Situación respecto al ingreso mínimo, según sexo",
+       x = "Situación de ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.") +
+  geom_text(aes(label = after_stat(count)),
+            stat = "count",
+            colour = "white",
+            position = position_stack(vjust = 0.5))
+```
+
+En este caso tenemos un gráfico de barras apiladas según sexo. La agrupación aparece como una leyenda que identifica los grupos.
+
+Si queremos que las barras aparezcan una al lado de la otra, debemos especificarlo dentro de la geometría con `position = "dodge2"`:
+
+```{r}
+#| label: barras-dodge-sexo
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo, fill = sexo)) +
+  geom_bar(position = "dodge2") +
+  labs(title = "Situación respecto al ingreso mínimo, según sexo",
+       x = "Situación de ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.") +
+  geom_text(aes(label = after_stat(count)),
+            stat = "count",
+            colour = "white",
+            vjust = 1.5,
+            position = position_dodge(width = .9))
+```
+
+También podemos agrupar por tramo etario:
+
+```{r}
+#| label: barras-dodge-tramo-edad
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso_minimo, fill = tramo_edad)) +
+  geom_bar(position = "dodge2") +
+  labs(title = "Situación respecto al ingreso mínimo, según tramo etario",
+       x = "Situación de ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.") +
+  geom_text(aes(label = after_stat(count)),
+            stat = "count",
+            colour = "white",
+            vjust = 1.5,
+            position = position_dodge(width = .9))
+```
+
+:::
+
+::: {.clase-card}
+
+## 17. Histogramas
+
+Cuando tenemos variables numéricas o variables con muchas categorías de respuesta, podemos usar **histogramas** para representar su distribución.
+
+Un histograma permite observar dónde se concentran los datos, si la distribución es simétrica o asimétrica y si existen valores extremos.
+
+```{r}
+#| label: histograma-edad-simple
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = edad)) +
+  geom_histogram()
+```
+
+Podemos mejorar el gráfico agregando colores, títulos, ejes y fuente:
+
+```{r}
+#| label: histograma-edad
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = edad)) +
+  geom_histogram(color = "black", fill = "#FA8072") +
+  labs(title = "Histograma de frecuencias absolutas: edad",
+       x = "Edad",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+También podemos construir un histograma para la variable ingreso:
+
+```{r}
+#| label: histograma-ingreso
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso)) +
+  geom_histogram(color = "black", fill = "darkred") +
+  labs(title = "Histograma de frecuencias absolutas: ingreso",
+       x = "Ingreso",
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+:::
+
+::: {.clase-card}
+
+## 18. Diagrama de densidad
+
+Los diagramas de densidad son una forma suavizada de observar la distribución de una variable numérica.
+
+Son útiles para identificar la forma general de la distribución y para contrastar visualmente distribuciones empíricas con distribuciones teóricas.
+
+```{r}
+#| label: densidad-edad
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = edad)) +
+  geom_density(color = "black", fill = "#FA8072", alpha = 0.8) +
+  labs(title = "Diagrama de densidad: edad",
+       x = "Edad",
+       y = "Densidad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+También podemos observar la densidad del ingreso:
+
+```{r}
+#| label: densidad-ingreso
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = ingreso)) +
+  geom_density(color = "black", fill = "darkred", alpha = 0.8) +
+  labs(title = "Diagrama de densidad: ingreso",
+       x = "Ingreso",
+       y = "Densidad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+:::
+
+::: {.clase-card}
+
+## 19. Gráficos de caja y bigote
+
+Como vimos en clases, los gráficos de caja y bigote permiten observar la **mediana**, el **primer cuartil**, el **tercer cuartil**, el **rango intercuartílico**, los valores mínimos y máximos, y posibles valores atípicos.
+
+Primero graficamos la distribución de la edad:
+
+```{r}
+#| label: boxplot-edad
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(y = edad)) +
+  geom_boxplot(fill = "darkblue", alpha = 0.8) +
+  labs(title = "Gráfico de caja: edad",
+       y = "Edad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+Luego podemos graficar la distribución del ingreso:
+
+```{r}
+#| label: boxplot-ingreso
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(y = ingreso)) +
+  geom_boxplot(fill = "darkred", alpha = 0.8) +
+  labs(title = "Gráfico de caja: ingreso",
+       y = "Ingreso",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+También podemos segmentar un gráfico de caja por una variable categórica. Por ejemplo, podemos observar la distribución del ingreso según tramo etario:
+
+```{r}
+#| label: boxplot-ingreso-tramo-edad
+#| echo: true
+#| eval: false
+#| warning: false
+
+ggplot(data = proc_elsoc, 
+       mapping = aes(x = tramo_edad, y = ingreso, fill = tramo_edad)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(title = "Gráfico de caja: ingreso por tramo etario",
+       x = "Tramo etario",
+       y = "Ingreso",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022.")
+```
+
+:::
+
+::: {.clase-card}
+
+## Resumen
+
+Hoy aprendimos a analizar datos en R mediante estadística descriptiva univariada.
+
+En detalle, vimos:
+
+::: {.clase-objetivos}
+
+::: {.objetivo-card}
+**Flujo de trabajo**
+
+Cómo establecer un flujo ordenado de procesamiento y análisis de datos en R.
+:::
+
+::: {.objetivo-card}
+**Variables categóricas**
+
+Cómo calcular frecuencias absolutas, relativas, acumuladas y tablas de contingencia.
+:::
+
+::: {.objetivo-card}
+**Variables numéricas**
+
+Cómo calcular medidas de tendencia central, dispersión y posición.
+:::
+
+::: {.objetivo-card}
+**Visualización de datos**
+
+Cómo construir gráficos de barras, histogramas, diagramas de densidad y boxplots con `ggplot2`.
+:::
+
+::: {.objetivo-card}
+**Interpretación**
+
+Cómo leer los resultados descriptivos y gráficos de manera sustantiva.
+:::
+
+:::
 
 :::
 

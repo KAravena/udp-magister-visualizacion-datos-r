@@ -222,67 +222,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="contenidos-de-la-clase" class="level2 clase-card clase-intro">
 <h2 class="anchored" data-anchor-id="contenidos-de-la-clase">Contenidos de la clase</h2>
-<p>El objetivo de esta clase es revisar los procedimientos básicos de preparación de datos en R, siguiendo el flujo de trabajo típico de un proyecto de investigación. En detalle, aprenderemos a:</p>
+<p>El objetivo de esta guía práctica es conocer las principales formas de realizar <strong>análisis estadístico descriptivo en R</strong>, aplicando los conocimientos aprendidos durante el curso.</p>
+<p>En detalle, aprenderemos a:</p>
 <div class="clase-objetivos">
 <div class="objetivo-card">
-<p><strong>Cargar librerías</strong></p>
-<p>Instalar y cargar paquetes necesarios para trabajar en R.</p>
+<p><strong>Establecer un flujo de trabajo</strong></p>
+<p>Organizar un script <code>.R</code> de manera ordenada y reproducible.</p>
 </div>
 <div class="objetivo-card">
-<p><strong>Importar datos</strong></p>
-<p>Cargar bases de datos externas en R.</p>
+<p><strong>Analizar variables categóricas</strong></p>
+<p>Calcular frecuencias, porcentajes y tablas de contingencia.</p>
 </div>
 <div class="objetivo-card">
-<p><strong>Explorar, limpiar y transformar variables</strong></p>
-<p>Preparar variables para su posterior análisis descriptivo.</p>
+<p><strong>Analizar variables numéricas</strong></p>
+<p>Calcular medidas de tendencia central, dispersión y posición.</p>
 </div>
 <div class="objetivo-card">
-<p><strong>Exportar resultados</strong></p>
-<p>Guardar una base procesada para su uso posterior.</p>
+<p><strong>Interpretar resultados descriptivos</strong></p>
+<p>Traducir los resultados estadísticos a una lectura sustantiva.</p>
 </div>
 </div>
-<p>Para ello, trabajaremos con la ola 6 del <a href="https://coes.cl/encuesta-panel/">Estudio Longitudinal Social de Chile (ELSOC)</a> — ELSOC 2022.</p>
+<p>En esta práctica trabajaremos con los datos procesados obtenidos en la práctica anterior a partir del <a href="https://coes.cl/encuesta-panel/">Estudio Longitudinal Social de Chile ELSOC</a>, realizado por COES.</p>
 </section>
-<section id="cargar-librerías" class="level2 clase-card">
-<h2 class="anchored" data-anchor-id="cargar-librerías">1. Cargar librerías</h2>
-<p>En R se trabaja a partir de <strong>paquetes</strong> (<em>packages</em>): conjuntos de funciones que amplían las capacidades del lenguaje base. Los directorios donde se almacenan se llaman <strong>librerías</strong>. La lógica es instalar el paquete una vez y luego cargar la librería cada vez que la necesitamos.</p>
-<p>En este curso usaremos <strong><code>pacman</code></strong>, un paquete que simplifica la instalación y carga simultánea de varios paquetes. Se instala una sola vez:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="recursos-de-la-práctica" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
+<p>En esta práctica usaremos la base procesada <code>proc_elsoc.RData</code>, construida a partir de la ola 6 del Estudio Longitudinal Social de Chile — ELSOC 2022.</p>
+<p>Recuerden que siempre es importante trabajar junto con el manual o libro de códigos de la base de datos. El manual de variables de ELSOC 2022 se puede revisar en el siguiente enlace:</p>
+<p><a href="https://coes.cl/wp-content/uploads/Listado-de-Variables-ELSOC-2.xlsx">Manual de variables ELSOC 2022</a></p>
+</section>
+<section id="flujo-de-trabajo-reproducible" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="flujo-de-trabajo-reproducible">Flujo de trabajo reproducible</h2>
+<p>Por temas de orden y reproducibilidad, en este curso vamos a separar el trabajo con datos en dos momentos:</p>
+<div class="clase-objetivos">
+<div class="objetivo-card">
+<p><strong>Preparación</strong></p>
+<p>Corresponde a la limpieza y modificación previa de los datos. En esta etapa se seleccionan variables, se filtran casos, se recodifican respuestas y se construyen nuevas variables.</p>
 </div>
-<p>Luego, con <code>p_load()</code> instalamos y cargamos todos los paquetes que necesitamos en un solo paso:</p>
+<div class="objetivo-card">
+<p><strong>Análisis</strong></p>
+<p>Corresponde al cálculo de estadísticos descriptivos y a la interpretación de los resultados en función de preguntas de investigación.</p>
+</div>
+</div>
+<p>En términos generales, distinguimos entre <strong>datos originales</strong> y <strong>datos preparados o procesados</strong>. Los datos originales provienen directamente de la fuente, mientras que los datos procesados son aquellos que ya fueron adaptados para el análisis.</p>
+<p><strong>Los procesos de preparación y análisis vinculados tanto a datos como a resultados se presentan en el siguiente esquema:</strong></p>
+<p><img src="../../images/image.png" class="img-fluid"></p>
+<p>Tanto la preparación como el análisis quedan registrados en archivos de código separados. En esta guía nos centraremos en el <strong>análisis de datos</strong> con R.</p>
+<p>El documento de código de análisis tiene, por lo menos, las siguientes partes:</p>
+<ol start="0" type="1">
+<li>Identificación y descripción general: título, autoría, fecha e información breve sobre el contenido.</li>
+<li>Librerías: instalación y carga de paquetes.</li>
+<li>Datos: carga de datos procesados.</li>
+<li>Exploración: revisión inicial de la base.</li>
+<li>Análisis: cálculo de estadísticos descriptivos.</li>
+</ol>
+</section>
+<section id="análisis-descriptivo-de-datos" class="level1 clase-card">
+<h1>Análisis descriptivo de datos</h1>
+<section id="cargar-librerías" class="level2">
+<h2 class="anchored" data-anchor-id="cargar-librerías">1. Cargar librerías</h2>
+<p>Este paso ya lo realizamos en sesiones anteriores. Sin embargo, si trabajamos en una nueva sesión de R, debemos volver a cargar las librerías necesarias.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>) <span class="co"># para instalar</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)            <span class="co"># para llamar/cargar</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este práctico utilizaremos los siguientes paquetes:</p>
+<ol type="1">
+<li><code>pacman</code>: facilita la instalación y carga de paquetes.</li>
+<li><code>tidyverse</code>: colección de paquetes para manipulación y análisis de datos.</li>
+<li><code>dplyr</code>: permite seleccionar, transformar y resumir variables.</li>
+<li><code>psych</code>: permite calcular estadísticos descriptivos.</li>
+<li><code>sjmisc</code>: permite calcular frecuencias y otros descriptivos.</li>
+<li><code>sjPlot</code>: permite construir tablas cruzadas o de contingencia.</li>
+</ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># colección de paquetes para manipulación de datos</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>               dplyr,     <span class="co"># para manipular datos</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               haven,     <span class="co"># para importar datos en formato .sav y .dta</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               car)       <span class="co"># para recodificar datos</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># desactivar notación científica</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())       <span class="co"># limpiar el entorno de trabajo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               psych,     <span class="co"># para analizar datos</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               sjmisc,    <span class="co"># para analizar datos</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               sjPlot)    <span class="co"># para tablas de contingencia</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># desactivar notación científica</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())       <span class="co"># limpiar el entorno de trabajo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El <code>::</code> antes de <code>p_load</code> indica que se “fuerza” el uso de esa función desde el paquete <code>pacman</code>. Esto es útil cuando dos paquetes tienen funciones con el mismo nombre.</p>
-</div>
-</div>
+</section>
 </section>
 <section id="importar-datos" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="importar-datos">2. Importar datos</h2>
-<p><a href="../../resources/ELSOC_W06_v1.0_SPSS.sav">Descargar ELSOC 2022</a></p>
-<p>En R es posible importar datos en prácticamente cualquier formato: <code>.csv</code>, <code>.dta</code>, <code>.sav</code>, <code>.xlsx</code>, <code>.rds</code>, <code>.RData</code>, entre otros. La estructura general es:</p>
-<p><code>read_*("ruta_hacia_archivo/nombre_archivo.*")</code></p>
-<p>Siguiendo el flujo de trabajo IPO, los datos deben estar guardados en la carpeta <code>input/data/</code> del proyecto. Una vez ubicados ahí, los importamos así:</p>
+<p>Usaremos los datos procesados en la práctica anterior, guardados en la carpeta <code>output</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>elsoc_2022 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"input/data/ELSOC_W06_v1.0_SPSS.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"output/proc_elsoc.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos cargar una base directamente desde internet usando <code>url()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/descriptiva/raw/main/assignment/output/proc_elsoc.Rdata"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -294,110 +326,108 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Para importar datos correctamente hay que tener en cuenta tres cosas:</p>
-<ol type="1">
-<li>El <strong>nombre</strong> del archivo, por ejemplo <code>ELSOC_W06_v1.0_SPSS</code>.</li>
-<li>El <strong>formato</strong> del archivo, por ejemplo <code>.sav</code>.</li>
-<li>La <strong>ruta</strong> donde está alojado dentro del proyecto.</li>
-</ol>
+<p>La función <code>load()</code> proviene de <strong>R base</strong> y permite cargar bases de datos en formato <code>.RData</code> o <code>.Rdata</code>.</p>
+<p>También podemos cargar bases desde internet utilizando la función <code>url()</code>.</p>
 </div>
 </div>
 </section>
 <section id="explorar-datos" class="level2 clase-card">
 <h2 class="anchored" data-anchor-id="explorar-datos">3. Explorar datos</h2>
-<p>Antes de seleccionar o modificar variables, es fundamental explorar la base de datos. Las funciones más comunes son:</p>
+<p>Antes de comenzar el análisis, conviene revisar la base de datos.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(elsoc_2022)   <span class="co"># ver los datos como tabla</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elsoc_2022)  <span class="co"># nombres de las columnas/variables</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(elsoc_2022)    <span class="co"># dimensiones: filas y columnas</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(elsoc_2022)    <span class="co"># estructura: clases y categorías de respuesta</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(proc_elsoc)   <span class="co"># ver datos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_elsoc)  <span class="co"># nombres de columnas</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(proc_elsoc)    <span class="co"># dimensiones</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(proc_elsoc)    <span class="co"># estructura de los datos</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>En este caso, nuestra base de datos procesada tiene <strong>496 casos</strong> y <strong>9 variables</strong>.</p>
 </section>
-<section id="limpiar-datos" class="level2 clase-card">
-<h2 class="anchored" data-anchor-id="limpiar-datos">4. Limpiar datos</h2>
-<p>Para limpiar y manipular datos usaremos el paquete <strong><code>dplyr</code></strong>, que funciona como una gramática de manipulación de datos. Su lógica es escribir el código de izquierda a derecha, especificando primero los datos y luego las operaciones:</p>
-<p><code>dplyr::funcion(datos, variable1, variable2, ...)</code></p>
-<section id="seleccionar-variables" class="level3">
-<h3 class="anchored" data-anchor-id="seleccionar-variables">4.1 Seleccionar variables</h3>
-<p>Con <code>select()</code> elegimos las columnas que nos interesan y las guardamos en una nueva base. Podemos seleccionar por posición, por nombre o renombrar al mismo tiempo:</p>
+<section id="análisis-descriptivo-para-variables-categóricas" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="análisis-descriptivo-para-variables-categóricas">4. Análisis descriptivo para variables categóricas</h2>
+<p>Cuando trabajamos con variables categóricas, sean <strong>nominales</strong> u <strong>ordinales</strong>, podemos utilizar tablas de frecuencias.</p>
+<p>Las frecuencias permiten ordenar los datos según los valores o categorías alcanzadas por una variable.</p>
+<section id="medidas-de-frecuencia" class="level3">
+<h3 class="anchored" data-anchor-id="medidas-de-frecuencia">4.1 Medidas de frecuencia</h3>
+<section id="a-frecuencias-absolutas-y-relativas" class="level4">
+<h4 class="anchored" data-anchor-id="a-frecuencias-absolutas-y-relativas">a) Frecuencias absolutas y relativas</h4>
+<p>Para variables nominales podemos usar tablas de frecuencias absolutas y relativas. Esto también nos permite identificar la <strong>moda</strong>, es decir, la categoría con mayor cantidad de observaciones.</p>
+<p>Una forma sencilla de calcular frecuencias absolutas es mediante la función <code>table()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Por posición</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="dv">1</span>, <span class="dv">2</span>)       <span class="co"># primera y segunda columna</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)        <span class="co"># de la primera a la cuarta</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>)) <span class="co"># primera, cuarta y quinta</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Por nombre</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, m0_sexo, m0_edad, m13)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Renombrando al seleccionar</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022, <span class="at">sexo =</span> m0_sexo, <span class="at">edad =</span> m0_edad, <span class="at">ingreso =</span> m13)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>sexo)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>ingreso_minimo)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>autor_democ)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Ahora seleccionamos y renombramos las variables de interés en una nueva base llamada <code>proc_elsoc</code>:</p>
+<p>Lo anterior entrega la frecuencia absoluta de las variables. Por ejemplo, en cuanto a preferencias entre autoritarismo y democracia, podemos observar en qué categoría se concentra la mayor cantidad de casos.</p>
+<p>Para conocer la frecuencia relativa o porcentual, usamos <code>prop.table()</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(elsoc_2022,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">edad            =</span> m0_edad,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sexo            =</span> m0_sexo,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ingreso         =</span> m13,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">autor_democ     =</span> c25,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">jv_delincuentes =</span> f05_01)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(proc_elsoc<span class="sc">$</span>autor_democ)) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
-<section id="filtrar-casos" class="level3">
-<h3 class="anchored" data-anchor-id="filtrar-casos">4.2 Filtrar casos</h3>
-<p>Con <code>filter()</code> nos quedamos solo con las filas que cumplen una condición. Podemos combinar condiciones con operadores lógicos (<code>==</code>, <code>&gt;=</code>, <code>&amp;</code>, etc.):</p>
+<p>Otra forma de calcularlo es utilizando lenguaje orientado a objetos:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Casos con preferencia autoritaria</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, autor_democ <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinando condiciones</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, autor_democ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> edad <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables tipo character o factor</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, sexo <span class="sc">==</span> <span class="st">"Mujer"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Filtramos quedándonos solo con personas de 25 años o más:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(proc_elsoc, edad <span class="sc">&gt;=</span> <span class="dv">25</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>freq_table1 <span class="ot">&lt;-</span> <span class="fu">table</span>(proc_elsoc<span class="sc">$</span>autor_democ)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(freq_table1) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Así, podemos interpretar qué porcentaje de los casos se ubica en cada categoría de respuesta.</p>
+</section>
+</section>
+</section>
+<section id="frecuencias-acumuladas" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="frecuencias-acumuladas">5. Frecuencias acumuladas</h2>
+<p>Cuando trabajamos con variables ordinales, también podemos calcular frecuencias acumuladas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(proc_elsoc<span class="sc">$</span>tramo_ingreso)) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Otra forma de calcularlo es guardando los resultados en objetos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>freq_table2 <span class="ot">&lt;-</span> <span class="fu">table</span>(proc_elsoc<span class="sc">$</span>tramo_ingreso)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>freq_table3 <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(freq_table2) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(freq_table3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A partir de este estadístico, podemos observar qué porcentaje acumulado de casos se ubica hasta cierto tramo de ingresos.</p>
+<p>También podemos unir todas estas frecuencias en una sola tabla:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tbl3 <span class="ot">&lt;-</span> <span class="fu">table</span>(proc_elsoc<span class="sc">$</span>tramo_ingreso)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq =</span> tbl3,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Relativa =</span> <span class="fu">prop.table</span>(tbl3) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Acumulada =</span> <span class="fu">cumsum</span>(tbl3)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Otra manera de calcular frecuencias absolutas, relativas y acumuladas en R es mediante la función <code>frq()</code> del paquete <code>sjmisc</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>tramo_ingreso)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="recodificar-variables" class="level3">
-<h3 class="anchored" data-anchor-id="recodificar-variables">4.3 Recodificar variables</h3>
-<p>La recodificación consiste en asignar nuevos valores a las categorías de una variable. Usaremos <code>recode()</code> del paquete <code>car</code>:</p>
-<p><code>car::recode(datos$variable, recodes = c('valor_orig = nuevo_valor'))</code></p>
-<p>Recodificamos <code>sexo</code> e <code>ingreso</code>:</p>
+<section id="tablas-de-contingencia" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="tablas-de-contingencia">6. Tablas de contingencia</h2>
+<p>También podemos cruzar dos variables mediante <strong>tablas de contingencia</strong> o <strong>tablas cruzadas</strong>.</p>
+<p>Estas tablas permiten observar la distribución conjunta de dos variables categóricas. Además de la frecuencia absoluta en cada celda, podemos calcular porcentajes por fila, columna o celda.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>sexo <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>sexo,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"'Hombre' = 'Masculino'; 'Mujer' = 'Femenino'"</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>ingreso <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>ingreso,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"-888 = NA; -999 = NA"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sjt.xtab</span>(proc_elsoc<span class="sc">$</span>sexo, proc_elsoc<span class="sc">$</span>tramo_edad)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Para variables ordinales, podemos convertir a factor y asignar niveles en la misma función:</p>
+<p>Tabla cruzada con porcentaje de celda:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>autor_democ <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>autor_democ,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"1 = 'La democracia es preferible a cualquier otra forma de gobierno';</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">                                         2 = 'En algunas circunstancias, un gobierno autoritario puede ser preferible a uno democratico';</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">                                         3 = 'A la gente como uno, nos da lo mismo un regimen democratico que uno autoritario';</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">                                         4 = 'Ninguna';</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">                                        -888 = NA;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                        -999 = NA"</span>),</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">as.factor =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>proc_elsoc<span class="sc">$</span>jv_delincuentes <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">recode</span>(proc_elsoc<span class="sc">$</span>jv_delincuentes,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                                <span class="at">recodes =</span> <span class="fu">c</span>(<span class="st">"1 = 'Nunca';</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="st">                                             2 = 'Pocas veces';</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="st">                                             3 = 'Algunas veces';</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="st">                                             4 = 'Muchas veces';</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="st">                                             5 = 'Siempre';</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="st">                                            -888 = NA;</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="st">                                            -999 = NA"</span>),</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">as.factor =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Nunca"</span>, <span class="st">"Pocas veces"</span>, <span class="st">"Algunas veces"</span>,</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"Muchas veces"</span>, <span class="st">"Siempre"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sjt.xtab</span>(proc_elsoc<span class="sc">$</span>sexo, proc_elsoc<span class="sc">$</span>tramo_edad,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.cell.prc =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.summary =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Tabla cruzada con porcentaje por fila:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sjt.xtab</span>(proc_elsoc<span class="sc">$</span>sexo, proc_elsoc<span class="sc">$</span>tramo_edad,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.row.prc =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.summary =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Tabla cruzada con porcentaje por columna:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sjt.xtab</span>(proc_elsoc<span class="sc">$</span>sexo, proc_elsoc<span class="sc">$</span>tramo_edad,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.col.prc =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">show.summary =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -409,61 +439,403 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los valores <code>-888</code> y <code>-999</code> corresponden a <em>no sabe</em> y <em>no responde</em>, respectivamente, y se recodifican como <code>NA</code> valores perdidos.</p>
+<p>En una tabla cruzada, los porcentajes por fila y por columna responden preguntas distintas.</p>
+<p>El porcentaje por fila permite leer cómo se distribuyen las categorías de la variable de columna dentro de cada fila.</p>
+<p>El porcentaje por columna permite leer cómo se distribuyen las categorías de la variable de fila dentro de cada columna.</p>
 </div>
 </div>
 </section>
-<section id="tratamiento-de-casos-perdidos" class="level3">
-<h3 class="anchored" data-anchor-id="tratamiento-de-casos-perdidos">4.4 Tratamiento de casos perdidos</h3>
-<p>Los valores perdidos en R se denominan <code>NA</code>. Antes de eliminarlos, conviene identificar cuántos hay y en qué variables:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(proc_elsoc))         <span class="co"># total de NA en la base</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(proc_elsoc))     <span class="co"># NA por variable</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="estadísticos-descriptivos-para-variables-numéricas" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="estadísticos-descriptivos-para-variables-numéricas">7. Estadísticos descriptivos para variables numéricas</h2>
+<p>A diferencia de las variables categóricas, a las variables numéricas, intervalares o de razón, les podemos calcular una mayor cantidad de estadísticos descriptivos.</p>
+<p>Entre ellos encontramos:</p>
+<div class="clase-objetivos">
+<div class="objetivo-card">
+<p><strong>Tendencia central</strong></p>
+<p>Media o promedio y mediana.</p>
 </div>
-<p>Una vez identificados, los eliminamos con <code>na.omit()</code>, que remueve todas las filas que contengan al menos un <code>NA</code>:</p>
+<div class="objetivo-card">
+<p><strong>Dispersión</strong></p>
+<p>Desviación estándar, varianza y rango.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Posición</strong></p>
+<p>Mínimo, máximo, cuartiles y percentiles.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recordemos que:</p>
+<ul>
+<li>Las <strong>medidas de tendencia central</strong> expresan el valor alrededor del cual se sitúa la mayor cantidad de los datos.</li>
+<li>Las <strong>medidas de dispersión</strong> permiten observar qué tan próximos o alejados están los valores respecto a un punto central.</li>
+<li>Las <strong>medidas de posición</strong> indican en qué lugar de la distribución se encuentra un dato o conjunto de datos en relación con el resto.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="medidas-de-tendencia-central" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="medidas-de-tendencia-central">8. Medidas de tendencia central</h2>
+<section id="media-o-promedio" class="level3">
+<h3 class="anchored" data-anchor-id="media-o-promedio">Media o promedio</h3>
+<p>La media corresponde al promedio aritmético de una variable numérica.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_elsoc)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="mediana" class="level3">
+<h3 class="anchored" data-anchor-id="mediana">Mediana</h3>
+<p>La mediana corresponde al valor que divide la distribución en dos partes iguales.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="transformar-variables" class="level2 clase-card">
-<h2 class="anchored" data-anchor-id="transformar-variables">5. Transformar variables</h2>
-<p>Con <code>mutate()</code> de <code>dplyr</code> podemos crear nuevas variables o modificar las existentes sin necesidad de repetir el nombre de la base en cada operación.</p>
-<p>La estructura general es:</p>
-<p><code>dplyr::mutate(datos, nueva_variable = funcion())</code></p>
-<p>Creamos una variable <code>ano</code> con el año de la encuesta:</p>
+<section id="medidas-de-dispersión" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="medidas-de-dispersión">9. Medidas de dispersión</h2>
+<section id="varianza" class="level3">
+<h3 class="anchored" data-anchor-id="varianza">Varianza</h3>
+<p>La varianza mide cuánto se alejan los datos respecto a la media.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc, <span class="at">ano =</span> <span class="dv">2022</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Con <code>case_when()</code> creamos variables según condiciones múltiples, útil para construir tramos:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tramo_edad =</span> <span class="fu">case_when</span>(edad <span class="sc">&lt;=</span> <span class="dv">29</span>              <span class="sc">~</span> <span class="st">"Jovenes"</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                            edad <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> edad <span class="sc">&lt;=</span> <span class="dv">59</span> <span class="sc">~</span> <span class="st">"Adultos"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                                            edad <span class="sc">&gt;=</span> <span class="dv">60</span>              <span class="sc">~</span> <span class="st">"Adultos mayores"</span>))</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">tramo_ingreso =</span> <span class="fu">case_when</span>(ingreso <span class="sc">&lt;=</span> <span class="dv">250000</span>                          <span class="sc">~</span> <span class="st">"Tramo 1"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">250000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">500000</span>       <span class="sc">~</span> <span class="st">"Tramo 2"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">500000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">750000</span>       <span class="sc">~</span> <span class="st">"Tramo 3"</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">750000</span> <span class="sc">&amp;</span> ingreso <span class="sc">&lt;=</span> <span class="dv">1000000</span>      <span class="sc">~</span> <span class="st">"Tramo 4"</span>,</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                                               ingreso <span class="sc">&gt;</span> <span class="dv">1000000</span>                          <span class="sc">~</span> <span class="st">"Tramo 5"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Con <code>if_else()</code> creamos una variable dicotómica según una condición simple:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> <span class="fu">mutate</span>(proc_elsoc,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ingreso_minimo =</span> <span class="fu">if_else</span>(ingreso <span class="sc">&lt;</span> <span class="dv">410000</span>, <span class="st">"debajo minimo"</span>, <span class="st">"sobre minimo"</span>))</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(proc_elsoc, ingreso, ingreso_minimo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="guardar-y-exportar-datos-procesados" class="level2 clase-card">
-<h2 class="anchored" data-anchor-id="guardar-y-exportar-datos-procesados">6. Guardar y exportar datos procesados</h2>
-<p>El último paso es guardar la base procesada en la carpeta <code>output/</code> del proyecto en formato <code>.RData</code>:</p>
+<section id="desviación-estándar" class="level3">
+<h3 class="anchored" data-anchor-id="desviación-estándar">Desviación estándar</h3>
+<p>La desviación estándar es la raíz cuadrada de la varianza. Es una de las medidas de dispersión más utilizadas porque está expresada en la misma unidad que la variable original.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(proc_elsoc, <span class="at">file =</span> <span class="st">"output/proc_elsoc.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="rango" class="level3">
+<h3 class="anchored" data-anchor-id="rango">Rango</h3>
+<p>El rango corresponde a la diferencia entre el valor máximo y el valor mínimo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="medidas-de-posición" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="medidas-de-posición">10. Medidas de posición</h2>
+<section id="primer-cuartil-q1" class="level3">
+<h3 class="anchored" data-anchor-id="primer-cuartil-q1">Primer cuartil Q1</h3>
+<p>El primer cuartil corresponde al valor bajo el cual se encuentra el 25% de los datos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">probs =</span> .<span class="dv">25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="segundo-cuartil-q2-o-mediana" class="level3">
+<h3 class="anchored" data-anchor-id="segundo-cuartil-q2-o-mediana">Segundo cuartil Q2 o mediana</h3>
+<p>El segundo cuartil corresponde al valor bajo el cual se encuentra el 50% de los datos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">probs =</span> .<span class="dv">50</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tercer-cuartil-q3" class="level3">
+<h3 class="anchored" data-anchor-id="tercer-cuartil-q3">Tercer cuartil Q3</h3>
+<p>El tercer cuartil corresponde al valor bajo el cual se encuentra el 75% de los datos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">probs =</span> .<span class="dv">75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="percentiles" class="level3">
+<h3 class="anchored" data-anchor-id="percentiles">Percentiles</h3>
+<p>Los percentiles dividen la distribución en cien partes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="resumen-de-estadísticos-con-summary" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="resumen-de-estadísticos-con-summary">11. Resumen de estadísticos con <code>summary()</code></h2>
+<p>Podemos obtener rápidamente un resumen de los datos con la función <code>summary()</code> de R base.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(proc_elsoc<span class="sc">$</span>ingreso)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Con esto podemos ver el mínimo, primer cuartil, mediana, media, tercer cuartil y máximo de la variable.</p>
+<p>Aunque es informativo, <code>summary()</code> no entrega todos los estadísticos que podríamos necesitar, como la desviación estándar o la varianza.</p>
+</section>
+<section id="resumen-de-estadísticos-con-psych" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="resumen-de-estadísticos-con-psych">12. Resumen de estadísticos con <code>psych</code></h2>
+<p>Usando la función <code>describe()</code> del paquete <code>psych</code>, podemos obtener una mayor cantidad de estadísticos descriptivos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(proc_elsoc<span class="sc">$</span>ingreso,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">quant =</span> <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">75</span>),</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">IQR =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Esta función entrega medidas como la media, mediana, media recortada, desviación estándar, rango y recorrido intercuartílico.</p>
+<p>El recorrido intercuartílico corresponde a:</p>
+<p><span class="math display"><em>I</em><em>Q</em><em>R</em> = <em>Q</em>3 − <em>Q</em>1</span></p>
+<p>Es decir, mide la dispersión del 50% central de los datos.</p>
+</section>
+<section id="resumen-de-estadísticos-con-summarise" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="resumen-de-estadísticos-con-summarise">13. Resumen de estadísticos con <code>summarise()</code></h2>
+<p>Otra manera de obtener los estadísticos descriptivos es utilizando <code>summarise()</code> de <code>dplyr</code>.</p>
+<p>Aquí debemos especificar explícitamente qué medidas queremos calcular:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">media =</span> <span class="fu">mean</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mediana =</span> <span class="fu">median</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">q1 =</span> <span class="fu">quantile</span>(ingreso, <span class="at">probs =</span> .<span class="dv">25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">q3 =</span> <span class="fu">quantile</span>(ingreso, <span class="at">probs =</span> .<span class="dv">75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rango =</span> <span class="fu">max</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">desviacion_estandar =</span> <span class="fu">sd</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">varianza =</span> <span class="fu">var</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Esta forma es especialmente útil porque permite construir tablas personalizadas con los estadísticos que necesitamos reportar.</p>
+</section>
+<section id="visualización-de-datos-con-ggplot2" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="visualización-de-datos-con-ggplot2">14. Visualización de datos con <code>ggplot2</code></h2>
+<p>Una vez que conocemos cómo es la distribución de nuestras variables, podemos graficarlas considerando algunos principios básicos para una buena visualización de datos.</p>
+<p>Antes de construir los gráficos, es importante comprender qué es <code>ggplot2</code> y cuál es su lógica.</p>
+<p><code>ggplot2</code> es un potente paquete para visualizar datos en R. Su lógica principal es que <strong>funciona por capas</strong>, comenzando desde lo más central hasta llegar a los detalles estéticos.</p>
+<div class="clase-objetivos">
+<div class="objetivo-card">
+<p><strong>Datos</strong></p>
+<p>La primera capa corresponde a la base de datos que queremos graficar.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Mapping</strong></p>
+<p>La segunda capa define qué variables irán en el eje X, eje Y, color, relleno o grupos.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Geometría</strong></p>
+<p>La tercera capa define la forma del gráfico: barras, puntos, líneas, histogramas, boxplot, entre otros.</p>
+</div>
+</div>
+<p>La estructura básica de un gráfico con <code>ggplot2</code> es:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> base_de_datos,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> variable_x, <span class="at">y =</span> variable_y)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tipo_de_grafico</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>¡Comencemos!</strong></p>
+</section>
+<section id="diagrama-de-barras" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="diagrama-de-barras">15. Diagrama de barras</h2>
+<p>La forma más común de presentar variables nominales u ordinales es mediante un <strong>gráfico de barras</strong>.</p>
+<p>En este primer ejemplo iremos capa por capa para entender la lógica de <code>ggplot2</code>. En los siguientes ejemplos lo haremos directamente en conjunto.</p>
+<p>Primero especificamos los datos y el mapping:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Luego agregamos la geometría de barras:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Después podemos agregar color de borde y relleno:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos ajustar la escala del eje Y:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Agregamos título, nombres de ejes y fuente:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>)) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Situación respecto al ingreso mínimo"</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Situación de ingreso"</span>,</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finalmente, podemos agregar las frecuencias de cada barra:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>)) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Situación respecto al ingreso mínimo"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Situación de ingreso"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)),</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="diagrama-de-barras-agrupado" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="diagrama-de-barras-agrupado">16. Diagrama de barras agrupado</h2>
+<p>También podemos diferenciar una variable categórica según otra variable. Para ello indicamos la variable de agrupación dentro del mapping mediante el argumento <code>fill</code>.</p>
+<p>Por ejemplo, podemos graficar la situación respecto al ingreso mínimo según sexo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Situación respecto al ingreso mínimo, según sexo"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Situación de ingreso"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)),</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>En este caso tenemos un gráfico de barras apiladas según sexo. La agrupación aparece como una leyenda que identifica los grupos.</p>
+<p>Si queremos que las barras aparezcan una al lado de la otra, debemos especificarlo dentro de la geometría con <code>position = "dodge2"</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo, <span class="at">fill =</span> sexo)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Situación respecto al ingreso mínimo, según sexo"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Situación de ingreso"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>) <span class="sc">+</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)),</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> .<span class="dv">9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos agrupar por tramo etario:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso_minimo, <span class="at">fill =</span> tramo_edad)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Situación respecto al ingreso mínimo, según tramo etario"</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Situación de ingreso"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>) <span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)),</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> .<span class="dv">9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="histogramas" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="histogramas">17. Histogramas</h2>
+<p>Cuando tenemos variables numéricas o variables con muchas categorías de respuesta, podemos usar <strong>histogramas</strong> para representar su distribución.</p>
+<p>Un histograma permite observar dónde se concentran los datos, si la distribución es simétrica o asimétrica y si existen valores extremos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> edad)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Podemos mejorar el gráfico agregando colores, títulos, ejes y fuente:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> edad)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"#FA8072"</span>) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de frecuencias absolutas: edad"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Edad"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos construir un histograma para la variable ingreso:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de frecuencias absolutas: ingreso"</span>,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ingreso"</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="diagrama-de-densidad" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="diagrama-de-densidad">18. Diagrama de densidad</h2>
+<p>Los diagramas de densidad son una forma suavizada de observar la distribución de una variable numérica.</p>
+<p>Son útiles para identificar la forma general de la distribución y para contrastar visualmente distribuciones empíricas con distribuciones teóricas.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> edad)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"#FA8072"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Diagrama de densidad: edad"</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Edad"</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos observar la densidad del ingreso:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"darkred"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Diagrama de densidad: ingreso"</span>,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ingreso"</span>,</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="gráficos-de-caja-y-bigote" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="gráficos-de-caja-y-bigote">19. Gráficos de caja y bigote</h2>
+<p>Como vimos en clases, los gráficos de caja y bigote permiten observar la <strong>mediana</strong>, el <strong>primer cuartil</strong>, el <strong>tercer cuartil</strong>, el <strong>rango intercuartílico</strong>, los valores mínimos y máximos, y posibles valores atípicos.</p>
+<p>Primero graficamos la distribución de la edad:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> edad)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de caja: edad"</span>,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Edad"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Luego podemos graficar la distribución del ingreso:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkred"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de caja: ingreso"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ingreso"</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos segmentar un gráfico de caja por una variable categórica. Por ejemplo, podemos observar la distribución del ingreso según tramo etario:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> tramo_edad, <span class="at">y =</span> ingreso, <span class="at">fill =</span> tramo_edad)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de caja: ingreso por tramo etario"</span>,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Tramo etario"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ingreso"</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2022."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="resumen" class="level2 clase-card">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>Hoy aprendimos a analizar datos en R mediante estadística descriptiva univariada.</p>
+<p>En detalle, vimos:</p>
+<div class="clase-objetivos">
+<div class="objetivo-card">
+<p><strong>Flujo de trabajo</strong></p>
+<p>Cómo establecer un flujo ordenado de procesamiento y análisis de datos en R.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Variables categóricas</strong></p>
+<p>Cómo calcular frecuencias absolutas, relativas, acumuladas y tablas de contingencia.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Variables numéricas</strong></p>
+<p>Cómo calcular medidas de tendencia central, dispersión y posición.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Visualización de datos</strong></p>
+<p>Cómo construir gráficos de barras, histogramas, diagramas de densidad y boxplots con <code>ggplot2</code>.</p>
+</div>
+<div class="objetivo-card">
+<p><strong>Interpretación</strong></p>
+<p>Cómo leer los resultados descriptivos y gráficos de manera sustantiva.</p>
+</div>
 </div>
 </section>
 <section class="comments-box comments-giscus-box">
