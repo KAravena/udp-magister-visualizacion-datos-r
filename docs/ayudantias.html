@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed clases-page clase-page quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -136,12 +171,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -150,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -162,9 +197,861 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Esta sección tendrá el apoyo práctico del curso y sus materiales.</p>
+<style>
+/* Layout manual para ayudantía con TOC lateral */
+.ayudantia-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 240px !important;
+  gap: 1.25rem !important;
+  align-items: start !important;
+  width: min(1260px, calc(100vw - 3rem)) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.ayudantia-main {
+  min-width: 0 !important;
+  grid-column: 1 !important;
+}
+
+.ayudantia-aside {
+  min-width: 0 !important;
+  grid-column: 2 !important;
+  width: 100% !important;
+  align-self: start !important;
+}
+
+.ayudantia-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.ayudantia-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(15, 52, 73, 0.18);
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  background: #0f3449;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(15, 52, 73, 0.14);
+}
+
+.ayudantia-download-btn:hover,
+.ayudantia-download-btn:focus {
+  color: #ffffff;
+  background: #2f6973;
+  text-decoration: none;
+}
+
+/* Bloque unificado para guías largas */
+.guia-unificada {
+  background: #ffffff;
+  border: 1px solid rgba(15, 52, 73, 0.10);
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 8px 22px rgba(15, 52, 73, 0.05);
+  margin-bottom: 2rem;
+}
+
+.guia-unificada h2 {
+  margin-top: 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(15, 52, 73, 0.14);
+}
+
+.guia-unificada h3 {
+  margin-top: 2rem;
+  color: #0f3449;
+}
+
+.guia-unificada h4 {
+  margin-top: 1.4rem;
+  color: #2f6973;
+}
+
+.guia-unificada h5 {
+  margin-top: 1.2rem;
+  color: #31515d;
+}
+
+.guia-seccion {
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(15, 52, 73, 0.10);
+}
+
+.guia-seccion:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.guia-seccion p:last-child {
+  margin-bottom: 0;
+}
+
+/* TOC lateral manual */
+.guia-toc {
+  position: fixed !important;
+  top: 5.5rem !important;
+  right: max(1.5rem, calc((100vw - 1260px) / 2)) !important;
+  width: 240px !important;
+  box-sizing: border-box !important;
+  background: #ffffff;
+  border: 1px solid rgba(15, 52, 73, 0.10);
+  border-radius: 16px;
+  padding: 0.9rem;
+  box-shadow: 0 6px 18px rgba(15, 52, 73, 0.05);
+  font-size: 0.82rem;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.guia-toc-title {
+  font-weight: 700;
+  color: #0f3449;
+  margin-bottom: 0.7rem;
+}
+
+.guia-toc a {
+  display: block;
+  color: #36515d;
+  text-decoration: none;
+  padding: 0.32rem 0;
+  border-bottom: 1px solid rgba(15, 52, 73, 0.06);
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.25;
+}
+
+.guia-toc a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.guia-toc a:last-child {
+  border-bottom: none;
+}
+
+/* En pantallas pequeñas, el TOC pasa arriba */
+@media (max-width: 900px) {
+  .ayudantia-layout {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 2rem, 1000px) !important;
+  }
+
+  .ayudantia-main,
+  .ayudantia-aside {
+    grid-column: 1 !important;
+  }
+
+  .ayudantia-aside {
+    order: -1;
+  }
+
+  .guia-toc {
+    position: static !important;
+    right: auto !important;
+    width: 100% !important;
+    top: auto !important;
+    max-height: none;
+    overflow: visible;
+  }
+}
+</style>
+<div class="ayudantia-layout">
+<div class="ayudantia-main">
+<section class="clase-hero">
+  <p class="clase-kicker">Ayudantía 01 | </p>
+  <h1>Procesamiento y visualización de datos en R</h1>
+  <div class="ayudantia-hero-actions">
+    <a class="ayudantia-download-btn" href="ayudantias/ayudantia_1/resources.zip" download="">
+      Descargar material de la sesión
+    </a>
+  </div>
+</section>
+<section id="parte-ii" class="level2 guia-unificada">
+<h2 class="anchored" data-anchor-id="parte-ii">Parte II: Ejercicio para preparar la Entrega Parcial</h2>
+<section id="titulo-ejercicio" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="titulo-ejercicio">1. Título del ejercicio</h3>
+<p><strong>Mini investigación en R: Condiciones de trabajo/estudio, uso de tecnología y bienestar cotidiano en personas adultas</strong></p>
+<p>La idea es que formulen una pregunta de investigación, exploren una base, limpien datos, recodifiquen variables, creen una variable nueva, calculen descriptivos, hagan gráficos e interpreten resultados. El foco está en construir un análisis descriptivo ordenado, reproducible y bien interpretado.</p>
+</section>
+<section id="enunciado" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="enunciado">2. Enunciado</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un equipo de investigación quiere estudiar cómo distintas condiciones cotidianas se relacionan con el bienestar de personas adultas que trabajan, estudian o combinan ambas actividades.</p>
+<p>Para eso, se aplicó una encuesta ficticia sobre modalidad de trabajo o estudio, uso de pantallas, horas de sueño, tiempo de traslado, estrés, apoyo social, concentración, uso de inteligencia artificial y bienestar cotidiano.</p>
+<p>Tu tarea es construir una mini investigación descriptiva en R. El resultado final debe ser un script ordenado que muestre qué pregunta quieres responder, qué decisiones de limpieza tomaste, qué resultados descriptivos obtuviste y qué puedes concluir sin caer en afirmaciones causales.</p>
+</div>
+</div>
+</section>
+<section id="problema" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="problema">3. Problema general de investigación</h3>
+<p>En distintos ámbitos de la vida adulta, las personas organizan su tiempo entre trabajo, estudio, responsabilidades personales, traslados y uso de tecnología.</p>
+<p>Estas condiciones pueden relacionarse con su bienestar cotidiano, descanso, estrés y capacidad de concentración.</p>
+<p>En este ejercicio interesa describir cómo se distribuyen estas condiciones según la modalidad principal en que las personas trabajan o estudian: <strong>presencial, híbrida o remota</strong>.</p>
+</section>
+<section id="pregunta" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="pregunta">4. Pregunta de investigación sugerida</h3>
+<p>Una pregunta posible es:</p>
+<blockquote class="blockquote">
+<p>¿Cómo varían las horas de sueño, el estrés, la concentración percibida y el bienestar cotidiano según la modalidad de trabajo o estudio de personas adultas?</p>
+</blockquote>
+<p>Otra versión posible es:</p>
+<blockquote class="blockquote">
+<p>¿Las personas con mayor carga digital y de tiempo presentan menor bienestar cotidiano que quienes tienen una carga moderada o baja?</p>
+</blockquote>
+</section>
+<section id="hipotesis" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="hipotesis">5. Hipótesis descriptiva sugerida</h3>
+<p>Una hipótesis descriptiva posible es:</p>
+<blockquote class="blockquote">
+<p>Las personas con alta carga digital y de tiempo presentan menores horas de sueño, mayor estrés y menor bienestar cotidiano en comparación con quienes tienen una carga moderada o baja.</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta hipótesis es descriptiva. No permite afirmar que la carga digital cause menor bienestar. Solo permite observar cómo se distribuyen estas variables en la muestra.</p>
+</div>
+</div>
+</section>
+<section id="variables" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="variables">6. Variables disponibles</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>id</code></td>
+<td>Identificador de la persona</td>
+<td>ID</td>
+</tr>
+<tr class="even">
+<td><code>edad</code></td>
+<td>Edad en años</td>
+<td>Numérica</td>
+</tr>
+<tr class="odd">
+<td><code>genero</code></td>
+<td>Género declarado</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td><code>zona</code></td>
+<td>Zona de residencia</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td><code>actividad_principal</code></td>
+<td>Actividad principal: trabaja, estudia, ambas</td>
+<td>Nominal</td>
+</tr>
+<tr class="even">
+<td><code>modalidad</code></td>
+<td>Modalidad principal: presencial, híbrida, remota</td>
+<td>Nominal</td>
+</tr>
+<tr class="odd">
+<td><code>horas_pantalla_dia</code></td>
+<td>Horas diarias de uso de pantallas por trabajo/estudio</td>
+<td>Numérica</td>
+</tr>
+<tr class="even">
+<td><code>horas_sueno</code></td>
+<td>Horas promedio de sueño diario</td>
+<td>Numérica</td>
+</tr>
+<tr class="odd">
+<td><code>traslado_min</code></td>
+<td>Minutos diarios de traslado</td>
+<td>Numérica</td>
+</tr>
+<tr class="even">
+<td><code>horas_responsabilidades</code></td>
+<td>Horas semanales dedicadas a trabajo, estudio o responsabilidades</td>
+<td>Numérica</td>
+</tr>
+<tr class="odd">
+<td><code>estres</code></td>
+<td>Nivel de estrés percibido</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td><code>apoyo_social</code></td>
+<td>Nivel de apoyo social percibido</td>
+<td>Ordinal</td>
+</tr>
+<tr class="odd">
+<td><code>concentracion</code></td>
+<td>Nivel de concentración percibida</td>
+<td>Ordinal</td>
+</tr>
+<tr class="even">
+<td><code>bienestar</code></td>
+<td>Bienestar cotidiano, escala 0 a 10</td>
+<td>Numérica</td>
+</tr>
+<tr class="odd">
+<td><code>uso_ia</code></td>
+<td>Frecuencia de uso de IA para tareas laborales o académicas</td>
+<td>Ordinal</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tareas" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="tareas">7. Tareas del ejercicio</h3>
+<p>A continuación se presentan las tareas que deben realizar para construir su mini investigación descriptiva en R.</p>
+<section id="tarea-1" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-1">Tarea 1. Formular el problema de investigación</h4>
+<p>Ejemplo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tema:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Modalidad de trabajo/estudio, tecnología y bienestar cotidiano.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pregunta:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cómo varían el bienestar, las horas de sueño y el estrés</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># según la modalidad de trabajo o estudio?</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Hipótesis descriptiva:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Las personas con mayor carga digital y de tiempo presentan</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># menor bienestar cotidiano y mayor estrés percibido.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-2" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-2">Tarea 2. Explorar la base</h4>
+<p>Deben usar las siguientes funciones:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(datos)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(datos)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(datos)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Luego deben tener en consdieración estas preguntas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántas filas tiene la base?</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántas columnas tiene?</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué variables son categóricas?</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué variables son ordinales?</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué variables son numéricas?</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué valores extraños o perdidos aparecen?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-3" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-3">Tarea 3. Seleccionar variables</h4>
+<p>Crear una base llamada <code>datos_proc</code> que contenga solo las variables necesarias para su análisis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-4" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-4">Tarea 4. Limpiar valores perdidos y fuera de rango</h4>
+<p>Deben convertir en <code>NA</code> los valores problemáticos.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th style="text-align: right;">Valor problemático</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>edad</code></td>
+<td style="text-align: right;"><code>999</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>actividad_principal</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>modalidad</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>horas_pantalla_dia</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>horas_pantalla_dia</code></td>
+<td style="text-align: right;">mayor a <code>14</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>horas_sueno</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>traslado_min</code></td>
+<td style="text-align: right;"><code>999</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>horas_responsabilidades</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>estres</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>apoyo_social</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>concentracion</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>bienestar</code></td>
+<td style="text-align: right;"><code>999</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="odd">
+<td><code>bienestar</code></td>
+<td style="text-align: right;">menor a <code>0</code> o mayor a <code>10</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+<tr class="even">
+<td><code>uso_ia</code></td>
+<td style="text-align: right;"><code>-99</code></td>
+<td>Convertir a <code>NA</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pista parcial:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">edad =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      edad <span class="sc">==</span> <span class="dv">999</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(edad)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">horas_pantalla_dia =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      horas_pantalla_dia <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      horas_pantalla_dia <span class="sc">&gt;</span> <span class="dv">14</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(horas_pantalla_dia)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">horas_sueno =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      horas_sueno <span class="sc">==</span> <span class="sc">-</span><span class="dv">99</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      horas_sueno <span class="sc">&gt;</span> <span class="dv">12</span> <span class="sc">~</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">as.numeric</span>(horas_sueno)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Deben completar el resto de las variables usando la misma lógica.</p>
+</div>
+</div>
+</section>
+<section id="tarea-5" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-5">Tarea 5. Recodificar variables</h4>
+<p>Deben crear nuevas variables categóricas más fáciles de interpretar.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable original</th>
+<th>Nueva variable</th>
+<th>Categorías</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>actividad_principal</code></td>
+<td><code>actividad_cat</code></td>
+<td>Trabaja, Estudia, Trabaja y estudia</td>
+</tr>
+<tr class="even">
+<td><code>modalidad</code></td>
+<td><code>modalidad_cat</code></td>
+<td>Presencial, Híbrida, Remota</td>
+</tr>
+<tr class="odd">
+<td><code>estres</code></td>
+<td><code>estres_cat</code></td>
+<td>Muy bajo, Bajo, Medio, Alto, Muy alto</td>
+</tr>
+<tr class="even">
+<td><code>apoyo_social</code></td>
+<td><code>apoyo_cat</code></td>
+<td>Muy bajo, Bajo, Medio, Alto, Muy alto</td>
+</tr>
+<tr class="odd">
+<td><code>concentracion</code></td>
+<td><code>concentracion_cat</code></td>
+<td>Muy baja, Baja, Media, Alta, Muy alta</td>
+</tr>
+<tr class="even">
+<td><code>uso_ia</code></td>
+<td><code>uso_ia_cat</code></td>
+<td>Nunca, Pocas veces, Frecuentemente, Siempre</td>
+</tr>
+</tbody>
+</table>
+<p>Pista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">modalidad_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      modalidad <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Presencial"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      modalidad <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Híbrida"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      modalidad <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Remota"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-6" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-6">Tarea 6. Crear variables nuevas</h4>
+<section id="variable-1-alta-carga-digital-y-de-tiempo" class="level5">
+<h5 class="anchored" data-anchor-id="variable-1-alta-carga-digital-y-de-tiempo">Variable 1: alta carga digital y de tiempo</h5>
+<p>Crear una variable llamada <code>alta_carga_digital_tiempo</code>.</p>
+<p>Debe identificar a personas que cumplen al menos una de estas condiciones:</p>
+<ul>
+<li>más de 7 horas diarias de pantalla;</li>
+<li>más de 90 minutos diarios de traslado;</li>
+<li>más de 50 horas semanales de responsabilidades.</li>
+</ul>
+<p>Las categorías serán:</p>
+<ul>
+<li><code>"Alta carga"</code></li>
+<li><code>"Carga moderada o baja"</code></li>
+</ul>
+<p>Pista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">alta_carga_digital_tiempo =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      horas_pantalla_dia <span class="sc">&gt;</span> <span class="dv">7</span> <span class="sc">|</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        traslado_min <span class="sc">&gt;</span> <span class="dv">90</span> <span class="sc">|</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        horas_responsabilidades <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">"Alta carga"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Carga moderada o baja"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="variable-2-bienestar-agrupado" class="level5">
+<h5 class="anchored" data-anchor-id="variable-2-bienestar-agrupado">Variable 2: bienestar agrupado</h5>
+<p>Crear una variable llamada <code>bienestar_cat</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Condición</th>
+<th>Categoría</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>bienestar &lt; 5</code></td>
+<td>Bienestar bajo</td>
+</tr>
+<tr class="even">
+<td><code>bienestar &gt;= 5 &amp; bienestar &lt; 7</code></td>
+<td>Bienestar medio</td>
+</tr>
+<tr class="odd">
+<td><code>bienestar &gt;= 7</code></td>
+<td>Bienestar alto</td>
+</tr>
+</tbody>
+</table>
+<p>Pista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="ot">&lt;-</span> datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">bienestar_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      bienestar <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Bienestar bajo"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      bienestar <span class="sc">&gt;=</span> <span class="dv">5</span> <span class="sc">&amp;</span> bienestar <span class="sc">&lt;</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Bienestar medio"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>      bienestar <span class="sc">&gt;=</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Bienestar alto"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="tarea-7" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-7">Tarea 7. Calcular frecuencias y porcentajes</h4>
+<p>Deben calcular frecuencias para las siguientes variables:</p>
+<ul>
+<li><code>actividad_cat</code></li>
+<li><code>modalidad_cat</code></li>
+<li><code>estres_cat</code></li>
+<li><code>uso_ia_cat</code></li>
+<li><code>alta_carga_digital_tiempo</code></li>
+<li><code>bienestar_cat</code></li>
+</ul>
+<p>Ejemplos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(datos_proc<span class="sc">$</span>modalidad_cat)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(datos_proc<span class="sc">$</span>modalidad_cat)) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(modalidad_cat) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">porcentaje =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-8" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-8">Tarea 8. Calcular descriptivos numéricos</h4>
+<p>Deben calcular media, mediana, desviación estándar, varianza, rango y cuartiles para:</p>
+<ul>
+<li><code>edad</code></li>
+<li><code>horas_pantalla_dia</code></li>
+<li><code>horas_sueno</code></li>
+<li><code>traslado_min</code></li>
+<li><code>horas_responsabilidades</code></li>
+<li><code>bienestar</code></li>
+</ul>
+<p>Pista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(datos_proc<span class="sc">$</span>bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(datos_proc<span class="sc">$</span>bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(datos_proc<span class="sc">$</span>bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(datos_proc<span class="sc">$</span>bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(datos_proc<span class="sc">$</span>bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  datos_proc<span class="sc">$</span>bienestar,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">50</span>, .<span class="dv">75</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos_proc<span class="sc">$</span>bienestar)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(datos_proc<span class="sc">$</span>bienestar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-9" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-9">Tarea 9. Comparar grupos</h4>
+<p>Construir una tabla que compare los resultados por <code>modalidad_cat</code>.</p>
+<p>La tabla debe incluir:</p>
+<ul>
+<li>número de casos;</li>
+<li>media de horas de pantalla;</li>
+<li>media de horas de sueño;</li>
+<li>media de traslado;</li>
+<li>media de estrés;</li>
+<li>media de concentración;</li>
+<li>media de bienestar.</li>
+</ul>
+<p>Pista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datos_proc <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(modalidad_cat) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_pantalla =</span> <span class="fu">mean</span>(horas_pantalla_dia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_sueno =</span> <span class="fu">mean</span>(horas_sueno, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_traslado =</span> <span class="fu">mean</span>(traslado_min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_estres =</span> <span class="fu">mean</span>(estres, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_concentracion =</span> <span class="fu">mean</span>(concentracion, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_bienestar =</span> <span class="fu">mean</span>(bienestar, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Luego deben interpretar:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué modalidad presenta mayor promedio de horas de pantalla?</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué modalidad presenta mayor tiempo de traslado?</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué modalidad presenta mayor bienestar promedio?</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Hay diferencias descriptivas en estrés o concentración?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tarea-10" class="level4">
+<h4 class="anchored" data-anchor-id="tarea-10">Tarea 10. Hacer gráficos</h4>
+<p>Deben construir al menos tres gráficos.</p>
+<section id="gráfico-1-barras" class="level5">
+<h5 class="anchored" data-anchor-id="gráfico-1-barras">Gráfico 1: barras</h5>
+<p>Distribución de modalidad.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_proc, <span class="fu">aes</span>(<span class="at">x =</span> modalidad_cat)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución según modalidad de trabajo o estudio"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Modalidad"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frecuencia"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="gráfico-2-histograma" class="level5">
+<h5 class="anchored" data-anchor-id="gráfico-2-histograma">Gráfico 2: histograma</h5>
+<p>Distribución del bienestar.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_proc, <span class="fu">aes</span>(<span class="at">x =</span> bienestar)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución del bienestar cotidiano"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bienestar, escala 0 a 10"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frecuencia"</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="gráfico-3-boxplot" class="level5">
+<h5 class="anchored" data-anchor-id="gráfico-3-boxplot">Gráfico 3: boxplot</h5>
+<p>Bienestar según modalidad.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_proc, <span class="fu">aes</span>(<span class="at">x =</span> modalidad_cat, <span class="at">y =</span> bienestar)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bienestar cotidiano según modalidad"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Modalidad"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bienestar, escala 0 a 10"</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="desafío-extra" class="level5">
+<h5 class="anchored" data-anchor-id="desafío-extra">Desafío extra</h5>
+<p>Hacer un boxplot de <code>horas_sueno</code> según <code>alta_carga_digital_tiempo</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_proc, <span class="fu">aes</span>(<span class="at">x =</span> alta_carga_digital_tiempo, <span class="at">y =</span> horas_sueno)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Horas de sueño según carga digital y de tiempo"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Carga digital y de tiempo"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Horas de sueño"</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+</section>
+<section id="producto-final" class="level3 guia-seccion">
+<h3 class="anchored" data-anchor-id="producto-final">8. Producto final esperado</h3>
+<p>El producto final debe ser un script ordenado con esta estructura:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. IDENTIFICACIÓN DEL EJERCICIO</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Nombre:</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fecha:</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pregunta de investigación:</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetivo:</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Hipótesis descriptiva:</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. LIMPIEZA DEL ENTORNO Y CARGA DE PAQUETES</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. CARGA DE DATOS</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. EXPLORACIÓN INICIAL</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. LIMPIEZA Y RECODIFICACIÓN</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. ANÁLISIS DESCRIPTIVO</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. VISUALIZACIONES</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. INTERPRETACIÓN DE RESULTADOS</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<div class="ayudantia-aside">
+<div class="guia-toc">
+  <div class="guia-toc-title">Índice de la Parte II</div>
+  <a href="#parte-ii">Inicio</a>
+  <a href="#titulo-ejercicio">1. Título</a>
+  <a href="#enunciado">2. Enunciado</a>
+  <a href="#problema">3. Problema</a>
+  <a href="#pregunta">4. Pregunta</a>
+  <a href="#hipotesis">5. Hipótesis</a>
+  <a href="#variables">6. Variables</a>
+  <a href="#tareas">7. Tareas</a>
+  <a href="#producto-final">8. Producto final</a>
+</div>
+</div>
+</div>
 
 
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

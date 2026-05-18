@@ -3051,7 +3051,7 @@ strong, b {
 
 .agenda-event.is-next .agenda-card::before,
 .agenda-event.is-today .agenda-card::before {
-  content: "PrÃ³xima";
+  content: "Próxima";
   display: inline-flex;
   margin-bottom: 0.65rem;
   border-radius: 999px;

@@ -1,5 +1,782 @@
 ---
 title: "Ayudantías"
+title-block: false
+toc: false
+page-layout: full
+body-classes: clases-page clase-page
 ---
 
-Esta sección tendrá el apoyo práctico del curso y sus materiales.
+```{=html}
+<style>
+/* Layout manual para ayudantía con TOC lateral */
+.ayudantia-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 240px !important;
+  gap: 1.25rem !important;
+  align-items: start !important;
+  width: min(1260px, calc(100vw - 3rem)) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.ayudantia-main {
+  min-width: 0 !important;
+  grid-column: 1 !important;
+}
+
+.ayudantia-aside {
+  min-width: 0 !important;
+  grid-column: 2 !important;
+  width: 100% !important;
+  align-self: start !important;
+}
+
+.ayudantia-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.ayudantia-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(15, 52, 73, 0.18);
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  background: #0f3449;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(15, 52, 73, 0.14);
+}
+
+.ayudantia-download-btn:hover,
+.ayudantia-download-btn:focus {
+  color: #ffffff;
+  background: #2f6973;
+  text-decoration: none;
+}
+
+/* Bloque unificado para guías largas */
+.guia-unificada {
+  background: #ffffff;
+  border: 1px solid rgba(15, 52, 73, 0.10);
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 8px 22px rgba(15, 52, 73, 0.05);
+  margin-bottom: 2rem;
+}
+
+.guia-unificada h2 {
+  margin-top: 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(15, 52, 73, 0.14);
+}
+
+.guia-unificada h3 {
+  margin-top: 2rem;
+  color: #0f3449;
+}
+
+.guia-unificada h4 {
+  margin-top: 1.4rem;
+  color: #2f6973;
+}
+
+.guia-unificada h5 {
+  margin-top: 1.2rem;
+  color: #31515d;
+}
+
+.guia-seccion {
+  padding: 1.4rem 0;
+  border-top: 1px solid rgba(15, 52, 73, 0.10);
+}
+
+.guia-seccion:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.guia-seccion p:last-child {
+  margin-bottom: 0;
+}
+
+/* TOC lateral manual */
+.guia-toc {
+  position: fixed !important;
+  top: 5.5rem !important;
+  right: max(1.5rem, calc((100vw - 1260px) / 2)) !important;
+  width: 240px !important;
+  box-sizing: border-box !important;
+  background: #ffffff;
+  border: 1px solid rgba(15, 52, 73, 0.10);
+  border-radius: 16px;
+  padding: 0.9rem;
+  box-shadow: 0 6px 18px rgba(15, 52, 73, 0.05);
+  font-size: 0.82rem;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.guia-toc-title {
+  font-weight: 700;
+  color: #0f3449;
+  margin-bottom: 0.7rem;
+}
+
+.guia-toc a {
+  display: block;
+  color: #36515d;
+  text-decoration: none;
+  padding: 0.32rem 0;
+  border-bottom: 1px solid rgba(15, 52, 73, 0.06);
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.25;
+}
+
+.guia-toc a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.guia-toc a:last-child {
+  border-bottom: none;
+}
+
+/* En pantallas pequeñas, el TOC pasa arriba */
+@media (max-width: 900px) {
+  .ayudantia-layout {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 2rem, 1000px) !important;
+  }
+
+  .ayudantia-main,
+  .ayudantia-aside {
+    grid-column: 1 !important;
+  }
+
+  .ayudantia-aside {
+    order: -1;
+  }
+
+  .guia-toc {
+    position: static !important;
+    right: auto !important;
+    width: 100% !important;
+    top: auto !important;
+    max-height: none;
+    overflow: visible;
+  }
+}
+</style>
+```
+
+::::: {.ayudantia-layout}
+
+:::: {.ayudantia-main}
+
+```{=html}
+<section class="clase-hero">
+  <p class="clase-kicker">Ayudantía 01 | </p>
+  <h1>Procesamiento y visualización de datos en R</h1>
+  <div class="ayudantia-hero-actions">
+    <a class="ayudantia-download-btn" href="ayudantias/ayudantia_1/resources.zip" download>
+      Descargar material de la sesión
+    </a>
+  </div>
+</section>
+```
+
+:::: {.guia-unificada}
+
+## Parte II: Ejercicio para preparar la Entrega Parcial{#parte-ii}
+
+::: {.guia-seccion}
+
+### 1. Título del ejercicio {#titulo-ejercicio}
+
+**Mini investigación en R: Condiciones de trabajo/estudio, uso de tecnología y bienestar cotidiano en personas adultas**
+
+La idea es que formulen una pregunta de investigación, exploren una base, limpien datos, recodifiquen variables, creen una variable nueva, calculen descriptivos, hagan gráficos e interpreten resultados. El foco está en construir un análisis descriptivo ordenado, reproducible y bien interpretado.
+
+:::
+
+::: {.guia-seccion}
+
+### 2. Enunciado {#enunciado}
+::: {.callout-note}
+Un equipo de investigación quiere estudiar cómo distintas condiciones cotidianas se relacionan con el bienestar de personas adultas que trabajan, estudian o combinan ambas actividades.
+
+Para eso, se aplicó una encuesta ficticia sobre modalidad de trabajo o estudio, uso de pantallas, horas de sueño, tiempo de traslado, estrés, apoyo social, concentración, uso de inteligencia artificial y bienestar cotidiano.
+
+Tu tarea es construir una mini investigación descriptiva en R. El resultado final debe ser un script ordenado que muestre qué pregunta quieres responder, qué decisiones de limpieza tomaste, qué resultados descriptivos obtuviste y qué puedes concluir sin caer en afirmaciones causales.
+:::
+
+:::
+
+::: {.guia-seccion}
+
+### 3. Problema general de investigación {#problema}
+
+En distintos ámbitos de la vida adulta, las personas organizan su tiempo entre trabajo, estudio, responsabilidades personales, traslados y uso de tecnología.
+
+Estas condiciones pueden relacionarse con su bienestar cotidiano, descanso, estrés y capacidad de concentración.
+
+En este ejercicio interesa describir cómo se distribuyen estas condiciones según la modalidad principal en que las personas trabajan o estudian: **presencial, híbrida o remota**.
+
+:::
+
+::: {.guia-seccion}
+
+### 4. Pregunta de investigación sugerida {#pregunta}
+
+Una pregunta posible es:
+
+> ¿Cómo varían las horas de sueño, el estrés, la concentración percibida y el bienestar cotidiano según la modalidad de trabajo o estudio de personas adultas?
+
+Otra versión posible es:
+
+> ¿Las personas con mayor carga digital y de tiempo presentan menor bienestar cotidiano que quienes tienen una carga moderada o baja?
+
+:::
+
+::: {.guia-seccion}
+
+### 5. Hipótesis descriptiva sugerida {#hipotesis}
+
+Una hipótesis descriptiva posible es:
+
+> Las personas con alta carga digital y de tiempo presentan menores horas de sueño, mayor estrés y menor bienestar cotidiano en comparación con quienes tienen una carga moderada o baja.
+
+::: {.callout-warning}
+Esta hipótesis es descriptiva. No permite afirmar que la carga digital cause menor bienestar. Solo permite observar cómo se distribuyen estas variables en la muestra.
+:::
+
+:::
+
+::: {.guia-seccion}
+
+### 6. Variables disponibles {#variables}
+
+| Variable | Descripción | Tipo |
+|---|---|---|
+| `id` | Identificador de la persona | ID |
+| `edad` | Edad en años | Numérica |
+| `genero` | Género declarado | Nominal |
+| `zona` | Zona de residencia | Nominal |
+| `actividad_principal` | Actividad principal: trabaja, estudia, ambas | Nominal |
+| `modalidad` | Modalidad principal: presencial, híbrida, remota | Nominal |
+| `horas_pantalla_dia` | Horas diarias de uso de pantallas por trabajo/estudio | Numérica |
+| `horas_sueno` | Horas promedio de sueño diario | Numérica |
+| `traslado_min` | Minutos diarios de traslado | Numérica |
+| `horas_responsabilidades` | Horas semanales dedicadas a trabajo, estudio o responsabilidades | Numérica |
+| `estres` | Nivel de estrés percibido | Ordinal |
+| `apoyo_social` | Nivel de apoyo social percibido | Ordinal |
+| `concentracion` | Nivel de concentración percibida | Ordinal |
+| `bienestar` | Bienestar cotidiano, escala 0 a 10 | Numérica |
+| `uso_ia` | Frecuencia de uso de IA para tareas laborales o académicas | Ordinal |
+
+:::
+
+::: {.guia-seccion}
+
+### 7. Tareas del ejercicio {#tareas}
+
+A continuación se presentan las tareas que deben realizar para construir su mini investigación descriptiva en R.
+
+#### Tarea 1. Formular el problema de investigación {#tarea-1}
+
+Ejemplo:
+
+```{r}
+#| label: ejemplo-problema-investigacion
+#| echo: true
+#| eval: false
+
+# Tema:
+# Modalidad de trabajo/estudio, tecnología y bienestar cotidiano.
+
+# Pregunta:
+# ¿Cómo varían el bienestar, las horas de sueño y el estrés
+# según la modalidad de trabajo o estudio?
+
+# Hipótesis descriptiva:
+# Las personas con mayor carga digital y de tiempo presentan
+# menor bienestar cotidiano y mayor estrés percibido.
+```
+
+#### Tarea 2. Explorar la base {#tarea-2}
+
+Deben usar las siguientes funciones:
+
+```{r}
+#| label: exploracion-base-parte-ii
+#| echo: true
+#| eval: false
+
+View(datos)
+names(datos)
+dim(datos)
+str(datos)
+summary(datos)
+```
+
+Luego deben tener en consdieración estas preguntas:
+
+```{r}
+#| label: preguntas-exploracion
+#| echo: true
+#| eval: false
+
+# ¿Cuántas filas tiene la base?
+# ¿Cuántas columnas tiene?
+# ¿Qué variables son categóricas?
+# ¿Qué variables son ordinales?
+# ¿Qué variables son numéricas?
+# ¿Qué valores extraños o perdidos aparecen?
+```
+
+#### Tarea 3. Seleccionar variables {#tarea-3}
+
+Crear una base llamada `datos_proc` que contenga solo las variables necesarias para su análisis.
+
+```{r}
+#| label: seleccionar-variables-parte-ii
+#| echo: true
+#| eval: false
+
+datos_proc <- datos %>%
+  select(
+  )
+```
+
+#### Tarea 4. Limpiar valores perdidos y fuera de rango {#tarea-4}
+
+Deben convertir en `NA` los valores problemáticos.
+
+| Variable | Valor problemático | Acción |
+|---|---:|---|
+| `edad` | `999` | Convertir a `NA` |
+| `actividad_principal` | `-99` | Convertir a `NA` |
+| `modalidad` | `-99` | Convertir a `NA` |
+| `horas_pantalla_dia` | `-99` | Convertir a `NA` |
+| `horas_pantalla_dia` | mayor a `14` | Convertir a `NA` |
+| `horas_sueno` | `-99` | Convertir a `NA` |
+| `traslado_min` | `999` | Convertir a `NA` |
+| `horas_responsabilidades` | `-99` | Convertir a `NA` |
+| `estres` | `-99` | Convertir a `NA` |
+| `apoyo_social` | `-99` | Convertir a `NA` |
+| `concentracion` | `-99` | Convertir a `NA` |
+| `bienestar` | `999` | Convertir a `NA` |
+| `bienestar` | menor a `0` o mayor a `10` | Convertir a `NA` |
+| `uso_ia` | `-99` | Convertir a `NA` |
+
+Pista parcial:
+
+```{r}
+#| label: limpiar-valores-perdidos-parte-ii
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(
+    edad = case_when(
+      edad == 999 ~ NA_real_,
+      TRUE ~ as.numeric(edad)
+    ),
+    
+    horas_pantalla_dia = case_when(
+      horas_pantalla_dia == -99 ~ NA_real_,
+      horas_pantalla_dia > 14 ~ NA_real_,
+      TRUE ~ as.numeric(horas_pantalla_dia)
+    ),
+    
+    horas_sueno = case_when(
+      horas_sueno == -99 ~ NA_real_,
+      horas_sueno > 12 ~ NA_real_,
+      TRUE ~ as.numeric(horas_sueno)
+    )
+  )
+```
+
+::: {.callout-tip}
+Deben completar el resto de las variables usando la misma lógica.
+:::
+
+#### Tarea 5. Recodificar variables {#tarea-5}
+
+Deben crear nuevas variables categóricas más fáciles de interpretar.
+
+| Variable original | Nueva variable | Categorías |
+|---|---|---|
+| `actividad_principal` | `actividad_cat` | Trabaja, Estudia, Trabaja y estudia |
+| `modalidad` | `modalidad_cat` | Presencial, Híbrida, Remota |
+| `estres` | `estres_cat` | Muy bajo, Bajo, Medio, Alto, Muy alto |
+| `apoyo_social` | `apoyo_cat` | Muy bajo, Bajo, Medio, Alto, Muy alto |
+| `concentracion` | `concentracion_cat` | Muy baja, Baja, Media, Alta, Muy alta |
+| `uso_ia` | `uso_ia_cat` | Nunca, Pocas veces, Frecuentemente, Siempre |
+
+Pista:
+
+```{r}
+#| label: recodificar-modalidad-parte-ii
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(
+    modalidad_cat = case_when(
+      modalidad == 1 ~ "Presencial",
+      modalidad == 2 ~ "Híbrida",
+      modalidad == 3 ~ "Remota",
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+#### Tarea 6. Crear variables nuevas {#tarea-6}
+
+##### Variable 1: alta carga digital y de tiempo
+
+Crear una variable llamada `alta_carga_digital_tiempo`.
+
+Debe identificar a personas que cumplen al menos una de estas condiciones:
+
+- más de 7 horas diarias de pantalla;
+- más de 90 minutos diarios de traslado;
+- más de 50 horas semanales de responsabilidades.
+
+Las categorías serán:
+
+- `"Alta carga"`
+- `"Carga moderada o baja"`
+
+Pista:
+
+```{r}
+#| label: crear-alta-carga
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(
+    alta_carga_digital_tiempo = case_when(
+      horas_pantalla_dia > 7 |
+        traslado_min > 90 |
+        horas_responsabilidades > 50 ~ "Alta carga",
+      TRUE ~ "Carga moderada o baja"
+    )
+  )
+```
+
+##### Variable 2: bienestar agrupado
+
+Crear una variable llamada `bienestar_cat`.
+
+| Condición | Categoría |
+|---|---|
+| `bienestar < 5` | Bienestar bajo |
+| `bienestar >= 5 & bienestar < 7` | Bienestar medio |
+| `bienestar >= 7` | Bienestar alto |
+
+Pista:
+
+```{r}
+#| label: crear-bienestar-cat
+#| echo: true
+#| eval: false
+
+datos_proc <- datos_proc %>%
+  mutate(
+    bienestar_cat = case_when(
+      bienestar < 5 ~ "Bienestar bajo",
+      bienestar >= 5 & bienestar < 7 ~ "Bienestar medio",
+      bienestar >= 7 ~ "Bienestar alto",
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+#### Tarea 7. Calcular frecuencias y porcentajes {#tarea-7}
+
+Deben calcular frecuencias para las siguientes variables:
+
+- `actividad_cat`
+- `modalidad_cat`
+- `estres_cat`
+- `uso_ia_cat`
+- `alta_carga_digital_tiempo`
+- `bienestar_cat`
+
+Ejemplos:
+
+```{r}
+#| label: frecuencias-parte-ii
+#| echo: true
+#| eval: false
+
+table(datos_proc$modalidad_cat)
+
+prop.table(table(datos_proc$modalidad_cat)) * 100
+
+datos_proc %>%
+  count(modalidad_cat) %>%
+  mutate(porcentaje = n / sum(n) * 100)
+```
+
+#### Tarea 8. Calcular descriptivos numéricos {#tarea-8}
+
+Deben calcular media, mediana, desviación estándar, varianza, rango y cuartiles para:
+
+- `edad`
+- `horas_pantalla_dia`
+- `horas_sueno`
+- `traslado_min`
+- `horas_responsabilidades`
+- `bienestar`
+
+Pista:
+
+```{r}
+#| label: descriptivos-bienestar-parte-ii
+#| echo: true
+#| eval: false
+
+mean(datos_proc$bienestar, na.rm = TRUE)
+
+median(datos_proc$bienestar, na.rm = TRUE)
+
+sd(datos_proc$bienestar, na.rm = TRUE)
+
+var(datos_proc$bienestar, na.rm = TRUE)
+
+range(datos_proc$bienestar, na.rm = TRUE)
+
+quantile(
+  datos_proc$bienestar,
+  probs = c(.25, .50, .75),
+  na.rm = TRUE
+)
+
+summary(datos_proc$bienestar)
+
+psych::describe(datos_proc$bienestar)
+```
+
+#### Tarea 9. Comparar grupos {#tarea-9}
+
+Construir una tabla que compare los resultados por `modalidad_cat`.
+
+La tabla debe incluir:
+
+- número de casos;
+- media de horas de pantalla;
+- media de horas de sueño;
+- media de traslado;
+- media de estrés;
+- media de concentración;
+- media de bienestar.
+
+Pista:
+
+```{r}
+#| label: comparar-modalidad-parte-ii
+#| echo: true
+#| eval: false
+
+datos_proc %>%
+  group_by(modalidad_cat) %>%
+  summarise(
+    n = n(),
+    media_pantalla = mean(horas_pantalla_dia, na.rm = TRUE),
+    media_sueno = mean(horas_sueno, na.rm = TRUE),
+    media_traslado = mean(traslado_min, na.rm = TRUE),
+    media_estres = mean(estres, na.rm = TRUE),
+    media_concentracion = mean(concentracion, na.rm = TRUE),
+    media_bienestar = mean(bienestar, na.rm = TRUE)
+  )
+```
+
+Luego deben interpretar:
+
+```{r}
+#| label: preguntas-comparacion-modalidad
+#| echo: true
+#| eval: false
+
+# ¿Qué modalidad presenta mayor promedio de horas de pantalla?
+# ¿Qué modalidad presenta mayor tiempo de traslado?
+# ¿Qué modalidad presenta mayor bienestar promedio?
+# ¿Hay diferencias descriptivas en estrés o concentración?
+```
+
+#### Tarea 10. Hacer gráficos {#tarea-10}
+
+Deben construir al menos tres gráficos.
+
+##### Gráfico 1: barras
+
+Distribución de modalidad.
+
+```{r}
+#| label: grafico-modalidad-parte-ii
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = modalidad_cat)) +
+  geom_bar() +
+  labs(
+    title = "Distribución según modalidad de trabajo o estudio",
+    x = "Modalidad",
+    y = "Frecuencia"
+  ) +
+  theme_minimal()
+```
+
+##### Gráfico 2: histograma
+
+Distribución del bienestar.
+
+```{r}
+#| label: histograma-bienestar-parte-ii
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = bienestar)) +
+  geom_histogram(bins = 10) +
+  labs(
+    title = "Distribución del bienestar cotidiano",
+    x = "Bienestar, escala 0 a 10",
+    y = "Frecuencia"
+  ) +
+  theme_minimal()
+```
+
+##### Gráfico 3: boxplot
+
+Bienestar según modalidad.
+
+```{r}
+#| label: boxplot-bienestar-modalidad-parte-ii
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = modalidad_cat, y = bienestar)) +
+  geom_boxplot() +
+  labs(
+    title = "Bienestar cotidiano según modalidad",
+    x = "Modalidad",
+    y = "Bienestar, escala 0 a 10"
+  ) +
+  theme_minimal()
+```
+
+##### Desafío extra
+
+Hacer un boxplot de `horas_sueno` según `alta_carga_digital_tiempo`.
+
+```{r}
+#| label: desafio-boxplot-sueno-carga
+#| echo: true
+#| eval: false
+
+ggplot(datos_proc, aes(x = alta_carga_digital_tiempo, y = horas_sueno)) +
+  geom_boxplot() +
+  labs(
+    title = "Horas de sueño según carga digital y de tiempo",
+    x = "Carga digital y de tiempo",
+    y = "Horas de sueño"
+  ) +
+  theme_minimal()
+```
+
+:::
+
+::: {.guia-seccion}
+
+### 8. Producto final esperado {#producto-final}
+
+El producto final debe ser un script ordenado con esta estructura:
+
+```{r}
+#| label: estructura-producto-final
+#| echo: true
+#| eval: false
+
+############################################################
+# 0. IDENTIFICACIÓN DEL EJERCICIO
+############################################################
+
+# Nombre:
+# Fecha:
+# Pregunta de investigación:
+# Objetivo:
+# Hipótesis descriptiva:
+
+
+############################################################
+# 1. LIMPIEZA DEL ENTORNO Y CARGA DE PAQUETES
+############################################################
+
+
+############################################################
+# 2. CARGA DE DATOS
+############################################################
+
+
+############################################################
+# 3. EXPLORACIÓN INICIAL
+############################################################
+
+
+############################################################
+# 4. LIMPIEZA Y RECODIFICACIÓN
+############################################################
+
+
+############################################################
+# 5. ANÁLISIS DESCRIPTIVO
+############################################################
+
+
+############################################################
+# 6. VISUALIZACIONES
+############################################################
+
+
+############################################################
+# 7. INTERPRETACIÓN DE RESULTADOS
+############################################################
+```
+
+:::
+
+:::
+
+:::: {.ayudantia-aside}
+
+```{=html}
+<div class="guia-toc">
+  <div class="guia-toc-title">Índice de la Parte II</div>
+  <a href="#parte-ii">Inicio</a>
+  <a href="#titulo-ejercicio">1. Título</a>
+  <a href="#enunciado">2. Enunciado</a>
+  <a href="#problema">3. Problema</a>
+  <a href="#pregunta">4. Pregunta</a>
+  <a href="#hipotesis">5. Hipótesis</a>
+  <a href="#variables">6. Variables</a>
+  <a href="#tareas">7. Tareas</a>
+  <a href="#producto-final">8. Producto final</a>
+</div>
+```
+
+::::
+
+:::::

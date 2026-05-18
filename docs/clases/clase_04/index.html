@@ -860,7 +860,7 @@ Tip
     <div class="nav flex-column nav-pills" id="clases-tabs" role="navigation" aria-label="Menú de clases">
 
       <div class="sidebar-unit-header">
-        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="true" aria-controls="unidad0">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad0" aria-expanded="false" aria-controls="unidad0">
           <div class="unit-label-wrap">
             <span class="unit-label">Unidad 0</span>
             <span class="unit-title">Presentación del curso</span>
@@ -869,12 +869,12 @@ Tip
         </button>
       </div>
 
-      <div class="collapse show" id="unidad0">
+      <div class="collapse" id="unidad0">
         <a class="clase-link" href="../../clases/clase_00/index.html" data-clase-link="clase_00">Clase 00 – Presentación</a>
       </div>
 
       <div class="sidebar-unit-header">
-        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="true" aria-controls="unidad1">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad1" aria-expanded="false" aria-controls="unidad1">
           <div class="unit-label-wrap">
             <span class="unit-label">Unidad 1</span>
             <span class="unit-title">Introducción al uso de R</span>
@@ -883,13 +883,13 @@ Tip
         </button>
       </div>
 
-      <div class="collapse show" id="unidad1">
+      <div class="collapse" id="unidad1">
         <a class="clase-link" href="../../clases/clase_01/index.html" data-clase-link="clase_01">Clase 01 – Introducción al uso de R</a>
         <a class="clase-link" href="../../clases/clase_02/index.html" data-clase-link="clase_02">Clase 02 – Procesamiento de datos</a>
       </div>
 
       <div class="sidebar-unit-header">
-        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad2" aria-expanded="true" aria-controls="unidad2">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad2" aria-expanded="false" aria-controls="unidad2">
           <div class="unit-label-wrap">
             <span class="unit-label">Unidad 2</span>
             <span class="unit-title">Introducción a la Estadística</span>
@@ -898,12 +898,12 @@ Tip
         </button>
       </div>
 
-      <div class="collapse show" id="unidad2">
+      <div class="collapse" id="unidad2">
         <a class="clase-link" href="../../clases/clase_03/index.html" data-clase-link="clase_03">Clase 03 – Introducción a la Estadística</a>
       </div>
 
       <div class="sidebar-unit-header">
-        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad3" aria-expanded="true" aria-controls="unidad3">
+        <button class="btn btn-link sidebar-unit-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#unidad3" aria-expanded="false" aria-controls="unidad3">
           <div class="unit-label-wrap">
             <span class="unit-label">Unidad 3</span>
             <span class="unit-title">Estadística Descriptiva Univariada</span>
@@ -912,7 +912,7 @@ Tip
         </button>
       </div>
 
-      <div class="collapse show" id="unidad3">
+      <div class="collapse" id="unidad3">
         <a class="clase-link" href="../../clases/clase_04/index.html" data-clase-link="clase_04">Clase 04 – Estadística Descriptiva Univariada</a>
       </div>
 
@@ -923,6 +923,51 @@ Tip
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
+  const unitStateKey = "clases-menu-unidades";
+
+  function readUnitState() {
+    try {
+      return JSON.parse(window.localStorage.getItem(unitStateKey)) || {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function writeUnitState(state) {
+    try {
+      window.localStorage.setItem(unitStateKey, JSON.stringify(state));
+    } catch (error) {
+      // localStorage puede no estar disponible en algunos contextos privados.
+    }
+  }
+
+  function setUnitOpen(button, panel, isOpen) {
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    panel.classList.toggle("show", isOpen);
+  }
+
+  const unitState = readUnitState();
+
+  document.querySelectorAll(".sidebar-unit-toggle[data-bs-target]").forEach(function (button) {
+    const target = button.getAttribute("data-bs-target");
+    const panel = target ? document.querySelector(target) : null;
+
+    if (!panel || !panel.id) return;
+
+    setUnitOpen(button, panel, unitState[panel.id] === true);
+
+    panel.addEventListener("shown.bs.collapse", function () {
+      const currentState = readUnitState();
+      currentState[panel.id] = true;
+      writeUnitState(currentState);
+    });
+
+    panel.addEventListener("hidden.bs.collapse", function () {
+      const currentState = readUnitState();
+      currentState[panel.id] = false;
+      writeUnitState(currentState);
+    });
+  });
 
   document.querySelectorAll("[data-clase-link]").forEach(function (link) {
     const clase = link.dataset.claseLink;

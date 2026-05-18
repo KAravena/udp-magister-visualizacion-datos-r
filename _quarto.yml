@@ -4,6 +4,7 @@ project:
   resources:
     - styles.css
     - clases/**/*.pptx
+    - ayudantias/ayudantia_1/resources/01.zip
   render:
     - index.qmd
     - curso.qmd
